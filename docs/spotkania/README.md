@@ -1,0 +1,1 @@
+# Spotkania zespołu SKW
