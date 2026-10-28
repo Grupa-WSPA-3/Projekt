@@ -22,10 +22,10 @@
 
 |Imię i nazwisko|Rola główna|Kontakt / login repozytorium|
 |-|-|-|
-|Maksym Tymoshenko|Koordynacja projektu / analiza wymagań / Programista glowny||
-|Kostiantyn Kyrylenko|Baza danych / Programista ||
-|Sofiia Vetvytska|UI/UX / dokumentacja||
-|Alina Semeniuk|testowanie||
+|Maksym Tymoshenko|Koordynacja projektu / analiza wymagań / Programista glowny|user123876t14987|
+|Kostiantyn Kyrylenko|Baza danych / Programista|Hryak123|
+|Sofiia Vetvytska|UI/UX / dokumentacja|miumeowww|
+|Alina Semeniuk|testowanie|semenukalina89-maker|
 ||||
 
 \---
