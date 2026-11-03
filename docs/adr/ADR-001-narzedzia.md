@@ -1,86 +1,98 @@
 # ADR-001: Narzędzia pracy projektowej
 
-**Status:** proponowana — wymaga potwierdzenia przez zespół  
-**Autorzy:** zespół SKW  
-**Zakres decyzji:** narzędzia pracy zespołu; nie jest to wybór technologii aplikacji końcowej.
 
-## 1. Kontekst
+## Kontekst
 
-Zespół składa się z czterech osób o różnych głównych odpowiedzialnościach: koordynacja i analiza, model danych, UI/UX i dokumentacja, testowanie. Wymagania przedmiotu zakładają dokumentację w repozytorium, widoczną historię zmian, zadania z właścicielami, diagramy oraz pracę przez Pull Request z recenzją. Narzędzia powinny mieć niski próg wejścia i pozwalać zachować rezultaty pracy w repozytorium na dalsze zajęcia.
+Zespół SKW składa się z czterech osób o różnych głównych odpowiedzialnościach: koordynacji i analizie wymagań, modelowaniu danych i architekturze, UI/UX i dokumentacji oraz testowaniu. Projekt wymaga wspólnego repozytorium, wersjonowanej dokumentacji, tablicy zadań z właścicielami, diagramów oraz przeglądu zmian przez Pull Request. Narzędzia powinny być dostępne dla wszystkich członków zespołu i umożliwiać zachowanie rezultatów w repozytorium na kolejnych etapach przedmiotu.
 
-## 2. Kryteria i wagi
+Poniższe oceny i wybory są propozycją roboczą. Zespół powinien je wspólnie sprawdzić i zmienić status ADR na „przyjęta” dopiero po akceptacji.
 
-Skala wagi: 1 — mniejsza ważność, 3 — duża ważność. Ocena opcji: 1–5. Wynik ważony = ocena × waga; nie jest to wynik obiektywny, lecz punkt wyjścia do dyskusji.
+## Rozważane opcje
 
-### 2.1. Zarządzanie zadaniami — GitHub Projects vs Trello
+Wagi: 1 — mała ważność, 3 — duża ważność. Oceny: 1–5. Wynik ważony = ocena × waga. Punkty nie są obiektywnym pomiarem — służą do uporządkowania dyskusji.
+
+### 1. Zarządzanie zadaniami — GitHub Projects vs Trello
 
 | Kryterium | Waga | GitHub Projects | Trello |
 |---|---:|---:|---:|
 | Integracja z repozytorium i Issues | 3 | 5 (15) | 2 (6) |
 | Próg wejścia | 2 | 4 (8) | 5 (10) |
-| Dostęp bez opłat dla pracy kursowej | 3 | 5 (15) | 5 (15) |
+| Dostępność do pracy kursowej | 3 | 5 (15) | 5 (15) |
 | Historia, śledzenie wymagań i PR | 3 | 5 (15) | 2 (6) |
 | **Suma ważona** | **11** | **53** | **37** |
 
 **Propozycja:** GitHub Issues + Projects, ponieważ zadania można powiązać z plikami, commitami i PR. Wadą jest większy próg wejścia niż w prostej tablicy Trello.
 
-### 2.2. Diagramy UML/BPMN — diagrams.net vs Mermaid
+### 2. Diagramy UML / BPMN — diagrams.net vs Mermaid
 
 | Kryterium | Waga | diagrams.net | Mermaid |
 |---|---:|---:|---:|
 | Edycja źródła i przechowywanie w repozytorium | 3 | 3 (9) | 5 (15) |
-| Wygoda rysowania BPMN/UML | 3 | 5 (15) | 2 (6) |
+| Wygoda tworzenia rozbudowanych diagramów | 3 | 5 (15) | 2 (6) |
 | Próg wejścia | 2 | 4 (8) | 5 (10) |
 | Dostępność bez opłat | 2 | 5 (10) | 5 (10) |
 | **Suma ważona** | **10** | **42** | **41** |
 
-**Propozycja:** używać Mermaid dla diagramu kontekstu i prostych diagramów tekstowych, a diagrams.net dla BPMN/UML, kiedy potrzebne są bogatsze symbole. Pliki `.drawio` należy przechowywać w repozytorium, a do przeglądu dołączyć eksport PNG/SVG.
+**Propozycja:** Mermaid dla diagramu kontekstu i prostych diagramów tekstowych, a diagrams.net dla bardziej rozbudowanych diagramów BPMN/UML. Pliki `.drawio` powinny być przechowywane w repozytorium; eksport PNG lub SVG może służyć do podglądu.
 
-### 2.3. Model danych — Mermaid ER vs dbdiagram.io
+### 3. Model danych — Mermaid ER vs dbdiagram.io
 
 | Kryterium | Waga | Mermaid ER | dbdiagram.io |
 |---|---:|---:|---:|
 | Źródło zapisane bezpośrednio w repozytorium | 3 | 5 (15) | 3 (9) |
 | Możliwość pokazania relacji i ograniczeń | 3 | 3 (9) | 5 (15) |
 | Próg wejścia | 2 | 5 (10) | 3 (6) |
-| Dostęp bez opłat / bez zależności od konta | 2 | 5 (10) | 4 (8) |
+| Możliwość pracy bez zależności od konta | 2 | 5 (10) | 4 (8) |
 | **Suma ważona** | **10** | **44** | **38** |
 
-**Propozycja:** rozpocząć od Mermaid ER w Markdownie. Jeśli model będzie wymagał szczegółowych ograniczeń lub eksportów do innych narzędzi, ponownie ocenić dbdiagram.io i zachować eksport / źródło w repozytorium.
+**Propozycja:** rozpocząć od Mermaid ER w Markdown. Jeżeli model będzie wymagał bardziej szczegółowych ograniczeń lub eksportu do innych narzędzi, ponownie ocenić dbdiagram.io.
 
-### 2.4. Makiety UI — Penpot vs Figma
+### 4. Projekt interfejsu — Penpot vs Figma
 
 | Kryterium | Waga | Penpot | Figma |
 |---|---:|---:|---:|
 | Eksport możliwy do dołączenia do repozytorium | 3 | 4 (12) | 4 (12) |
 | Współpraca nad makietą | 3 | 4 (12) | 5 (15) |
 | Próg wejścia | 2 | 3 (6) | 4 (8) |
-| Dostępność planu bez opłat / otwartość | 3 | 5 (15) | 3 (9) |
+| Dostępność rozwiązania open source / planu bez opłat | 3 | 5 (15) | 3 (9) |
 | **Suma ważona** | **11** | **45** | **44** |
 
-**Propozycja:** Penpot jako rozwiązanie otwarte. Wyniki pracy nad interfejsem należy zachować w repozytorium w formie plików źródłowych oraz eksportów SVG/PNG. Jeśli zespół już biegle zna Figmę, może zaproponować zmianę z uzasadnieniem.
+**Propozycja:** Penpot jako rozwiązanie open source. Makiety należy zachować w formacie źródłowym oraz dołączyć eksport SVG/PNG. Jeśli zespół zdecyduje się na Figma z uwagi na doświadczenie, powinien uzasadnić tę zmianę.
 
-### 2.5. Dokumentacja i repozytorium
+## Decyzja
 
-| Obszar | Propozycja | Format w repozytorium |
+Poniższa tabela przedstawia proponowany zestaw narzędzi. Wybór pozostaje propozycją do wspólnego zatwierdzenia.
+
+| Obszar | Narzędzie | Format plików w repozytorium |
 |---|---|---|
-| Repozytorium | GitHub | pliki projektu, historia commitów, PR |
-| Dokumentacja | Markdown | `.md` |
-| Diagram kontekstu | Mermaid | blok kodu w `.md` |
-| Diagramy BPMN/UML | diagrams.net | `.drawio` + eksport `.png`/`.svg` |
-| Model danych | Mermaid ER na start | `.md`; ewentualny eksport dodatkowo |
-| Makiety UI | Penpot | eksport `.svg`/`.png` i link tylko jako uzupełnienie |
-| Zadania i pytania | GitHub Issues + Projects | Issues przypisane do osób i widok tablicy |
-| Komunikacja | dotychczasowy wspólny komunikator zespołu — do potwierdzenia | istotne ustalenia przenosimy do Issue / ADR |
+| repozytorium | GitHub | pliki projektu, historia commitów, Pull Requests |
+| zadania | GitHub Issues + GitHub Projects | zadania i backlog w repozytorium / projekcie GitHub, z przypisanymi właścicielami |
+| dokumentacja | Markdown | pliki `.md` |
+| diagramy UML / BPMN | Mermaid i diagrams.net | `.md` z blokami Mermaid; `.drawio` oraz eksport `.png` / `.svg` |
+| model danych | Mermaid ER na początek; ewentualnie dbdiagram.io po ponownej ocenie | `.md` z kodem Mermaid; dodatkowo eksport, jeżeli będzie potrzebny |
+| interfejs | Penpot | pliki źródłowe projektu oraz eksporty `.svg` / `.png` |
+| komunikacja | wspólny komunikator zespołu — narzędzie do potwierdzenia | istotne decyzje, pytania i ustalenia zapisywane dodatkowo w GitHub Issues oraz ADR |
 
-## 3. Decyzja
+## Konsekwencje
 
-Proponujemy powyższy zestaw, ponieważ wyniki pracy pozostają w repozytorium lub mogą być łatwo wyeksportowane, a narzędzia nie wymagają zakupu licencji przez wszystkich członków. To propozycja; każdy członek powinien potwierdzić dostęp do narzędzi i akceptację przed zmianą statusu ADR na „przyjęta”.
+### Co zyskujemy
 
-## 4. Konsekwencje
+- Wspólną historię zmian oraz możliwość sprawdzenia wkładu poszczególnych członków zespołu.
+- Powiązanie zadań z wymaganiami, commitami i Pull Requests.
+- Możliwość przechowywania większości dokumentacji i diagramów bezpośrednio w repozytorium.
+- Wykorzystanie narzędzi open source lub rozwiązań dostępnych bez zakupu licencji na potrzeby projektu.
 
-**Zyskujemy:** wspólną historię, możliwość recenzowania zmian, prostą kontrolę linków i identyfikatorów, możliwość kontynuacji dokumentacji na kolejnych zajęciach.
+### Co tracimy / jakie są ryzyka
 
-**Koszty i ryzyka:** GitHub Projects wymaga krótkiego wdrożenia; diagram tekstowy jest mniej wygodny przy złożonym BPMN; makiety trzeba eksportować, by czytać je bez otwierania narzędzia; wybrane usługi mogą zmienić darmowe plany.
+- GitHub Projects wymaga krótkiego wdrożenia i przyzwyczajenia się do pracy z Issues.
+- Mermaid jest mniej wygodny przy złożonych diagramach BPMN/UML niż edytor graficzny.
+- Makiety interfejsu wymagają eksportu, aby można je było łatwo przeglądać bez otwierania narzędzia.
+- Dostępność bezpłatnych planów i funkcji usług zewnętrznych może się zmienić.
 
-**Działania:** koordynator tworzy projekt i etykiety; każda osoba przyjmuje przynajmniej jedno Issue; zespół potwierdza dostęp i akceptuje albo koryguje ADR; w razie zmiany narzędzia zapisujemy powód w nowej wersji ADR.
+### Co musimy zrobić
+
+- Koordynator przygotuje tablicę GitHub Projects oraz podstawowe etykiety.
+- Każdy członek zespołu powinien potwierdzić dostęp do wybranych narzędzi i przyjąć co najmniej jedno Issue.
+- Zespół powinien wspólnie zatwierdzić lub skorygować proponowane oceny i wybór narzędzi.
+- Po akceptacji należy uzupełnić datę przyjęcia decyzji i zmienić status ADR na „przyjęta”.
+- Każda późniejsza zmiana narzędzia powinna zostać uzasadniona w nowej decyzji ADR.
