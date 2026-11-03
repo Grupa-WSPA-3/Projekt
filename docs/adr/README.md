@@ -1,1 +1,0 @@
-# Decyzje projektowe (ADR)
