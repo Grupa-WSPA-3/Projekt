@@ -1,7 +1,5 @@
 # Diagram kontekstu — SKW
 
-**Wersja:** 0.1 — robocza  
-**Źródło:** karta projektu SKW 0.2; role i przepływy do potwierdzenia podczas wywiadu.
 
 Diagram przedstawia system jako jeden element, role zewnętrzne i najważniejsze przepływy informacji.
 
