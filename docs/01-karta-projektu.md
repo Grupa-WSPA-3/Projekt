@@ -10,7 +10,7 @@
 
 | Imię i nazwisko | Rola główna | Kontakt / login repozytorium |
 |---|---|---|
-| Maksym Tymoshenko | koordynacja projektu, analiza wymagań | `@user123876t14987` |
+| Maksym Tymoshenko | koordynacja projektu, analiza wymagań | `@mtwspa` |
 | Kostiantyn Kyrylenko | model danych, architektura | `@Hryak123` |
 | Sofiia Vetvytska | UI/UX, dokumentacja | `@miumeowww` |
 | Alina Semeniuk | testowanie, kryteria akceptacji | `@semenukalina89-maker` |
