@@ -1,148 +1,158 @@
-# Karta projektu — SKW
-
-**Przedmiot:** Projekt zespołowy systemu informatycznego cz. 1  
-**Wersja:** 0.4 — robocza  
-**Status:** przygotowana na podstawie wersji 0.2 zespołu; do wspólnej weryfikacji i formalnego zatwierdzenia przez prowadzącego.
+# KARTA PROJEKTU — WERSJA 0.3
 
 ## 1. Podstawowe informacje
 
-| Pole | Wartość |
-|---|---|
-| Pełna nazwa | System obsługi konsultacji wykładowców |
-| Akronim | SKW |
-| Typ systemu | system informatyczny wspierający organizację konsultacji na uczelni |
-| Główna wartość | jeden aktualny widok terminów i zapisów oraz mniej ręcznej koordynacji |
+**Nazwa projektu:** System obsługi konsultacji wykładowców
 
-### Zespół i podział odpowiedzialności
+**Krótka nazwa / akronim:** SKW
 
-| Osoba | Główna odpowiedzialność | Obszary wspierane |
+**Zespół:**
+
+| Imię i nazwisko | Rola główna | Kontakt / login repozytorium |
 |---|---|---|
-| Maksym Tymoshenko (`user123876t14987`) | koordynacja, analiza wymagań | procesy, integracja dokumentacji |
-| Kostiantyn Kyrylenko (`Hryak123`) | model danych i architektura | wymagania techniczne, implementacja w kolejnym etapie |
-| Sofiia Vetvytska (`miumeowww`) | UI/UX i dokumentacja | słownik, przegląd czytelności dokumentacji |
-| Alina Semeniuk (`semenukalina89-maker`) | testowanie i kryteria akceptacji | bezpieczeństwo dostępu, macierz testów |
+| Maksym Tymoshenko | koordynacja projektu, analiza wymagań | `@user123876t14987` |
+| Kostiantyn Kyrylenko | model danych, architektura | `@Hryak123` |
+| Sofiia Vetvytska | UI/UX, dokumentacja | `@miumeowww` |
+| Alina Semeniuk | testowanie, kryteria akceptacji | `@semenukalina89-maker` |
 
-Koordynator pilnuje terminów i spójności pracy, ale nie jest przełożonym pozostałych osób. Podział jest propozycją roboczą i powinien być potwierdzony przez cały zespół.
+Podział ról jest propozycją roboczą do potwierdzenia przez zespół. Każdy członek może wspierać pozostałe obszary.
+
+---
 
 ## 2. Problem
 
-Informacje o konsultacjach mogą być przekazywane przez pocztę elektroniczną, komunikatory lub ustnie. W takim rozwiązaniu trudno zachować jeden aktualny widok wolnych terminów, ograniczyć ryzyko nakładających się ustaleń i szybko sprawdzić, kto jest zapisany. Wykładowca samodzielnie kontroluje listę osób i przekazuje informacje o zmianie lub odwołaniu terminu. Student może nie wiedzieć, czy termin nadal jest aktualny.
+### Jaki problem chcemy rozwiązać?
 
-Opis powyżej pochodzi z pierwotnej karty zespołu. Konkretne częstotliwości problemów i obecny sposób pracy na uczelni wymagają potwierdzenia podczas wywiadu.
+Informacje o konsultacjach wykładowców mogą być przekazywane studentom różnymi kanałami, na przykład przez pocztę elektroniczną, komunikatory lub ustnie. Przy takim sposobie organizacji trudno utrzymać jeden aktualny widok dostępnych terminów i liczby wolnych miejsc. Uzgadnianie terminu oraz potwierdzanie zapisu może wymagać dodatkowej wymiany wiadomości między studentem a wykładowcą. Zespół zakłada, że brak wspólnego miejsca do publikowania terminów i obsługi zapisów może prowadzić do nieporozumień, dlatego ten problem wymaga potwierdzenia podczas wywiadu.
+
+---
 
 ## 3. Kogo dotyczy problem?
 
-- **Studentów**, którzy chcą znaleźć konsultację i zarezerwować miejsce bez wymiany wielu wiadomości.
-- **Wykładowców**, którzy chcą publikować terminy, kontrolować dostępność i widzieć listę zapisanych osób.
-- **Administratora**, który zarządza kontami i rolami oraz pomaga utrzymać porządek w systemie.
-- **Uczelni / dziekanatu**, dla których uporządkowany sposób zapisu może zmniejszyć liczbę ręcznych ustaleń.
+Problem dotyczy przede wszystkim studentów, którzy chcą znaleźć dogodny termin konsultacji i zapisać się bez wielokrotnego kontaktowania się z wykładowcą. Dotyczy również wykładowców, którzy publikują terminy, ustalają limity miejsc i kontrolują listy zapisanych osób. Pośrednio dotyczy administratorów oraz jednostek uczelni odpowiedzialnych za organizację i wsparcie procesu konsultacji.
+
+---
 
 ## 4. Cel systemu
 
-Celem SKW jest udostępnienie jednego miejsca do publikowania terminów konsultacji, sprawdzania ich dostępności, zapisywania studentów i anulowania zapisów. System ma ograniczyć ryzyko przekroczenia limitu miejsc, zapewniać kontrolę uprawnień i ułatwiać wykładowcom zarządzanie listą osób.
+> Celem systemu jest zapewnienie jednego miejsca do publikowania terminów konsultacji wykładowców, sprawdzania ich dostępności, zapisywania studentów i anulowania zapisów.
 
-### Jak poznamy, że cel został osiągnięty?
+System powinien ograniczać ręczną koordynację, zapobiegać przekroczeniu limitu miejsc oraz umożliwiać wykładowcom zarządzanie własnymi terminami i listami zapisów. Osiągnięcie celu będzie można sprawdzić poprzez scenariusze przeglądania terminów, zapisu, anulowania oraz kontroli uprawnień.
 
-1. Student może znaleźć przyszły dostępny termin i zapisać się bez kontaktowania się z wykładowcą poza systemem.
-2. Przy próbie rezerwacji ostatniego miejsca przez dwie osoby tylko jedna rezerwacja zostaje potwierdzona.
-3. Wykładowca może dodać termin oraz zobaczyć listę zapisanych studentów.
-4. Student nie może anulować zapisu innej osoby ani zmieniać terminu wykładowcy.
-5. Każde wymaganie Must ma kryteria akceptacji, a przed wydaniem zostaje sprawdzone.
-
-Są to kryteria projektowe do weryfikacji, a nie wyniki przeprowadzonych testów.
+---
 
 ## 5. Użytkownicy systemu
 
-| Rola | Potrzeby | Główne uprawnienia |
-|---|---|---|
-| Student | znaleźć termin, sprawdzić dostępność i zarządzać własnym zapisem | przeglądanie terminów, rezerwacja, anulowanie własnego zapisu |
-| Wykładowca | publikować terminy i kontrolować listę zapisów | tworzenie, edycja nieobsadzonego terminu, anulowanie własnej konsultacji, wgląd do własnej listy zapisów |
-| Administrator | utrzymywać konta i role | zarządzanie kontami i przypisaniem ról; brak potrzeby przeglądania szczegółów zapisów, jeśli nie jest to konieczne |
+| Użytkownik / rola | Do czego będzie używał systemu? |
+|---|---|
+| Student | przeglądanie i filtrowanie terminów, sprawdzanie szczegółów, zapis i anulowanie własnego zapisu |
+| Wykładowca | tworzenie, edytowanie i anulowanie własnych terminów oraz przeglądanie list zapisanych studentów |
+| Administrator | zarządzanie kontami użytkowników i przypisanymi rolami |
+
+---
 
 ## 6. Interesariusze
 
-| Interesariusz | Interes / oczekiwana korzyść | Sposób uwzględnienia |
-|---|---|---|
-| Studenci | aktualna lista dostępnych konsultacji i prosty zapis | historyjki US dla przeglądania i rezerwacji |
-| Wykładowcy | mniej ręcznej koordynacji i aktualna lista zapisanych osób | funkcje zarządzania terminami i listą zapisów |
-| Administrator uczelni | kontrola kont i ról | ograniczone funkcje administracyjne |
-| Dziekanat / jednostki dydaktyczne | sprawniejsza organizacja konsultacji | wynik końcowy może być oceniony na podstawie zasad i procesu |
-| Prowadzący przedmiot | zgodność projektu z etapami dokumentacji i metodą pracy zespołowej | wersjonowane dokumenty, Issues, PR i recenzje |
+| Interesariusz | Dlaczego system jest dla niego istotny? |
+|---|---|
+| Studenci | chcą znaleźć aktualne terminy i zapisać się na konsultację bez dodatkowych ustaleń |
+| Wykładowcy | chcą publikować terminy i kontrolować listę zapisanych osób w jednym miejscu |
+| Administrator systemu | odpowiada za prawidłowe konta, role i dostęp do funkcji |
+| Dziekanat / jednostki dydaktyczne | są zainteresowane sprawną organizacją konsultacji i ograniczeniem ręcznej koordynacji |
+| Władze uczelni | mogą być zainteresowane uporządkowaniem procesu oraz przejrzystością organizacji konsultacji |
 
-## 7. Zakres IN — pierwsza wersja
+---
 
-1. Logowanie użytkowników z istniejącymi kontami SKW.
-2. Rozróżnianie ról student, wykładowca i administrator.
+## 7. Zakres IN
+
+Co system **będzie** realizował?
+
+1. Umożliwienie logowania użytkownikom posiadającym aktywne konta.
+2. Rozróżnianie ról: Student, Wykładowca i Administrator.
 3. Wyświetlanie przyszłych, aktywnych terminów konsultacji.
-4. Wyszukiwanie / filtrowanie terminów według wykładowcy i daty.
-5. Wyświetlanie szczegółów terminu, w tym daty, czasu, wykładowcy i miejsca/forma spotkania po potwierdzeniu tych pól.
-6. Zapisywanie studenta na dostępny termin.
-7. Kontrola limitu miejsc także w sytuacji równoczesnych prób zapisu.
-8. Ochrona przed wielokrotnym aktywnym zapisem tej samej osoby na ten sam termin.
-9. Anulowanie własnego zapisu przez studenta.
-10. Tworzenie, edytowanie nieobsadzonych terminów i anulowanie własnych konsultacji przez wykładowcę.
-11. Przeglądanie listy zapisanych studentów dla własnych konsultacji.
-12. Wyświetlanie aktualnego statusu zapisu i wyniku operacji.
-13. Zarządzanie kontami i rolami przez administratora.
-14. Przechowywanie terminów, kont i zapisów oraz ich statusów.
+4. Wyszukiwanie i filtrowanie terminów według wykładowcy oraz daty.
+5. Wyświetlanie szczegółów terminu, w tym daty, godzin, wykładowcy, miejsca lub formy oraz limitu miejsc — po potwierdzeniu wymaganych pól.
+6. Zapisywanie studenta na dostępny termin z kontrolą limitu miejsc i bez tworzenia duplikatu aktywnego zapisu.
+7. Anulowanie własnego zapisu przez studenta.
+8. Tworzenie i edytowanie przez wykładowcę własnych terminów, zgodnie z przyjętymi regułami.
+9. Anulowanie własnego terminu przez wykładowcę oraz przeglądanie listy zapisanych studentów.
+10. Zarządzanie kontami i rolami przez administratora oraz wyświetlanie statusu i wyniku operacji.
 
-Zakres funkcjonalny jest priorytetyzowany w `docs/03-wymagania.md` przez MoSCoW.
+---
 
-## 8. Zakres OUT — pierwsza wersja
+## 8. Zakres OUT
 
-- prowadzenie konsultacji przez wbudowaną wideokonferencję lub audio;
-- obsługa ocen, egzaminów, zaliczeń i całego procesu dydaktycznego;
-- wysyłka e-mail/SMS jako odrębny moduł powiadomień;
-- zarządzanie pełnym planem zajęć uczelni i automatyczna synchronizacja z nim;
-- płatności za konsultacje;
-- natywna aplikacja mobilna;
-- integracja z zewnętrznym SSO/katalogiem uczelnianym — wymaga osobnej decyzji;
-- rezerwacje cykliczne — do rozważenia po potwierdzeniu potrzeby, na razie nie należą do pierwszej wersji.
+Czego system **nie będzie** realizował w pierwszej wersji?
+
+1. Prowadzenia wideokonferencji lub rozmów audio.
+2. Wysyłania automatycznych powiadomień e-mail lub SMS.
+3. Zarządzania pełnym planem zajęć dydaktycznych.
+4. Automatycznej synchronizacji z uczelnianym systemem planu zajęć.
+5. Integracji z zewnętrznym systemem SSO lub katalogiem użytkowników.
+6. Obsługi płatności, ocen, egzaminów ani innych procesów dydaktycznych.
+7. Natywnej aplikacji mobilnej i rezerwacji cyklicznych.
+
+---
 
 ## 9. Najważniejsze funkcje
 
-**Priorytet podstawowy:** logowanie i role, przeglądanie aktywnych terminów, rezerwacja bez przekroczenia limitu, anulowanie własnego zapisu, tworzenie terminów przez wykładowcę oraz jasny komunikat o wyniku operacji.
+1. Logowanie użytkownika i dostęp zgodny z przypisaną rolą.
+2. Przeglądanie przyszłych dostępnych terminów konsultacji.
+3. Wyszukiwanie i filtrowanie konsultacji według wykładowcy i daty.
+4. Wyświetlanie szczegółów terminu i liczby wolnych miejsc.
+5. Zapis studenta na termin z kontrolą dostępności i limitu miejsc.
+6. Anulowanie własnego zapisu przez studenta.
+7. Tworzenie i edycja własnych terminów przez wykładowcę.
+8. Anulowanie własnego terminu przez wykładowcę.
+9. Przeglądanie przez wykładowcę listy studentów zapisanych na jego termin.
+10. Zarządzanie kontami i rolami oraz prezentowanie statusu operacji przez system.
 
-**Funkcje dalszej kolejności:** zaawansowane filtrowanie, edycja terminu, zarządzanie kontami, historia statusów i dodatkowe ostrzeżenia.
+---
 
 ## 10. Główne obiekty / dane
 
-| Obiekt | Podstawowe informacje | Uwagi |
-|---|---|---|
-| Konto użytkownika | identyfikator, nazwa, dane niezbędne do logowania, rola, status konta | nie przechowywać zbędnych danych osobowych |
-| Termin konsultacji | identyfikator, wykładowca, początek i koniec, miejsce/forma, limit miejsc, status | status i zasady edycji do zatwierdzenia |
-| Zapis | identyfikator, student, termin, data zapisu, status | dla danego studenta i terminu tylko jeden aktywny zapis |
-| Rola | student, wykładowca, administrator | określa uprawnienia |
-| Lista zapisów | lista zapisów powiązana z terminem | dostępna wykładowcy tylko dla własnych terminów |
+1. **Konto użytkownika** — identyfikator konta, dane niezbędne do logowania i status konta.
+2. **Rola** — określenie uprawnień użytkownika: Student, Wykładowca lub Administrator.
+3. **Termin konsultacji** — wykładowca, początek i koniec, miejsce lub forma, limit miejsc i status.
+4. **Zapis** — powiązanie studenta z terminem, data wykonania operacji i status zapisu.
+5. **Lista zapisów / historia statusów** — zestaw zapisów powiązanych z terminem oraz informacja, czy zapis lub termin został anulowany.
 
-## 11. Główne założenia — do potwierdzenia
+---
 
-- System będzie aplikacją webową, a nie natywną aplikacją mobilną.
+## 11. Główne założenia
+
+- System będzie aplikacją webową; natywna aplikacja mobilna nie należy do pierwszej wersji.
 - Każdy użytkownik posiada konto i jedną podstawową rolę.
-- Każdy wykładowca zarządza tylko własnymi terminami.
-- Domyślny limit miejsc wynosi 1, ale model powinien umożliwiać ustawienie większej liczby dla konsultacji grupowej.
-- Termin musi rozpoczynać się w przyszłości, a koniec musi być późniejszy niż początek.
-- Termin z aktywnymi zapisami nie może być swobodnie przesuwany; w wersji podstawowej najpierw trzeba go anulować i utworzyć nowy.
-- Nie wysyłamy automatycznych wiadomości e-mail/SMS w pierwszej wersji.
-- W pierwszej wersji nie ma integracji z zewnętrznym planem zajęć ani SSO.
-- Czas systemowy i wyświetlanie godzin przyjmują strefę `Europe/Warsaw` — wymaga potwierdzenia.
+- Wykładowca zarządza wyłącznie własnymi terminami i listami zapisów.
+- Domyślny limit miejsc wynosi 1; możliwość konsultacji grupowych wymaga potwierdzenia.
+- Termin musi rozpoczynać się w przyszłości, a jego koniec musi być późniejszy niż początek.
+- W pierwszej wersji nie zakłada się integracji z SSO, planem zajęć ani zewnętrznym serwerem powiadomień.
+- Założenia wynikające z braku rzeczywistego protokołu wywiadu muszą zostać zweryfikowane przed uznaniem wymagań za ostateczne.
+
+---
 
 ## 12. Wstępne ryzyka
 
-Szczegółowy rejestr znajduje się w `docs/13-ryzyka.md`. Najważniejsze ryzyka: nieweryfikowane założenia o procesie, równoczesna rezerwacja ostatniego miejsca, niejasne zasady edycji/anulowania, ochrona danych osobowych i nierówny podział pracy.
+| Ryzyko | Dlaczego może być problemem? |
+|---|---|
+| Niepotwierdzony sposób organizacji konsultacji | założenia zespołu mogą nie odpowiadać rzeczywistemu procesowi na uczelni |
+| Równoczesna próba zapisu na ostatnie miejsce | bez właściwej kontroli system mógłby potwierdzić zbyt wiele zapisów |
+| Niejasne zasady anulowania i edycji terminów | mogą powstać niespójne statusy terminów i zapisów |
+| Nieprawidłowe uprawnienia do list zapisów | dane studentów mogłyby być widoczne dla nieuprawnionych osób |
+| Zbyt szeroki zakres pierwszej wersji | dodawanie integracji i powiadomień może utrudnić ukończenie projektu w semestrze |
 
-## 13. Technologie i narzędzia
+Szczegółowy rejestr ryzyk znajduje się w `docs/13-ryzyka.md`.
 
-Decyzja ADR-001 dotyczy narzędzi pracy zespołowej, dokumentacji, diagramów, modelowania danych i makiet UI. **Technologia implementacji systemu (język, framework, baza danych i hosting) nie została na tym etapie zatwierdzona.** Nie wybieramy jej wyłącznie dlatego, że jest modna; należy najpierw domknąć analizę i architekturę.
+---
 
-## 14. Decyzje wymagające potwierdzenia
+## 13. Wstępnie rozważane technologie
 
-1. Czy temat został formalnie zaakceptowany przez prowadzącego?
-2. Czy limit miejsc może być większy niż 1?
-3. Czy student może anulować zapis do samego początku konsultacji?
-4. Czy termin z zapisanymi studentami można edytować, czy wyłącznie anulować?
-5. Kto zakłada konta oraz resetuje dostęp?
-6. Czy konsultacja może być zdalna i czy potrzebny jest tylko tekstowy link do spotkania?
-7. Czy potrzebne są konsultacje cykliczne?
+Ta część nie oznacza zatwierdzenia stosu technologicznego aplikacji. Wybór implementacji powinien nastąpić po dalszej analizie procesów, danych i architektury.
 
-Pytania i właściciele są ujęci w `docs/12-otwarte-kwestie.md`.
+**Frontend:** nie wybrano — do decyzji na późniejszym etapie.
+
+**Backend:** nie wybrano — do decyzji na późniejszym etapie.
+
+**Baza danych:** nie wybrano — do decyzji na późniejszym etapie.
+
+**Inne:** do dokumentacji i współpracy zespołu proponuje się GitHub, Markdown, Mermaid oraz diagrams.net; decyzje dotyczące narzędzi pracy opisuje ADR-001.
