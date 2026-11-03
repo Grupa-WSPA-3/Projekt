@@ -1,7 +1,6 @@
 # SKW — System obsługi konsultacji wykładowców
 
 **Przedmiot:** Projekt zespołowy systemu informatycznego cz. 1  
-**Wersja dokumentacji:** 0.4 (robocza)
 
 ## O projekcie
 
