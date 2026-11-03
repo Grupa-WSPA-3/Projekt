@@ -8,7 +8,7 @@
 
 | Osoba | Rola w wywiadzie |
 |---|---|
-| Maksym Tymoshenko (`@user123876t14987`) | prowadzący rozmowę / analityk — do potwierdzenia udziału |
+| Maksym Tymoshenko (`@mtwspa`) | prowadzący rozmowę / analityk — do potwierdzenia udziału |
 | Sofiia Vetvytska (`@miumeowww`) | protokolant / obserwator słownika — do potwierdzenia udziału |
 | Kostiantyn Kyrylenko (`@Hryak123`) | obserwator procesu i reguł — do potwierdzenia udziału |
 | Alina Semeniuk (`@semenukalina89-maker`) | obserwator kryteriów i uprawnień — do potwierdzenia udziału |
