@@ -6,7 +6,7 @@ SKW to system wspierający organizację konsultacji wykładowców na uczelni. St
 
 | Osoba | Główna odpowiedzialność | Login |
 |---|---|---|
-| Maksym Tymoshenko | koordynacja projektu i analiza wymagań | `@user123876t14987` |
+| Maksym Tymoshenko | koordynacja projektu i analiza wymagań | `@mtwspa` |
 | Kostiantyn Kyrylenko | model danych i architektura | `@Hryak123` |
 | Sofiia Vetvytska | UI/UX i dokumentacja | `@miumeowww` |
 | Alina Semeniuk | testowanie i kryteria akceptacji | `@semenukalina89-maker` |
