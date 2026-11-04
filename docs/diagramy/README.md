@@ -1,1 +1,0 @@
-# Diagramy projektu SKW
