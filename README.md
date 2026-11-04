@@ -35,7 +35,7 @@ Podział odpowiedzialności ma charakter roboczy i wymaga potwierdzenia przez ws
 
 ## Narzędzia
 
-Zob. [ADR-001 — Narzędzia pracy projektowej](docs/adr/ADR-001-narzedzia.md). Wybór narzędzi jest propozycją do zatwierdzenia przez zespół. Technologie implementacji SKW nie zostały jeszcze wybrane.
+Zob. [ADR-001 — Narzędzia pracy projektowej](docs/adr/ADR-001-narzedzia.md).
 
 ## Status
 
