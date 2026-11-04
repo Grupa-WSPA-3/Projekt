@@ -2,7 +2,7 @@
 
 ## 1. Podstawowe informacje
 
-**Nazwa projektu:** **System obsługi konsultacji wykładowców*
+**Nazwa projektu:** *System obsługi konsultacji wykładowców*
 
 **Krótka nazwa / akronim:** SKW
 
