@@ -89,10 +89,3 @@ Poniższa tabela przedstawia proponowany zestaw narzędzi. Wybór pozostaje prop
 - Makiety interfejsu wymagają eksportu, aby można je było łatwo przeglądać bez otwierania narzędzia.
 - Dostępność bezpłatnych planów i funkcji usług zewnętrznych może się zmienić.
 
-### Co musimy zrobić
-
-- Koordynator przygotuje tablicę GitHub Projects oraz podstawowe etykiety.
-- Każdy członek zespołu powinien potwierdzić dostęp do wybranych narzędzi i przyjąć co najmniej jedno Issue.
-- Zespół powinien wspólnie zatwierdzić lub skorygować proponowane oceny i wybór narzędzi.
-- Po akceptacji należy uzupełnić datę przyjęcia decyzji i zmienić status ADR na „przyjęta”.
-- Każda późniejsza zmiana narzędzia powinna zostać uzasadniona w nowej decyzji ADR.
