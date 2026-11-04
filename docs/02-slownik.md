@@ -1,6 +1,6 @@
 # Słownik dziedzinowy SKW
 
-**Wersja:** 0.3 — robocza, układ zgodny z formatem po zajęciach 3  
+**Wersja:** 0.3
 
 Słownik definiuje pojęcia z perspektywy studentów i wykładowców. Terminy oznaczone jako założenia zespołu należy potwierdzić podczas rzeczywistego wywiadu. Nie wpisano niepotwierdzonych słów jako cytatów klienta.
 
