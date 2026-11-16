@@ -2,12 +2,12 @@
 
 Dokumentacja procesów obecnego sposobu organizacji konsultacji (AS-IS) oraz procesów docelowych po wprowadzeniu SKW (TO-BE).
 
-| ID | Proces | Typ | Właściciel |
+| ID | Proces | Typ | Właściciel | Issue |
 |---|---|---|---|
-| P-00 | Obecna organizacja konsultacji | AS-IS | @mtwspa |
-| P-01 | Przeglądanie i zapis na konsultację | TO-BE | @Hryak123 |
-| P-02 | Zarządzanie terminami przez wykładowcę | TO-BE | @miumeowww |
-| P-03 | Anulowanie własnego zapisu przez studenta | TO-BE | @semenukalina89-maker |
+| P-00 | Obecna organizacja konsultacji | AS-IS | @mtwspa | [#4](https://github.com/Grupa-WSPA-3/Projekt/issues/4) |
+| P-01 | Przeglądanie i zapis na konsultację | TO-BE | @Hryak123 | [#5](https://github.com/Grupa-WSPA-3/Projekt/issues/5) |
+| P-02 | Zarządzanie terminami przez wykładowcę | TO-BE | @miumeowww | [#6](https://github.com/Grupa-WSPA-3/Projekt/issues/6) |
+| P-03 | Anulowanie własnego zapisu przez studenta | TO-BE | @semenukalina89-maker | [#7](https://github.com/Grupa-WSPA-3/Projekt/issues/7) |
 
 ## Konwencje
 - AS-IS opisuje stan obecny; TO-BE — proces docelowy.
