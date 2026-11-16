@@ -1,8 +1,30 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1180" height="360" viewBox="0 0 1180 360">
-<title>P-00 — obecna organizacja konsultacji (AS-IS)</title>
-<rect width="1180" height="360" fill="#fff"/><text x="25" y="28" font-family="Arial" font-size="19" font-weight="bold" fill="#172b4d">P-00 — obecna organizacja konsultacji (AS-IS)</text>
-<rect x="20" y="48" width="1135" height="130" fill="#f8fafc" stroke="#64748b"/><rect x="20" y="178" width="1135" height="130" fill="#fffbeb" stroke="#64748b"/>
-<text x="30" y="70" font-family="Arial" font-size="13" fill="#334155">Student</text><text x="30" y="200" font-family="Arial" font-size="13" fill="#334155">Wykładowca</text>
-<g stroke="#475569" stroke-width="2" fill="none"><path d="M83 123 H115 M225 123 H250 M360 123 L400 245 M510 245 L550 123 M590 123 H625 M735 123 L775 245 M885 245 L925 123 M965 123 H990"/></g>
-<g font-family="Arial" font-size="11" fill="#172b4d" text-anchor="middle"><circle cx="65" cy="123" r="18" fill="#fff" stroke="#334155" stroke-width="2"/><rect x="115" y="88" width="110" height="70" rx="9" fill="#e0f2fe" stroke="#2563eb"/><text x="170" y="115"><tspan x="170">Poszukaj</tspan><tspan x="170" dy="14">informacji</tspan></text><rect x="250" y="88" width="110" height="70" rx="9" fill="#e0f2fe" stroke="#2563eb"/><text x="305" y="115"><tspan x="305">Skontaktuj się</tspan><tspan x="305" dy="14">z wykładowcą</tspan></text><rect x="400" y="210" width="110" height="70" rx="9" fill="#fef3c7" stroke="#d97706"/><text x="455" y="237"><tspan x="455">Przedstaw</tspan><tspan x="455" dy="14">możliwy termin</tspan></text><polygon points="570,98 595,123 570,148 545,123" fill="#fff" stroke="#475569"/><text x="570" y="127">?</text><rect x="625" y="88" width="110" height="70" rx="9" fill="#e0f2fe" stroke="#2563eb"/><text x="680" y="115"><tspan x="680">Uzgodnij i</tspan><tspan x="680" dy="14">potwierdź</tspan></text><rect x="775" y="210" width="110" height="70" rx="9" fill="#fef3c7" stroke="#d97706"/><text x="830" y="237"><tspan x="830">Prowadź</tspan><tspan x="830" dy="14">listę zapisów</tspan></text><polygon points="950,98 975,123 950,148 925,123" fill="#fff" stroke="#475569"/><text x="950" y="127">?</text><rect x="990" y="88" width="110" height="70" rx="9" fill="#e0f2fe" stroke="#2563eb"/><text x="1045" y="115"><tspan x="1045">Poinformuj</tspan><tspan x="1045" dy="14">o zmianie</tspan></text><circle cx="1125" cy="123" r="18" fill="#fff" stroke="#334155" stroke-width="4"/></g>
-<text x="24" y="338" font-family="Arial" font-size="11" fill="#64748b">Schemat roboczy — kanały komunikacji i ewidencji wymagają potwierdzenia w wywiadzie.</text></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="1510" height="440" viewBox="0 0 1510 440" role="img" aria-labelledby="title desc">
+<title id="title">P-00 — Obecna organizacja konsultacji AS-IS</title>
+<desc id="desc">Robocza rekonstrukcja obecnego procesu uzgadniania konsultacji, wymagająca walidacji wywiadem.</desc>
+<rect width="1510" height="440" fill="#fff"/>
+<text x="25" y="32" font-family="Arial,sans-serif" font-size="21" font-weight="700" fill="#172b4d">P-00 — Obecna organizacja konsultacji (AS-IS)</text>
+<rect x="25" y="55" width="1455" height="165" fill="#f8fafc" stroke="#64748b" stroke-width="1.5"/>
+<rect x="25" y="220" width="1455" height="170" fill="#fffbeb" stroke="#64748b" stroke-width="1.5"/>
+<text x="42" y="82" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#334155">Student</text>
+<text x="42" y="247" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#92400e">Wykładowca</text>
+<g stroke="#475569" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+<path d="M96 138 H130 M260 137 H290 M420 137 L470 277 M600 277 L650 137 M700 137 H745 M875 137 L910 277 M1040 277 L1090 137 M1140 137 H1185 M1325 137 H1390"/>
+<path d="M675 162 V175 M1115 162 V170"/>
+</g>
+<g font-family="Arial,sans-serif" font-size="12" fill="#172b4d" text-anchor="middle">
+<circle cx="78" cy="138" r="18" fill="#fff" stroke="#334155" stroke-width="2.5"/>
+<rect x="130" y="105" width="130" height="65" rx="9" fill="#e0f2fe" stroke="#2563eb" stroke-width="1.5"/><text x="195" y="132"><tspan x="195">Poszukaj</tspan><tspan x="195" dy="15">informacji</tspan></text>
+<rect x="290" y="105" width="130" height="65" rx="9" fill="#e0f2fe" stroke="#2563eb" stroke-width="1.5"/><text x="355" y="132"><tspan x="355">Skontaktuj się</tspan><tspan x="355" dy="15">z wykładowcą</tspan></text>
+<rect x="470" y="245" width="130" height="65" rx="9" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/><text x="535" y="272"><tspan x="535">Przedstaw</tspan><tspan x="535" dy="15">możliwy termin</tspan></text>
+<polygon points="675,112 700,137 675,162 650,137" fill="#fff" stroke="#475569" stroke-width="1.8"/><text x="675" y="141" font-size="10">Termin?</text>
+<rect x="745" y="105" width="130" height="65" rx="9" fill="#e0f2fe" stroke="#2563eb" stroke-width="1.5"/><text x="810" y="132"><tspan x="810">Uzgodnij i</tspan><tspan x="810" dy="15">potwierdź termin</tspan></text>
+<rect x="910" y="245" width="130" height="65" rx="9" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/><text x="975" y="272"><tspan x="975">Prowadź</tspan><tspan x="975" dy="15">listę zapisów</tspan></text>
+<polygon points="1115,112 1140,137 1115,162 1090,137" fill="#fff" stroke="#475569" stroke-width="1.8"/><text x="1115" y="141" font-size="10">Zmiana?</text>
+<rect x="1185" y="105" width="140" height="65" rx="9" fill="#e0f2fe" stroke="#2563eb" stroke-width="1.5"/><text x="1255" y="132"><tspan x="1255">Poinformuj</tspan><tspan x="1255" dy="15">o zmianie</tspan></text>
+<circle cx="1408" cy="128" r="18" fill="#fff" stroke="#334155" stroke-width="3.5"/><text x="1408" y="103" font-size="11">Termin uzgodniony</text>
+<circle cx="1408" cy="188" r="18" fill="#fff" stroke="#334155" stroke-width="3.5"/><text x="1408" y="217" font-size="11">Zmiana / odwołanie</text>
+<circle cx="675" cy="193" r="18" fill="#fff" stroke="#334155" stroke-width="3.5"/><text x="730" y="198" font-size="11" text-anchor="start">Brak uzgodnienia / rezygnacja</text>
+</g>
+<g font-family="Arial,sans-serif" font-size="11" fill="#334155"><text x="715" y="126">tak →</text><text x="682" y="181">nie</text><text x="1150" y="126">tak →</text><text x="1125" y="185">nie →</text></g>
+<text x="25" y="420" font-family="Arial,sans-serif" font-size="11" fill="#64748b">Schemat roboczy — kanały komunikacji i sposób ewidencji wymagają potwierdzenia w wywiadzie.</text>
+</svg>
