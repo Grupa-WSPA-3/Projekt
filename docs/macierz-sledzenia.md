@@ -22,7 +22,7 @@ Potrzeby N-xx pozostają hipotezami wyprowadzonymi z karty projektu, ponieważ n
 | N-06 | FR-14 Anulowanie własnej konsultacji | US-06 | Must | P-02.8–P-02.10 |
 | N-08 | FR-15 Zarządzanie kontami i rolami | — | Should | — (zarządzanie kontami jest poza P-00–P-03) |
 | N-10 | FR-16 Wyświetlanie statusu zapisu | — | Should | P-02.9–P-02.10, P-03.6–P-03.7 |
-| N-10 | FR-17 Komunikat o wyniku operacji | US-03 | Must | P-01.7–P-01.8, P-03.6–P-03.7 |
+| N-10 | FR-17 Komunikat o wyniku operacji zapisu | US-03 | Must | P-01.7–P-01.8 |
 | N-04, N-10 | FR-18 Odrzucenie zapisu na niedostępny termin | — | Should | P-01.6–P-01.8 |
 | N-01, N-02 | NFR-02 Wydajność wyszukiwania | US-02 (przekrojowo) | Should | P-01.2–P-01.3 |
 | N-04 | NFR-05 Niezawodność limitu miejsc | US-03 (przekrojowo) | Must | P-01.6–P-01.7 |
@@ -35,7 +35,7 @@ Potrzeby N-xx pozostają hipotezami wyprowadzonymi z karty projektu, ponieważ n
 | N-06 | BR-01 Poprawny zakres terminu | US-05 | Must / reguła | P-02.3–P-02.4 |
 | N-04 | BR-02 Limit aktywnych zapisów | US-02 / US-03 | Must / reguła | P-01.6–P-01.7 |
 | N-04 | BR-03 Brak duplikatu aktywnego zapisu | US-03 | Must / reguła | P-01.6–P-01.7 |
-| N-05, N-06, N-08, N-09 | BR-04 Właściciel operacji i role | US-01 / US-04 / US-06 | Must / reguła | P-01.1, P-01.6, P-02.1–P-02.4, P-03.1–P-03.4 |
+| N-05, N-06, N-08, N-09 | BR-04 Właściciel operacji i role | US-01 / US-04 / US-06 | Must / reguła | P-01.1, P-01.6, P-02.1–P-02.4, P-02.8–P-02.9, P-03.1–P-03.4 |
 | N-06 | BR-05 Edycja tylko nieobsadzonego terminu | — | Should / reguła | P-02.3–P-02.6 |
 | N-06, N-10 | BR-06 Anulowany termin i powiązane zapisy | US-06 | Must / reguła | P-02.8–P-02.10 |
 | N-04, N-05 | BR-07 Anulowany zapis zwalnia miejsce | US-03 / US-04 | Must / reguła | P-03.4–P-03.7 |
