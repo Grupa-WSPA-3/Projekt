@@ -6,10 +6,10 @@ SKW to system wspierający organizację konsultacji wykładowców na uczelni. St
 
 | Osoba | Główna odpowiedzialność | Login |
 |---|---|---|
-| Maksym Tymoshenko | koordynacja projektu i analiza wymagań | `@mtwspa` |
-| Kostiantyn Kyrylenko | model danych i architektura | `@Hryak123` |
-| Sofiia Vetvytska | UI/UX i dokumentacja | `@miumeowww` |
-| Alina Semeniuk | testowanie i kryteria akceptacji | `@semenukalina89-maker` |
+| Maksym Tymoshenko | koordynacja projektu i analiza wymagań | @mtwspa |
+| Kostiantyn Kyrylenko | model danych i architektura | @Hryak123 |
+| Sofiia Vetvytska | UI/UX i dokumentacja | @miumeowww |
+| Alina Semeniuk | testowanie i kryteria akceptacji | @semenukalina89-maker |
 
 Podział odpowiedzialności ma charakter roboczy i wymaga potwierdzenia przez wszystkich członków zespołu.
 
@@ -18,7 +18,8 @@ Podział odpowiedzialności ma charakter roboczy i wymaga potwierdzenia przez ws
 - [Karta projektu](docs/01-karta-projektu.md)
 - [Słownik dziedzinowy](docs/02-slownik.md)
 - [Wymagania](docs/03-wymagania.md)
-- [Notatki do procesu AS-IS](docs/04-procesy/P-00-as-is-notatki.md)
+- [Procesy biznesowe AS-IS / TO-BE](docs/04-procesy/README.md)
+- [Notatki źródłowe AS-IS](docs/04-procesy/P-00-as-is-notatki.md)
 - [Przypadki użycia](docs/05-przypadki-uzycia/)
 - [Diagram kontekstu](docs/06-architektura/kontekst.md)
 - [Model dziedzinowy](docs/07-model-dziedzinowy/)
@@ -33,10 +34,5 @@ Podział odpowiedzialności ma charakter roboczy i wymaga potwierdzenia przez ws
 - [Pytania do klienta](docs/spotkania/pytania-do-klienta.md)
 - [Notatka z wywiadu](docs/spotkania/wywiad-1.md)
 
-## Narzędzia
-
-Zob. [ADR-001 — Narzędzia pracy projektowej](docs/adr/ADR-001-narzedzia.md).
-
 ## Status
-
-Wersja dokumentacji: 0.3 (robocza). Dokumenty dotyczące kolejnych etapów będą uzupełniane zgodnie z harmonogramem przedmiotu. Protokół wywiadu pozostaje nieuzupełniony, ponieważ w przekazanych materiałach nie znaleziono rzeczywistych odpowiedzi klienta.
+Wersja dokumentacji: 0.4 (robocza). Materiały procesowe powstają na podstawie wymagań i notatek zespołu; elementy niepotwierdzone wywiadem pozostają oznaczone jako hipotezy.
