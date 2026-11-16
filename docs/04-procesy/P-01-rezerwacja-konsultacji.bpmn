@@ -52,7 +52,7 @@
     <bpmndi:BPMNShape id="Shape_Duplicate_P01" bpmnElement="Duplicate_P01"><dc:Bounds x="1320" y="302" width="50" height="50"/></bpmndi:BPMNShape>
     <bpmndi:BPMNShape id="Shape_Create_P01" bpmnElement="Create_P01"><dc:Bounds x="1420" y="295" width="130" height="65"/></bpmndi:BPMNShape>
     <bpmndi:BPMNShape id="Shape_Show_P01" bpmnElement="Show_P01"><dc:Bounds x="1590" y="295" width="130" height="65"/></bpmndi:BPMNShape>
-    <bpmndi:BPMNShape id="Shape_End_Access_P01" bpmnElement="End_Access_P01"><dc:Bounds x="307" y="210" width="36" height="36"/></bpmndi:BPMNShape>
+    <bpmndi:BPMNShape id="Shape_End_Access_P01" bpmnElement="End_Access_P01"><dc:Bounds x="307" y="170" width="36" height="36"/></bpmndi:BPMNShape>
     <bpmndi:BPMNShape id="Shape_End_Unavailable_P01" bpmnElement="End_Unavailable_P01"><dc:Bounds x="1170" y="390" width="36" height="36"/></bpmndi:BPMNShape>
     <bpmndi:BPMNShape id="Shape_End_Duplicate_P01" bpmnElement="End_Duplicate_P01"><dc:Bounds x="1327" y="390" width="36" height="36"/></bpmndi:BPMNShape>
     <bpmndi:BPMNShape id="Shape_End_Success_P01" bpmnElement="End_Success_P01"><dc:Bounds x="1770" y="310" width="36" height="36"/></bpmndi:BPMNShape>
