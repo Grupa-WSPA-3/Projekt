@@ -26,28 +26,32 @@ Wykładowca chce utworzyć, zmienić, sprawdzić lub anulować termin konsultacj
 
 ## Kroki
 
-| Krok | Tor | Typ zadania | Opis | Wymagania |
+| Krok | Tor | Typ zadania / elementu | Opis | Wymagania |
 |---|---|---|---|---|
-| P-02.1 | Wykładowca | użytkownika | Zaloguj się do SKW | FR-01, FR-02, BR-09 |
-| P-02.2 | Wykładowca | użytkownika | Wybierz czynność: utworzenie, edycja, lista zapisów lub anulowanie | FR-11…FR-14 |
-| P-02.3 | Wykładowca | użytkownika | Wprowadź dane nowego terminu albo wybierz własny termin | FR-11, FR-12, FR-13, FR-14 |
-| P-02.4 | System SKW | usługi | Sprawdź rolę, właściciela terminu i poprawność zakresu dat | FR-02, BR-01, BR-04 |
-| P-02.5 | System SKW | usługi | Sprawdź, czy edytowany termin ma aktywne zapisy | FR-12, BR-05 |
-| P-02.6 | System SKW | usługi | Zapisz nowy termin lub dozwoloną zmianę | FR-11, FR-12 |
-| P-02.7 | Wykładowca / System SKW | użytkownika / usługi | Wyświetl listę studentów zapisanych na własny termin | FR-13, BR-08 |
-| P-02.8 | Wykładowca | użytkownika | Potwierdź anulowanie własnego terminu | FR-14, BR-04 |
-| P-02.9 | System SKW | usługi | Oznacz termin jako anulowany i zaktualizuj status powiązanych aktywnych zapisów | FR-14, FR-16, BR-06 |
-| P-02.10 | System SKW | usługi | Pokaż wykładowcy i studentom aktualne statusy | FR-16 |
-
+| P-02.1 | Wykładowca | użytkownika | Zaloguj się do SKW | FR-01 |
+| P-02.2 | System SKW | usługi | Sprawdź rolę zalogowanego użytkownika | FR-02, BR-09 |
+| P-02.3 | Wykładowca | użytkownika | Wybierz czynność: utworzenie, edycja, przegląd listy lub anulowanie terminu | FR-11…FR-14 |
+| P-02.4 | Wykładowca | użytkownika | Wprowadź dane nowego lub edytowanego terminu | FR-11, FR-12 |
+| P-02.5 | System SKW | usługi | Sprawdź właściciela terminu i poprawność zakresu dat | FR-02, BR-01, BR-04 |
+| P-02.6 | System SKW | bramka XOR / decyzja | Ustal, czy edytowany termin ma aktywne zapisy | FR-12, BR-05 |
+| P-02.7 | System SKW | usługi | Zapisz nowy termin lub dozwoloną zmianę | FR-11, FR-12 |
+| P-02.8 | Wykładowca | użytkownika | Wybierz własny termin do przeglądu listy zapisów | FR-13, BR-08 |
+| P-02.9 | System SKW | usługi | Wyświetl listę zapisów uprawnionemu wykładowcy | FR-13, BR-08 |
+| P-02.10 | Wykładowca | użytkownika | Wybierz własny termin do anulowania | FR-14, BR-04 |
+| P-02.11 | System SKW | bramka XOR / decyzja | Sprawdź, czy termin należy do wykładowcy i jest aktywny | FR-02, FR-14, BR-04 |
+| P-02.12 | Wykładowca | użytkownika | Potwierdź anulowanie własnego terminu | FR-14, BR-04 |
+| P-02.13 | System SKW | usługi | Anuluj termin i oznacz powiązane aktywne zapisy | FR-14, FR-16, BR-06 |
+| P-02.14 | System SKW | usługi | Wyświetl aktualne statusy terminu i zapisów | FR-16 |
 ## Wyjątki i ścieżki alternatywne
 
 | Wyjątek | Gdzie | Reakcja | Wymaganie / BR |
 |---|---|---|---|
-| Użytkownik nie ma roli Wykładowca | P-02.1 / P-02.4 | Odmów dostępu do zarządzania terminami | FR-02, BR-04, BR-09 |
-| Wykładowca próbuje zmienić termin innej osoby | P-02.3–P-02.4 | Odrzuć operację bez zmiany danych | FR-02, BR-04 |
-| Początek terminu jest w przeszłości lub koniec nie jest późniejszy niż początek | P-02.4 | Odrzuć dane i pokaż przyczynę | BR-01, FR-11, FR-12 |
-| Edytowany termin ma aktywne zapisy | P-02.5 | Zablokuj edycję; wykładowca może rozważyć anulowanie terminu i utworzenie nowego | FR-12, BR-05 |
-| Anulowany termin ma aktywne zapisy | P-02.9 | Oznacz powiązane zapisy jako anulowane z powodu anulowania terminu i pokaż status | FR-14, FR-16, BR-06 |
+| Użytkownik nie ma roli Wykładowca | P-02.2 | Odmów dostępu do zarządzania terminami | FR-02, BR-09 |
+| Wykładowca próbuje zmienić termin innej osoby | P-02.5 | Odrzuć operację bez zmiany danych | FR-02, BR-04 |
+| Początek terminu jest w przeszłości lub koniec nie jest późniejszy niż początek | P-02.5 | Odrzuć dane i pokaż przyczynę | BR-01, FR-11, FR-12 |
+| Edytowany termin ma aktywne zapisy | P-02.6 | Zablokuj edycję; wykładowca może anulować termin i utworzyć nowy | FR-12, BR-05 |
+| Wykładowca wybiera cudzy lub nieaktywny termin do anulowania | P-02.11 | Odrzuć operację bez zmiany danych | FR-02, FR-14, BR-04 |
+| Anulowany termin ma aktywne zapisy | P-02.13–P-02.14 | Oznacz powiązane zapisy jako anulowane z powodu anulowania terminu i pokaż status | FR-14, FR-16, BR-06 |
 
 ## Powiązanie z AS-IS
 
