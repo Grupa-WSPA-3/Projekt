@@ -47,7 +47,8 @@ Student chce znaleźć i zarezerwować termin konsultacji.
 | Dwie osoby próbują zająć ostatnie miejsce jednocześnie | P-01.6–P-01.7 | Tylko jedna operacja może zakończyć się aktywnym zapisem | FR-08, NFR-05, BR-02 |
 
 ## Powiązanie z AS-IS
-P-01 zastępuje ręczne wyszukiwanie informacji i uzgadnianie dostępności z P-00. W wersji v1 system prezentuje własną listę terminów; integracja z planem zajęć uczelni pozostaje poza zakresem.
+
+P-01 zastępuje przede wszystkim kroki P-00.1–P-00.4: ręczne wyszukiwanie informacji o konsultacjach, kontakt studenta z wykładowcą oraz uzgadnianie dogodnego terminu. W SKW student przegląda wspólną listę przyszłych terminów, sprawdza szczegóły i samodzielnie inicjuje zapis; system weryfikuje dostępność i potwierdza wynik. Integracja z planem zajęć uczelni pozostaje poza zakresem v1.
 
 ## Otwarte pytania
 - Czy limit miejsc może być większy niż 1? ([Q-02](https://github.com/Grupa-WSPA-3/Projekt/issues/14))
