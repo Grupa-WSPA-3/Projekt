@@ -2,40 +2,97 @@
 <bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" id="Definitions_P02" targetNamespace="https://wspa.example/skw">
   <bpmn:process id="Process_P02" name="P-02 Zarządzanie terminami przez wykładowcę" isExecutable="false">
     <bpmn:laneSet id="LaneSet_P02">
-      <bpmn:lane id="Lane_P02_Lecturer" name="Wykładowca"><bpmn:flowNodeRef>Start_P02</bpmn:flowNodeRef><bpmn:flowNodeRef>Login_P02</bpmn:flowNodeRef><bpmn:flowNodeRef>Choose_P02</bpmn:flowNodeRef><bpmn:flowNodeRef>Enter_P02</bpmn:flowNodeRef><bpmn:flowNodeRef>Cancel_P02</bpmn:flowNodeRef><bpmn:flowNodeRef>List_P02</bpmn:flowNodeRef><bpmn:flowNodeRef>End_Denied_P02</bpmn:flowNodeRef></bpmn:lane>
-      <bpmn:lane id="Lane_P02_System" name="System SKW"><bpmn:flowNodeRef>Auth_P02</bpmn:flowNodeRef><bpmn:flowNodeRef>Valid_P02</bpmn:flowNodeRef><bpmn:flowNodeRef>Occupied_P02</bpmn:flowNodeRef><bpmn:flowNodeRef>Save_P02</bpmn:flowNodeRef><bpmn:flowNodeRef>ShowList_P02</bpmn:flowNodeRef><bpmn:flowNodeRef>MarkCancel_P02</bpmn:flowNodeRef><bpmn:flowNodeRef>ShowStatus_P02</bpmn:flowNodeRef><bpmn:flowNodeRef>End_Saved_P02</bpmn:flowNodeRef><bpmn:flowNodeRef>End_Invalid_P02</bpmn:flowNodeRef><bpmn:flowNodeRef>End_Occupied_P02</bpmn:flowNodeRef><bpmn:flowNodeRef>End_Cancelled_P02</bpmn:flowNodeRef></bpmn:lane>
+      <bpmn:lane id="Lane_P02_Lecturer" name="Wykładowca">
+        <bpmn:flowNodeRef>Start_P02</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Login_P02</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Choose_P02</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Enter_P02</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>SelectList_P02</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>SelectTerm_P02</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>ConfirmCancel_P02</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_P02_System" name="System SKW">
+        <bpmn:flowNodeRef>Auth_P02</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Access_P02</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Action_P02</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Validate_P02</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>ValidData_P02</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Edit_P02</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Occupied_P02</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Save_P02</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>DisplayList_P02</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>OwnActive_P02</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>MarkCancel_P02</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>ShowStatus_P02</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>EndDenied_P02</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>EndInvalid_P02</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>EndOccupied_P02</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>EndSaved_P02</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>EndList_P02</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>EndNotOwn_P02</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>EndCancelled_P02</bpmn:flowNodeRef>
+      </bpmn:lane>
     </bpmn:laneSet>
+
     <bpmn:startEvent id="Start_P02" name="Potrzeba zarządzania terminem"/>
     <bpmn:userTask id="Login_P02" name="Zaloguj się do SKW"/>
-    <bpmn:serviceTask id="Auth_P02" name="Sprawdź rolę wykładowcy"/>
-    <bpmn:userTask id="Choose_P02" name="Wybierz czynność zarządzania"/>
-    <bpmn:userTask id="Enter_P02" name="Wprowadź dane lub wybierz własny termin"/>
-    <bpmn:serviceTask id="Valid_P02" name="Sprawdź właściciela i zakres dat"/>
-    <bpmn:exclusiveGateway id="Occupied_P02" name="Czy edytowany termin ma aktywne zapisy?"/>
-    <bpmn:serviceTask id="Save_P02" name="Zapisz termin lub dozwoloną zmianę"/>
-    <bpmn:userTask id="List_P02" name="Przejrzyj listę zapisów własnego terminu"/>
-    <bpmn:serviceTask id="ShowList_P02" name="Wyświetl listę uprawnionemu wykładowcy"/>
-    <bpmn:userTask id="Cancel_P02" name="Potwierdź anulowanie własnego terminu"/>
-    <bpmn:serviceTask id="MarkCancel_P02" name="Anuluj termin i powiązane aktywne zapisy"/>
+    <bpmn:serviceTask id="Auth_P02" name="Sprawdź rolę użytkownika"/>
+    <bpmn:exclusiveGateway id="Access_P02" name="Czy użytkownik ma rolę Wykładowca?"/>
+    <bpmn:userTask id="Choose_P02" name="Wybierz czynność zarządzania terminem"/>
+    <bpmn:exclusiveGateway id="Action_P02" name="Jaka czynność?"/>
+
+    <bpmn:userTask id="Enter_P02" name="Wprowadź dane nowego lub własnego terminu"/>
+    <bpmn:serviceTask id="Validate_P02" name="Sprawdź właściciela terminu i zakres dat"/>
+    <bpmn:exclusiveGateway id="ValidData_P02" name="Czy dane i uprawnienia są poprawne?"/>
+    <bpmn:exclusiveGateway id="Edit_P02" name="Czy jest to edycja istniejącego terminu?"/>
+    <bpmn:exclusiveGateway id="Occupied_P02" name="Czy termin ma aktywne zapisy?"/>
+    <bpmn:serviceTask id="Save_P02" name="Zapisz nowy termin lub dozwoloną zmianę"/>
+
+    <bpmn:userTask id="SelectList_P02" name="Wybierz własny termin do przeglądu listy"/>
+    <bpmn:serviceTask id="DisplayList_P02" name="Wyświetl listę zapisów uprawnionemu wykładowcy"/>
+
+    <bpmn:userTask id="SelectTerm_P02" name="Wybierz własny termin do anulowania"/>
+    <bpmn:exclusiveGateway id="OwnActive_P02" name="Czy termin należy do wykładowcy i jest aktywny?"/>
+    <bpmn:userTask id="ConfirmCancel_P02" name="Potwierdź anulowanie własnego terminu"/>
+    <bpmn:serviceTask id="MarkCancel_P02" name="Anuluj termin i oznacz powiązane aktywne zapisy"/>
     <bpmn:serviceTask id="ShowStatus_P02" name="Wyświetl aktualne statusy"/>
-    <bpmn:endEvent id="End_Denied_P02" name="Odmowa dostępu"/>
-    <bpmn:endEvent id="End_Invalid_P02" name="Operacja odrzucona — niepoprawne dane"/>
-    <bpmn:endEvent id="End_Occupied_P02" name="Edycja zablokowana — aktywne zapisy"/>
-    <bpmn:endEvent id="End_Saved_P02" name="Termin zapisany"/>
-    <bpmn:endEvent id="End_Cancelled_P02" name="Termin anulowany"/>
-    <bpmn:sequenceFlow id="F02_1" sourceRef="Start_P02" targetRef="Login_P02"/>
-    <bpmn:sequenceFlow id="F02_2" sourceRef="Login_P02" targetRef="Auth_P02"/>
-    <bpmn:sequenceFlow id="F02_3" sourceRef="Auth_P02" targetRef="Choose_P02"/>
-    <bpmn:sequenceFlow id="F02_4" sourceRef="Choose_P02" targetRef="Enter_P02"/>
-    <bpmn:sequenceFlow id="F02_5" sourceRef="Enter_P02" targetRef="Valid_P02"/>
-    <bpmn:sequenceFlow id="F02_6" sourceRef="Valid_P02" targetRef="Occupied_P02"/>
-    <bpmn:sequenceFlow id="F02_7" name="tak" sourceRef="Occupied_P02" targetRef="End_Occupied_P02"/>
-    <bpmn:sequenceFlow id="F02_8" name="nie — poprawne dane" sourceRef="Occupied_P02" targetRef="Save_P02"/>
-    <bpmn:sequenceFlow id="F02_9" sourceRef="Save_P02" targetRef="End_Saved_P02"/>
-    <bpmn:sequenceFlow id="F02_10" sourceRef="List_P02" targetRef="ShowList_P02"/>
-    <bpmn:sequenceFlow id="F02_11" sourceRef="ShowList_P02" targetRef="End_Saved_P02"/>
-    <bpmn:sequenceFlow id="F02_12" sourceRef="Cancel_P02" targetRef="MarkCancel_P02"/>
-    <bpmn:sequenceFlow id="F02_13" sourceRef="MarkCancel_P02" targetRef="ShowStatus_P02"/>
-    <bpmn:sequenceFlow id="F02_14" sourceRef="ShowStatus_P02" targetRef="End_Cancelled_P02"/>
+
+    <bpmn:endEvent id="EndDenied_P02" name="Odmowa dostępu"/>
+    <bpmn:endEvent id="EndInvalid_P02" name="Operacja odrzucona — niepoprawne dane lub cudzy termin"/>
+    <bpmn:endEvent id="EndOccupied_P02" name="Edycja zablokowana — termin ma aktywne zapisy"/>
+    <bpmn:endEvent id="EndSaved_P02" name="Termin utworzony lub zmieniony"/>
+    <bpmn:endEvent id="EndList_P02" name="Lista zapisów wyświetlona"/>
+    <bpmn:endEvent id="EndNotOwn_P02" name="Odmowa — termin nie jest własny lub nie jest aktywny"/>
+    <bpmn:endEvent id="EndCancelled_P02" name="Termin anulowany; statusy zapisów zaktualizowane"/>
+
+    <bpmn:sequenceFlow id="F02_01" sourceRef="Start_P02" targetRef="Login_P02"/>
+    <bpmn:sequenceFlow id="F02_02" sourceRef="Login_P02" targetRef="Auth_P02"/>
+    <bpmn:sequenceFlow id="F02_03" sourceRef="Auth_P02" targetRef="Access_P02"/>
+    <bpmn:sequenceFlow id="F02_04" name="nie" sourceRef="Access_P02" targetRef="EndDenied_P02"/>
+    <bpmn:sequenceFlow id="F02_05" name="tak" sourceRef="Access_P02" targetRef="Choose_P02"/>
+    <bpmn:sequenceFlow id="F02_06" sourceRef="Choose_P02" targetRef="Action_P02"/>
+
+    <bpmn:sequenceFlow id="F02_07" name="utwórz lub edytuj termin" sourceRef="Action_P02" targetRef="Enter_P02"/>
+    <bpmn:sequenceFlow id="F02_08" sourceRef="Enter_P02" targetRef="Validate_P02"/>
+    <bpmn:sequenceFlow id="F02_09" sourceRef="Validate_P02" targetRef="ValidData_P02"/>
+    <bpmn:sequenceFlow id="F02_10" name="nie" sourceRef="ValidData_P02" targetRef="EndInvalid_P02"/>
+    <bpmn:sequenceFlow id="F02_11" name="tak" sourceRef="ValidData_P02" targetRef="Edit_P02"/>
+    <bpmn:sequenceFlow id="F02_12" name="nie — nowy termin" sourceRef="Edit_P02" targetRef="Save_P02"/>
+    <bpmn:sequenceFlow id="F02_13" name="tak — edycja" sourceRef="Edit_P02" targetRef="Occupied_P02"/>
+    <bpmn:sequenceFlow id="F02_14" name="tak" sourceRef="Occupied_P02" targetRef="EndOccupied_P02"/>
+    <bpmn:sequenceFlow id="F02_15" name="nie" sourceRef="Occupied_P02" targetRef="Save_P02"/>
+    <bpmn:sequenceFlow id="F02_16" sourceRef="Save_P02" targetRef="EndSaved_P02"/>
+
+    <bpmn:sequenceFlow id="F02_17" name="pokaż listę zapisów" sourceRef="Action_P02" targetRef="SelectList_P02"/>
+    <bpmn:sequenceFlow id="F02_18" sourceRef="SelectList_P02" targetRef="DisplayList_P02"/>
+    <bpmn:sequenceFlow id="F02_19" sourceRef="DisplayList_P02" targetRef="EndList_P02"/>
+
+    <bpmn:sequenceFlow id="F02_20" name="anuluj termin" sourceRef="Action_P02" targetRef="SelectTerm_P02"/>
+    <bpmn:sequenceFlow id="F02_21" sourceRef="SelectTerm_P02" targetRef="OwnActive_P02"/>
+    <bpmn:sequenceFlow id="F02_22" name="nie" sourceRef="OwnActive_P02" targetRef="EndNotOwn_P02"/>
+    <bpmn:sequenceFlow id="F02_23" name="tak" sourceRef="OwnActive_P02" targetRef="ConfirmCancel_P02"/>
+    <bpmn:sequenceFlow id="F02_24" sourceRef="ConfirmCancel_P02" targetRef="MarkCancel_P02"/>
+    <bpmn:sequenceFlow id="F02_25" sourceRef="MarkCancel_P02" targetRef="ShowStatus_P02"/>
+    <bpmn:sequenceFlow id="F02_26" sourceRef="ShowStatus_P02" targetRef="EndCancelled_P02"/>
   </bpmn:process>
 </bpmn:definitions>
