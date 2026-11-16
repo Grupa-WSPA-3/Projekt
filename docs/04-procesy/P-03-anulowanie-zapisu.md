@@ -32,7 +32,7 @@ Student nie może uczestniczyć w konsultacji, na którą ma aktywny zapis.
 | P-03.3 | Student | użytkownika | Wybierz zapis, z którego chce zrezygnować | FR-10 |
 | P-03.4 | System SKW | usługi | Sprawdź właściciela zapisu i jego aktywny status | FR-02, FR-10, BR-04 |
 | P-03.5 | Student | użytkownika | Potwierdź anulowanie własnego zapisu | FR-10 |
-| P-03.6 | System SKW | usługi | Zmień status zapisu na anulowany i zwolnij miejsce w limicie | FR-10, FR-16, FR-17, BR-07 |
+| P-03.6 | System SKW | usługi | Zmień status zapisu na anulowany i zwolnij miejsce w limicie | FR-10, FR-16, BR-07 |
 | P-03.7 | System SKW | usługi | Wyświetl aktualny status zapisu | FR-16 |
 
 ## Wyjątki i ścieżki alternatywne
