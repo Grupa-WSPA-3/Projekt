@@ -1,6 +1,6 @@
 # Procesy biznesowe SKW
 
-Dokumentacja obejmuje obecną organizację konsultacji (AS-IS) oraz procesy docelowe po wprowadzeniu SKW (TO-BE). Każdy proces ma opis kroków, wyjątki, identyfikatory kroków i powiązania z wymaganiami.
+Dokumentacja obejmuje obecną organizację konsultacji (AS-IS) oraz procesy docelowe po wprowadzeniu SKW (TO-BE). Każdy proces ma opis kroków, wyjątki i identyfikatory P-xx.n. W procesach TO-BE kroki są powiązane z FR/BR; w AS-IS kroki wskazują potrzeby i punkty bólu, które są następnie mapowane na rozwiązania TO-BE.
 
 ## Katalog procesów
 
