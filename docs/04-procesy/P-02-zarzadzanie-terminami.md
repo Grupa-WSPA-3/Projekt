@@ -49,6 +49,10 @@ Wykładowca chce utworzyć, zmienić, sprawdzić lub anulować termin konsultacj
 | Edytowany termin ma aktywne zapisy | P-02.5 | Zablokuj edycję; wykładowca może rozważyć anulowanie terminu i utworzenie nowego | FR-12, BR-05 |
 | Anulowany termin ma aktywne zapisy | P-02.9 | Oznacz powiązane zapisy jako anulowane z powodu anulowania terminu i pokaż status | FR-14, FR-16, BR-06 |
 
+## Powiązanie z AS-IS
+
+P-02 zastępuje część działań wykładowcy z P-00.3 i P-00.5–P-00.6: ręczne przedstawianie możliwego terminu, prowadzenie listy zapisanych osób oraz obsługę zmiany lub odwołania konsultacji. W SKW wykładowca tworzy i zarządza własnymi terminami, przegląda listę zapisów w systemie, a przy anulowaniu terminu system aktualizuje powiązane statusy. Edycja terminu z aktywnymi zapisami jest blokowana zgodnie z FR-12 / BR-05.
+
 ## Doprecyzowania z walkthrough
 
 - Odmowa edycji terminu z aktywnymi zapisami powinna zwracać użytkownikowi zrozumiałą przyczynę, a dane terminu pozostają niezmienione (FR-12, BR-05).
