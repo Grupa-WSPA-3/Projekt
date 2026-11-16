@@ -19,7 +19,7 @@
 - poznać obecny sposób informowania studentów o konsultacjach i zapisywania się na nie;
 - ustalić role, uprawnienia i odpowiedzialność za terminy;
 - rozpoznać reguły dotyczące limitów miejsc, rezygnacji, zmian i odwołań;
-- zweryfikować potrzeby N-01…N-10 zapisane w `docs/03-wymagania.md`;
+- zweryfikować potrzeby N-01…N-10 zapisane w docs/03-wymagania.md;
 - wychwycić słownictwo klienta, synonimy, homonimy, sprzeczności i wyjątki.
 
 ## Ustalenia
@@ -54,12 +54,14 @@
 
 ## Otwarte pytania
 
-| Nr | Pytanie | Issue | Odpowiedź (po uzyskaniu) |
-|---|---|---|---|
-| Q-01 | Czy limit miejsc dla konsultacji może być większy niż 1 i kto go ustala? | do utworzenia na GitHubie | otwarte |
-| Q-02 | Do kiedy student może anulować własny zapis? | do utworzenia na GitHubie | otwarte |
-| Q-03 | Kto tworzy konta użytkowników i w jaki sposób aktywuje dostęp? | do utworzenia na GitHubie | otwarte |
-| Q-04 | Czy wykładowca może edytować termin po pojawieniu się aktywnych zapisów? | do utworzenia na GitHubie | otwarte |
+Aktualny, pełny rejestr pytań i ich statusów znajduje się w [docs/12-otwarte-kwestie.md](../12-otwarte-kwestie.md). Pytania powiązane z tematami wywiadu mają następujące identyfikatory i Issues:
+
+| ID | Pytanie | GitHub Issue |
+|---|---|---|
+| Q-02 | Czy konsultacje mogą mieć limit miejsc większy niż 1 i kto go ustala? | [#14](https://github.com/Grupa-WSPA-3/Projekt/issues/14) |
+| Q-03 | Do kiedy student może anulować własny zapis? | [#15](https://github.com/Grupa-WSPA-3/Projekt/issues/15) |
+| Q-04 | Czy termin z aktywnymi zapisami można edytować? | [#16](https://github.com/Grupa-WSPA-3/Projekt/issues/16) |
+| Q-05 | Kto tworzy konto użytkownika i w jaki sposób można odzyskać dostęp? | [#22](https://github.com/Grupa-WSPA-3/Projekt/issues/22) |
 
 ## Wnioski zespołu
 
