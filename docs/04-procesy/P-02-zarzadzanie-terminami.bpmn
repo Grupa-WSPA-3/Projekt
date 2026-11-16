@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" id="Definitions_P02" targetNamespace="https://wspa.example/skw">
+  <bpmn:process id="Process_P02" name="P-02 Zarządzanie terminami przez wykładowcę" isExecutable="false">
+    <bpmn:laneSet id="LaneSet_P02">
+      <bpmn:lane id="Lane_P02_Lecturer" name="Wykładowca"><bpmn:flowNodeRef>Start_P02</bpmn:flowNodeRef><bpmn:flowNodeRef>Login_P02</bpmn:flowNodeRef><bpmn:flowNodeRef>Choose_P02</bpmn:flowNodeRef><bpmn:flowNodeRef>Enter_P02</bpmn:flowNodeRef><bpmn:flowNodeRef>Cancel_P02</bpmn:flowNodeRef><bpmn:flowNodeRef>List_P02</bpmn:flowNodeRef><bpmn:flowNodeRef>End_Denied_P02</bpmn:flowNodeRef></bpmn:lane>
+      <bpmn:lane id="Lane_P02_System" name="System SKW"><bpmn:flowNodeRef>Auth_P02</bpmn:flowNodeRef><bpmn:flowNodeRef>Valid_P02</bpmn:flowNodeRef><bpmn:flowNodeRef>Occupied_P02</bpmn:flowNodeRef><bpmn:flowNodeRef>Save_P02</bpmn:flowNodeRef><bpmn:flowNodeRef>ShowList_P02</bpmn:flowNodeRef><bpmn:flowNodeRef>MarkCancel_P02</bpmn:flowNodeRef><bpmn:flowNodeRef>ShowStatus_P02</bpmn:flowNodeRef><bpmn:flowNodeRef>End_Saved_P02</bpmn:flowNodeRef><bpmn:flowNodeRef>End_Invalid_P02</bpmn:flowNodeRef><bpmn:flowNodeRef>End_Occupied_P02</bpmn:flowNodeRef><bpmn:flowNodeRef>End_Cancelled_P02</bpmn:flowNodeRef></bpmn:lane>
+    </bpmn:laneSet>
+    <bpmn:startEvent id="Start_P02" name="Potrzeba zarządzania terminem"/>
+    <bpmn:userTask id="Login_P02" name="Zaloguj się do SKW"/>
+    <bpmn:serviceTask id="Auth_P02" name="Sprawdź rolę wykładowcy"/>
+    <bpmn:userTask id="Choose_P02" name="Wybierz czynność zarządzania"/>
+    <bpmn:userTask id="Enter_P02" name="Wprowadź dane lub wybierz własny termin"/>
+    <bpmn:serviceTask id="Valid_P02" name="Sprawdź właściciela i zakres dat"/>
+    <bpmn:exclusiveGateway id="Occupied_P02" name="Czy edytowany termin ma aktywne zapisy?"/>
+    <bpmn:serviceTask id="Save_P02" name="Zapisz termin lub dozwoloną zmianę"/>
+    <bpmn:userTask id="List_P02" name="Przejrzyj listę zapisów własnego terminu"/>
+    <bpmn:serviceTask id="ShowList_P02" name="Wyświetl listę uprawnionemu wykładowcy"/>
+    <bpmn:userTask id="Cancel_P02" name="Potwierdź anulowanie własnego terminu"/>
+    <bpmn:serviceTask id="MarkCancel_P02" name="Anuluj termin i powiązane aktywne zapisy"/>
+    <bpmn:serviceTask id="ShowStatus_P02" name="Wyświetl aktualne statusy"/>
+    <bpmn:endEvent id="End_Denied_P02" name="Odmowa dostępu"/>
+    <bpmn:endEvent id="End_Invalid_P02" name="Operacja odrzucona — niepoprawne dane"/>
+    <bpmn:endEvent id="End_Occupied_P02" name="Edycja zablokowana — aktywne zapisy"/>
+    <bpmn:endEvent id="End_Saved_P02" name="Termin zapisany"/>
+    <bpmn:endEvent id="End_Cancelled_P02" name="Termin anulowany"/>
+    <bpmn:sequenceFlow id="F02_1" sourceRef="Start_P02" targetRef="Login_P02"/>
+    <bpmn:sequenceFlow id="F02_2" sourceRef="Login_P02" targetRef="Auth_P02"/>
+    <bpmn:sequenceFlow id="F02_3" sourceRef="Auth_P02" targetRef="Choose_P02"/>
+    <bpmn:sequenceFlow id="F02_4" sourceRef="Choose_P02" targetRef="Enter_P02"/>
+    <bpmn:sequenceFlow id="F02_5" sourceRef="Enter_P02" targetRef="Valid_P02"/>
+    <bpmn:sequenceFlow id="F02_6" sourceRef="Valid_P02" targetRef="Occupied_P02"/>
+    <bpmn:sequenceFlow id="F02_7" name="tak" sourceRef="Occupied_P02" targetRef="End_Occupied_P02"/>
+    <bpmn:sequenceFlow id="F02_8" name="nie — poprawne dane" sourceRef="Occupied_P02" targetRef="Save_P02"/>
+    <bpmn:sequenceFlow id="F02_9" sourceRef="Save_P02" targetRef="End_Saved_P02"/>
+    <bpmn:sequenceFlow id="F02_10" sourceRef="List_P02" targetRef="ShowList_P02"/>
+    <bpmn:sequenceFlow id="F02_11" sourceRef="ShowList_P02" targetRef="End_Saved_P02"/>
+    <bpmn:sequenceFlow id="F02_12" sourceRef="Cancel_P02" targetRef="MarkCancel_P02"/>
+    <bpmn:sequenceFlow id="F02_13" sourceRef="MarkCancel_P02" targetRef="ShowStatus_P02"/>
+    <bpmn:sequenceFlow id="F02_14" sourceRef="ShowStatus_P02" targetRef="End_Cancelled_P02"/>
+  </bpmn:process>
+</bpmn:definitions>
