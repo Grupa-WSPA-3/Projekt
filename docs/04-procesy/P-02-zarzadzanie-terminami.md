@@ -37,7 +37,7 @@ Wykładowca chce utworzyć, zmienić, sprawdzić lub anulować termin konsultacj
 | P-02.7 | Wykładowca / System SKW | użytkownika / usługi | Wyświetl listę studentów zapisanych na własny termin | FR-13, BR-08 |
 | P-02.8 | Wykładowca | użytkownika | Potwierdź anulowanie własnego terminu | FR-14, BR-04 |
 | P-02.9 | System SKW | usługi | Oznacz termin jako anulowany i zaktualizuj status powiązanych aktywnych zapisów | FR-14, FR-16, BR-06 |
-| P-02.10 | System SKW | usługi | Pokaż wykładowcy i studentom aktualne statusy | FR-16, FR-17 |
+| P-02.10 | System SKW | usługi | Pokaż wykładowcy i studentom aktualne statusy | FR-16 |
 
 ## Wyjątki i ścieżki alternatywne
 
