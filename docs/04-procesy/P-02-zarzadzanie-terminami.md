@@ -1,6 +1,6 @@
 # P-02 — Zarządzanie terminami przez wykładowcę (TO-BE)
 
-**Wersja:** 0.1 · **Właściciel:** @miumeowww · **Powiązane:** FR-02, FR-11…FR-15, FR-16, BR-01, BR-04…BR-06, BR-08, BR-09
+**Wersja:** 0.1 · **Właściciel:** @miumeowww · **Issue:** [#6](https://github.com/Grupa-WSPA-3/Projekt/issues/6) · **Powiązane:** FR-02, FR-11…FR-15, FR-16, BR-01, BR-04…BR-06, BR-08, BR-09
 
 ## Cel procesu
 Umożliwić wykładowcy zarządzanie własnymi terminami konsultacji oraz kontrolę listy zapisanych studentów zgodnie z rolą i regułami systemu.
@@ -57,6 +57,6 @@ Wykładowca chce utworzyć, zmienić, sprawdzić lub anulować termin konsultacj
 Są to doprecyzowania wynikające ze spójności procesów i istniejących wymagań; nie stanowią potwierdzenia reguł przez klienta.
 
 ## Otwarte pytania
-- Czy termin z aktywnymi zapisami może być wyjątkowo edytowany zamiast anulowania? (Q-04)
-- Czy administrator może przeglądać listy zapisów? (Q-06)
-- Jak długo przechowywać anulowane terminy i zapisy? (Q-11)
+- Czy termin z aktywnymi zapisami może być wyjątkowo edytowany zamiast anulowania? ([Q-04](https://github.com/Grupa-WSPA-3/Projekt/issues/16))
+- Czy administrator może przeglądać listy zapisów? ([Q-06](https://github.com/Grupa-WSPA-3/Projekt/issues/17))
+- Jak długo przechowywać anulowane terminy i zapisy? ([Q-11](https://github.com/Grupa-WSPA-3/Projekt/issues/20))
