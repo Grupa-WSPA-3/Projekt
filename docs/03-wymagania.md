@@ -1,6 +1,6 @@
 # Wymagania — System obsługi konsultacji wykładowców (SKW)
 
-**Wersja:** 0.2 — robocza, zgodna ze strukturą z zajęć 4  
+**Wersja:** 0.3 — robocza; doprecyzowania po walkthrough procesów z zajęć 5  
 **Autorzy:** zespół SKW  
 **Status:** do przeglądu zespołu i weryfikacji na podstawie wywiadu z klientem.
 
@@ -38,9 +38,9 @@ Priorytety wynikają z wartości dla użytkownika na pierwszą wersję. „Must�
 | FR-09 | System nie tworzy drugiego aktywnego zapisu tego samego studenta na ten sam termin. | N-04 | Must | ponowna próba jest odrzucona bez utworzenia duplikatu |
 | FR-10 | System umożliwia studentowi anulowanie własnego aktywnego zapisu. | N-05 | Must | status zapisu zmienia się na Anulowany, miejsce staje się dostępne zgodnie z limitem |
 | FR-11 | System umożliwia wykładowcy utworzenie nowego terminu konsultacji. | N-06 | Must | zapis poprawnych danych tworzy termin widoczny na liście |
-| FR-12 | System umożliwia wykładowcy edycję terminu, jeśli nie ma on aktywnych zapisów. | N-06 | Should | próba edycji obsadzonego terminu jest zablokowana w v1 |
+| FR-12 | System umożliwia wykładowcy edycję własnego terminu wyłącznie wtedy, gdy termin nie ma aktywnych zapisów; w przeciwnym razie odrzuca operację i wyświetla przyczynę bez zmiany danych. | N-06 | Should | doprecyzowanie po walkthrough P-02; odpowiada BR-05; założenie do weryfikacji |
 | FR-13 | System umożliwia wykładowcy wyświetlenie listy zapisanych studentów dla własnego terminu. | N-07, N-09 | Should | wykładowca nie widzi list zapisów innych wykładowców |
-| FR-14 | System umożliwia wykładowcy anulowanie własnego terminu konsultacji. | N-06 | Must | termin znika z listy dostępnych; powiązane zapisy zachowują czytelny status anulowania |
+| FR-14 | System umożliwia wykładowcy anulowanie własnego terminu konsultacji; po anulowaniu termin nie jest dostępny do nowych zapisów, a powiązane aktywne zapisy otrzymują status anulowania z powodu odwołania terminu. | N-06, N-10 | Must | doprecyzowanie po walkthrough P-02; student widzi aktualny status przez FR-16; bez e-mail/SMS w v1 |
 | FR-15 | System umożliwia administratorowi aktywowanie i dezaktywowanie kont oraz przypisywanie ról. | N-08 | Should | zmiana roli wpływa na uprawnienia przy następnym żądaniu / logowaniu zgodnie z projektem |
 | FR-16 | System wyświetla status zapisu użytkownikowi, którego ten zapis dotyczy. | N-10 | Should | status jest czytelny po zapisie, anulowaniu i odwołaniu konsultacji |
 | FR-17 | System wyświetla komunikat o powodzeniu lub przyczynie odrzucenia operacji zapisu. | N-10 | Must | komunikat nie może potwierdzać zapisu, który nie został faktycznie utworzony |
@@ -71,11 +71,18 @@ Wartości poniżej są kryteriami projektowymi dla prototypu / przyszłej implem
 | BR-02 | Liczba aktywnych zapisów dla terminu nie może przekroczyć ustawionego limitu miejsc. Domyślny limit wynosi 1, dopóki nie zostanie potwierdzona obsługa konsultacji grupowych. | N-04; założenie do potwierdzenia | FR-03, FR-07, FR-08, FR-18 |
 | BR-03 | Student może mieć tylko jeden aktywny zapis na dany termin. | N-04; założenie do potwierdzenia | FR-09 |
 | BR-04 | Student może anulować wyłącznie własny zapis; wykładowca może zarządzać i anulować wyłącznie własne terminy; administrator zarządza kontami i rolami. | N-05, N-06, N-08, N-09 | FR-02, FR-10, FR-12, FR-13, FR-14, FR-15 |
-| BR-05 | Termin z co najmniej jednym aktywnym zapisem nie może być edytowany w zakresie daty i godziny w wersji podstawowej. Wykładowca powinien anulować termin i utworzyć nowy. | N-06; założenie do potwierdzenia | FR-12, FR-14 |
-| BR-06 | Anulowany termin nie jest dostępny dla nowych zapisów, a powiązane zapisy pozostają możliwe do rozpoznania jako anulowane. | N-06, N-10; założenie do potwierdzenia | FR-14, FR-16, FR-18 |
+| BR-05 | Termin z co najmniej jednym aktywnym zapisem nie może być edytowany w wersji podstawowej. System odrzuca taką próbę, nie zmienia danych i przekazuje wykładowcy przyczynę; wykładowca może anulować termin i utworzyć nowy. | N-06; założenie do potwierdzenia | FR-12, FR-14 |
+| BR-06 | Anulowany termin nie jest dostępny dla nowych zapisów; powiązane aktywne zapisy otrzymują czytelny status anulowania z powodu odwołania terminu, widoczny dla studenta, którego zapis dotyczy. | N-06, N-10; założenie do potwierdzenia | FR-14, FR-16, FR-18 |
 | BR-07 | Aktywny zapis zajmuje jedno miejsce; anulowany zapis nie zajmuje miejsca. | N-04, N-05; założenie do potwierdzenia | FR-08, FR-10 |
 | BR-08 | Lista zapisów zawierająca dane studentów jest widoczna wyłącznie dla wykładowcy danego terminu oraz uprawnionego administratora, jeśli taki dostęp zostanie uzasadniony. | N-07, N-09 | FR-02, FR-13 |
 | BR-09 | Każde konto ma jedną podstawową rolę: Student, Wykładowca albo Administrator. Obsługa wielu ról jednego konta nie należy do pierwszej wersji. | N-08, N-09; założenie do potwierdzenia | FR-02, FR-15 |
+
+### Doprecyzowania po walkthrough procesów (wersja 0.3)
+
+Poniższe dwa wymagania doprecyzowano po przejściu procesów P-02. Są to decyzje projektowe zespołu wynikające z już zapisanych reguł BR-05 i BR-06; nie są potwierdzeniem przez klienta. Należy je zweryfikować po rzeczywistym wywiadzie.
+
+1. **FR-12 / BR-05:** odmowa edycji terminu z aktywnymi zapisami musi być widoczna i zrozumiała dla wykładowcy; operacja nie może zmienić terminu.
+2. **FR-14 / FR-16 / BR-06:** anulowanie całego terminu przez wykładowcę musi być odróżnione od anulowania pojedynczego zapisu przez studenta; powiązane aktywne zapisy otrzymują status wskazujący przyczynę odwołania terminu, widoczny w SKW. Powiadomienia e-mail/SMS pozostają poza v1.
 
 ## 5. Ograniczenia
 
