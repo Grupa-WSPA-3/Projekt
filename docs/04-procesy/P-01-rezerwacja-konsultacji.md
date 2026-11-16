@@ -1,6 +1,6 @@
 # P-01 — Przeglądanie i zapis na konsultację (TO-BE)
 
-**Wersja:** 0.1 · **Właściciel:** @Hryak123 · **Powiązane:** P-00 (AS-IS), FR-01…FR-09, FR-16…FR-18, BR-02…BR-04, BR-09
+**Wersja:** 0.1 · **Właściciel:** @Hryak123 · **Issue:** [#5](https://github.com/Grupa-WSPA-3/Projekt/issues/5) · **Powiązane:** P-00 (AS-IS), FR-01…FR-09, FR-16…FR-18, BR-02…BR-04, BR-09
 
 ## Cel procesu
 Umożliwić studentowi znalezienie przyszłego terminu konsultacji i utworzenie jednego aktywnego zapisu, o ile termin jest dostępny i student ma odpowiednie uprawnienia.
@@ -50,6 +50,6 @@ Student chce znaleźć i zarezerwować termin konsultacji.
 P-01 zastępuje ręczne wyszukiwanie informacji i uzgadnianie dostępności z P-00. W wersji v1 system prezentuje własną listę terminów; integracja z planem zajęć uczelni pozostaje poza zakresem.
 
 ## Otwarte pytania
-- Czy limit miejsc może być większy niż 1? (Q-02)
-- Czy student może mieć dwa zapisy na nakładające się terminy u różnych wykładowców? (Q-09)
-- Jakie pola szczegółów terminu są obowiązkowe? (Q-13)
+- Czy limit miejsc może być większy niż 1? ([Q-02](https://github.com/Grupa-WSPA-3/Projekt/issues/14))
+- Czy student może mieć dwa zapisy na nakładające się terminy u różnych wykładowców? ([Q-09](https://github.com/Grupa-WSPA-3/Projekt/issues/18))
+- Jakie pola szczegółów terminu są obowiązkowe? ([Q-13](https://github.com/Grupa-WSPA-3/Projekt/issues/19))
