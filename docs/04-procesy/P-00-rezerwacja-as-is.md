@@ -1,6 +1,6 @@
 # P-00 — Obecna organizacja konsultacji (AS-IS)
 
-**Wersja:** 0.2 · **Właściciel:** @mtwspa · **Powiązane:** karta projektu, N-01…N-07
+**Wersja:** 0.2 · **Właściciel:** @mtwspa · **Powiązane:** karta projektu, N-01…N-07, N-10
 
 > **Status źródłowy:** rekonstrukcja robocza na podstawie istniejących notatek zespołu. Nie jest to wynik udokumentowanej obserwacji ani rzeczywistego wywiadu. Kanały komunikacji i sposób prowadzenia listy wymagają potwierdzenia.
 
