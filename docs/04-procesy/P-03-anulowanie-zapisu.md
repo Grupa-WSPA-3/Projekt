@@ -45,7 +45,8 @@ Student nie może uczestniczyć w konsultacji, na którą ma aktywny zapis.
 | Student próbuje anulować zapis zbyt późno | przed P-03.5 | Reguła granicznego czasu anulowania nie jest ustalona; nie wprowadzamy jej bez odpowiedzi | pytanie Q-03 |
 
 ## Zmiany względem AS-IS
-P-03 przenosi anulowanie pojedynczego zapisu do systemu i pozwala zwolnić miejsce bez ręcznego uzgadniania z wykładowcą. Anulowanie całego terminu przez wykładowcę opisuje P-02 i nie jest tym samym zdarzeniem.
+
+P-03 zastępuje ręczną rezygnację lub uzgadnianie zwolnienia miejsca w ramach kroku P-00.6 (oraz wcześniejsze ustalenie terminu w P-00.4). Student może anulować wyłącznie własny zapis w SKW, a system zmienia jego status i zwalnia miejsce. Anulowanie całego terminu przez wykładowcę opisuje P-02 i nie jest tym samym zdarzeniem.
 
 ## Otwarte pytania
 - Do kiedy student może anulować własny zapis? ([Q-03](https://github.com/Grupa-WSPA-3/Projekt/issues/15))
