@@ -1,6 +1,6 @@
 # P-03 — Anulowanie własnego zapisu przez studenta (TO-BE)
 
-**Wersja:** 0.1 · **Właściciel:** @semenukalina89-maker · **Powiązane:** FR-01, FR-02, FR-10, FR-16, FR-17, BR-04, BR-07, BR-09
+**Wersja:** 0.1 · **Właściciel:** @semenukalina89-maker · **Issue:** [#7](https://github.com/Grupa-WSPA-3/Projekt/issues/7) · **Powiązane:** FR-01, FR-02, FR-10, FR-16, BR-04, BR-07, BR-09
 
 ## Cel procesu
 Umożliwić studentowi rezygnację z własnego aktywnego zapisu oraz zwolnienie zajmowanego miejsca zgodnie z regułami SKW.
@@ -48,5 +48,5 @@ Student nie może uczestniczyć w konsultacji, na którą ma aktywny zapis.
 P-03 przenosi anulowanie pojedynczego zapisu do systemu i pozwala zwolnić miejsce bez ręcznego uzgadniania z wykładowcą. Anulowanie całego terminu przez wykładowcę opisuje P-02 i nie jest tym samym zdarzeniem.
 
 ## Otwarte pytania
-- Do kiedy student może anulować własny zapis? (Q-03)
+- Do kiedy student może anulować własny zapis? ([Q-03](https://github.com/Grupa-WSPA-3/Projekt/issues/15))
 - Czy po anulowaniu miejsce powinno być od razu widoczne jako wolne? Obecne BR-07 zakłada zwolnienie miejsca; szczegóły należy potwierdzić.
