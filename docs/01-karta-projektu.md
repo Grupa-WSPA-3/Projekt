@@ -28,7 +28,7 @@ Informacje o konsultacjach wykładowców mogą być przekazywane studentom róż
 ---
 
 ## 3. Kogo dotyczy problem?
-
+ 
 Problem dotyczy przede wszystkim studentów, którzy chcą znaleźć dogodny termin konsultacji i zapisać się bez wielokrotnego kontaktowania się z wykładowcą. Dotyczy również wykładowców, którzy publikują terminy, ustalają limity miejsc i kontrolują listy zapisanych osób. Pośrednio dotyczy administratorów oraz jednostek uczelni odpowiedzialnych za organizację i wsparcie procesu konsultacji.
 
 ---
