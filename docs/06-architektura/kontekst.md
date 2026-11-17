@@ -16,7 +16,7 @@ flowchart LR
 
 W pierwszej wersji SKW nie integruje się z uczelnianym systemem planu zajęć, zewnętrznym SSO ani serwerem pocztowym. Powiadomienia e-mail/SMS i prowadzenie wideokonferencji pozostają poza zakresem. Jeżeli wywiad wykaże, że któreś z tych połączeń jest konieczne, należy zaktualizować kartę, zakres IN/OUT i ADR, zamiast dodawać integrację po cichu.
 
-## Sprawdzenie diagramu
+## Sprawdzenie diagramu 
 
 - [x] system przedstawiony jako jeden element;
 - [x] ujęto trzy role z karty projektu;
