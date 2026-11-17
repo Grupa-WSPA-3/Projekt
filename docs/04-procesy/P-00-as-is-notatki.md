@@ -13,7 +13,7 @@ Opisać, jak student uzgadnia termin konsultacji z wykładowcą w obecnym stanie
 | 1 | Student | szuka informacji o terminach konsultacji | strona przedmiotu, wiadomości lub informacja ustna — do potwierdzenia | informacje mogą być rozproszone (N-01) |
 | 2 | Student | kontaktuje się z wykładowcą z prośbą o termin | e-mail, komunikator lub rozmowa — zgodnie z kartą projektu | konieczność ręcznego uzgadniania (N-01, N-02) |
 | 3 | Wykładowca | proponuje termin lub odpowiada, kiedy ma czas | wiadomość / rozmowa | brak wspólnego aktualnego widoku dostępności (N-01) |
-| 4 | Student i wykładowca | potwierdzają ustalony termin | wiadomość / rozmowa | możliwe wielokrotne wiadomości (N-04) |
+| 4 | Student i wykładowca | potwierdzają ustalony termin | wiadomość / rozmowa | możliwe wielokrotne wiadomości (N-02) |
 | 5 | Wykładowca | prowadzi listę zapisanych osób lub pamięta ustalenia | osobna lista / skrzynka / pamięć — wymaga wywiadu | lista może nie być aktualna (N-07) |
 | 6 | Student lub wykładowca | informuje o rezygnacji albo odwołaniu | wiadomość / rozmowa | inni uczestnicy mogą nie wiedzieć o zmianie (N-05, N-06, N-10) |
 
