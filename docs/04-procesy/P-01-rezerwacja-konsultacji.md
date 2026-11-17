@@ -37,6 +37,7 @@ Student chce znaleźć i zarezerwować termin konsultacji.
 | P-01.7 | System SKW | usługi | Sprawdź status terminu, limit miejsc i istnienie aktywnego zapisu studenta | FR-08, FR-09, FR-18; BR-02, BR-03 |
 | P-01.8 | System SKW | usługi | Utwórz aktywny zapis | FR-07, FR-08, FR-09 |
 | P-01.9 | System SKW | usługi | Wyświetl wynik operacji i aktualny status zapisu | FR-16, FR-17 |
+
 ## Wyjątki i ścieżki alternatywne
 
 | Wyjątek | Gdzie | Reakcja | Wymaganie / BR |
