@@ -15,7 +15,7 @@ Skala: prawdopodobieństwo i wpływ — niskie / średnie / wysokie.
 | R-08 | Członkowie zespołu nie wykonają własnych commitów / PR, co utrudni wykazanie indywidualnego wkładu. | średnie | wysokie | wszyscy | każdy tworzy PR i recenzuje PR innej osoby; nie używać jednego konta do całej pracy | aktywne |
 | R-09 | Wymagania wydajnościowe okażą się zbyt ambitne dla docelowej infrastruktury lub nie będą mierzone. | niskie / średnie | średnie | Kostiantyn Kyrylenko | po decyzji o architekturze potwierdzić profil obciążenia i zapisać testy | do ponownej oceny |
 | R-10 | Rozbieżności w słownictwie („termin”, „zapis”, „anulowanie”) spowodują błędy w komunikacji i modelu danych. | średnie | średnie | Sofiia Vetvytska | jeden słownik kanoniczny; zmiany terminów przegląda cały zespół | aktywne |
-
+ 
 ## Przegląd ryzyk
 
 Na każdym spotkaniu należy sprawdzić ryzyka o wysokim wpływie. Po podjęciu działania uaktualnić status i opisać dowód (Issue, PR, test lub decyzję). Nie oznaczać ryzyka jako zamkniętego tylko dlatego, że dopisano je do tabeli.
