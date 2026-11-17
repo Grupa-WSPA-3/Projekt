@@ -1,6 +1,6 @@
 # P-01 — Przeglądanie i zapis na konsultację (TO-BE)
 
-**Wersja:** 0.1 · **Właściciel:** @Hryak123 · **Issue:** [#5](https://github.com/Grupa-WSPA-3/Projekt/issues/5) · **Powiązane:** P-00 (AS-IS), FR-01…FR-09, FR-16…FR-18, BR-02…BR-04, BR-09
+**Wersja:** 0.1 · **Właściciel:** @Hryak123 · **Issue:** [#5](https://github.com/Grupa-WSPA-3/Projekt/issues/5) · **Powiązane:** P-00 (AS-IS), FR-01…FR-09, FR-16…FR-18, BR-02, BR-03, BR-09
 
 ## Cel procesu
 Umożliwić studentowi znalezienie przyszłego terminu konsultacji i utworzenie jednego aktywnego zapisu, o ile termin jest dostępny i student ma odpowiednie uprawnienia.
@@ -26,25 +26,25 @@ Student chce znaleźć i zarezerwować termin konsultacji.
 
 ## Kroki
 
-| Krok | Tor | Typ zadania | Opis | Wymagania |
+| Krok | Tor | Typ zadania / elementu | Opis | Wymagania |
 |---|---|---|---|---|
-| P-01.1 | Student | użytkownika | Zaloguj się do SKW | FR-01, FR-02, BR-09 |
-| P-01.2 | Student | użytkownika | Przeglądaj przyszłe konsultacje | FR-03 |
-| P-01.3 | Student | użytkownika | Filtruj terminy według wykładowcy lub daty | FR-04, FR-05 |
-| P-01.4 | Student | użytkownika | Otwórz szczegóły wybranego terminu | FR-06 |
-| P-01.5 | Student | użytkownika | Wybierz termin i zatwierdź zapis | FR-07 |
-| P-01.6 | System SKW | usługi | Sprawdź rolę, status i czas terminu, limit miejsc oraz duplikat aktywnego zapisu | FR-02, FR-08, FR-09, FR-18; BR-02, BR-03, BR-04 |
-| P-01.7 | System SKW | usługi | Utwórz aktywny zapis | FR-07, FR-08, FR-09 |
-| P-01.8 | System SKW | usługi | Wyświetl wynik operacji i aktualny status zapisu | FR-16, FR-17 |
-
+| P-01.1 | Student | użytkownika | Zaloguj się do SKW | FR-01 |
+| P-01.2 | System SKW | bramka XOR / decyzja | Sprawdź, czy użytkownik ma rolę Student | FR-02, BR-09 |
+| P-01.3 | Student | użytkownika | Przeglądaj przyszłe terminy konsultacji | FR-03 |
+| P-01.4 | Student | użytkownika | Filtruj listę terminów według wykładowcy lub daty | FR-04, FR-05 |
+| P-01.5 | Student | użytkownika | Otwórz szczegóły wybranego terminu | FR-06 |
+| P-01.6 | Student | użytkownika | Zatwierdź zapis na wybrany termin | FR-07 |
+| P-01.7 | System SKW | usługi | Sprawdź status terminu, limit miejsc i istnienie aktywnego zapisu studenta | FR-08, FR-09, FR-18; BR-02, BR-03 |
+| P-01.8 | System SKW | usługi | Utwórz aktywny zapis | FR-07, FR-08, FR-09 |
+| P-01.9 | System SKW | usługi | Wyświetl wynik operacji i aktualny status zapisu | FR-16, FR-17 |
 ## Wyjątki i ścieżki alternatywne
 
 | Wyjątek | Gdzie | Reakcja | Wymaganie / BR |
 |---|---|---|---|
-| Użytkownik nie ma roli Student lub nie jest zalogowany | P-01.1 / P-01.6 | Odmów dostępu; nie zmieniaj danych | FR-01, FR-02, BR-04, BR-09 |
-| Termin jest przeszły, anulowany albo nie ma wolnych miejsc | P-01.6 | Nie twórz zapisu; pokaż przyczynę | FR-03, FR-08, FR-18, BR-02 |
-| Student ma już aktywny zapis na ten termin | P-01.6 | Odrzuć próbę bez tworzenia duplikatu | FR-09, BR-03 |
-| Dwie osoby próbują zająć ostatnie miejsce jednocześnie | P-01.6–P-01.7 | Tylko jedna operacja może zakończyć się aktywnym zapisem | FR-08, NFR-05, BR-02 |
+| Użytkownik nie jest zalogowany lub nie ma roli Student | P-01.1–P-01.2 | Zakończ proces odmową dostępu; nie zmieniaj danych | FR-01, FR-02, BR-09 |
+| Termin jest przeszły, anulowany albo nie ma wolnych miejsc | P-01.7 | Nie twórz zapisu; pokaż przyczynę | FR-03, FR-08, FR-18, BR-02 |
+| Student ma już aktywny zapis na ten termin | P-01.7 | Odrzuć próbę bez tworzenia duplikatu | FR-09, BR-03 |
+| Dwie osoby próbują zająć ostatnie miejsce jednocześnie | P-01.7–P-01.8 | Tylko jedna operacja może zakończyć się aktywnym zapisem | FR-08, NFR-05, BR-02 |
 
 ## Powiązanie z AS-IS
 
