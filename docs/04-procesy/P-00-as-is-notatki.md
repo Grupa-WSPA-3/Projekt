@@ -25,7 +25,7 @@ flowchart TD
     B --> C[Kontaktuje się z wykładowcą]
     C --> D{Czy udało się uzgodnić termin?}
     D -->|Nie| E[Ponawia kontakt lub szuka innego terminu]
-    E --> C
+    E --> C 
     D -->|Tak| F[Student i wykładowca potwierdzają ustalenie]
     F --> G[Wykładowca ręcznie śledzi listę zapisów]
     G --> H{Czy termin ulega zmianie?}
