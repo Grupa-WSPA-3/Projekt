@@ -4,7 +4,7 @@
 
 Słownik definiuje pojęcia z perspektywy studentów i wykładowców. Terminy oznaczone jako założenia zespołu należy potwierdzić podczas rzeczywistego wywiadu. Nie wpisano niepotwierdzonych słów jako cytatów klienta.
 
-| Termin | Definicja | Synonimy (u klienta) | Homonimy / nie mylić z | Przykład | Powiązane terminy | Źródło |
+| Termin | Definicja | Synonimy (u klienta) | Homonimy / nie mylić z | Przykład | Powiązane terminy | Źródło | 
 |---|---|---|---|---|---|---|
 | Konsultacja | Spotkanie studenta z wykładowcą w celu omówienia zagadnienia związanego z nauką. | dyżur konsultacyjny | Nie mylić z wykładem ani egzaminem. | Konsultacja z matematyki w poniedziałek o 12:00. | Termin konsultacji, Wykładowca, Student | Karta projektu 0.3; znaczenie do potwierdzenia |
 | Termin konsultacji | Określony dzień oraz przedział godzin rozpoczęcia i zakończenia konsultacji udostępniony do zapisów. | termin, slot (potocznie) | Nie mylić z terminem oddania pracy. | wybrany dzień, 12:00–12:20. | Konsultacja, Limit miejsc, Wykładowca | Założenie zespołu — do potwierdzenia |
