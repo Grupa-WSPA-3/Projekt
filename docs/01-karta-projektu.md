@@ -145,7 +145,7 @@ Szczegółowy rejestr ryzyk znajduje się w `docs/13-ryzyka.md`.
 
 ---
 
-## 13. Wstępnie rozważane technologie
+## 13. Wstępnie rozważane technologie 
 
 Ta część nie oznacza zatwierdzenia stosu technologicznego aplikacji. Wybór implementacji powinien nastąpić po dalszej analizie procesów, danych i architektury.
 
