@@ -16,8 +16,8 @@ Potrzeby N-xx pozostają hipotezami wyprowadzonymi z karty projektu, ponieważ n
 | N-04 | FR-08 Kontrola limitu przy zapisie | US-03 | Must | P-01.6–P-01.7 |
 | N-04 | FR-09 Brak duplikatu aktywnego zapisu | US-03 | Must | P-01.6–P-01.7 |
 | N-05 | FR-10 Anulowanie własnego zapisu | US-04 | Must | P-03.2–P-03.7 |
-| N-06 | FR-11 Tworzenie terminu | US-05 | Must | P-02.3–P-02.5, P-02.8–P-02.9 |
-| N-06 | FR-12 Edycja nieobsadzonego terminu | — | Should | P-02.4–P-02.7 |
+| N-06 | FR-11 Tworzenie terminu | US-05 | Must | P-02.3–P-02.5, P-02.7 |
+| N-06 | FR-12 Edycja nieobsadzonego terminu | — | Should | P-02.4–P-02.6 |
 | N-07, N-09 | FR-13 Lista zapisów dla własnego terminu | — | Should | P-02.8–P-02.9 |
 | N-06 | FR-14 Anulowanie własnej konsultacji | US-06 | Must | P-02.10–P-02.13 |
 | N-08 | FR-15 Zarządzanie kontami i rolami | — | Should | — (zarządzanie kontami jest poza P-00–P-03) |
@@ -37,10 +37,10 @@ Potrzeby N-xx pozostają hipotezami wyprowadzonymi z karty projektu, ponieważ n
 | N-04 | BR-03 Brak duplikatu aktywnego zapisu | US-03 | Must / reguła | P-01.6–P-01.7 |
 | N-05, N-06, N-08, N-09 | BR-04 Właściciel operacji i role | US-01 / US-04 / US-06 | Must / reguła | P-01.1, P-01.6, P-02.2, P-02.5, P-02.10–P-02.12, P-03.1–P-03.4 |
 | N-06 | BR-05 Edycja tylko nieobsadzonego terminu | — | Should / reguła | P-02.3–P-02.6 |
-| N-06, N-10 | BR-06 Anulowany termin i powiązane zapisy | US-06 | Must / reguła | P-02.8–P-02.10 |
+| N-06, N-10 | BR-06 Anulowany termin i powiązane zapisy | US-06 | Must / reguła | P-02.10–P-02.14 |
 | N-04, N-05 | BR-07 Anulowany zapis zwalnia miejsce | US-03 / US-04 | Must / reguła | P-03.4–P-03.7 |
-| N-07, N-09 | BR-08 Ograniczenie widoczności listy zapisów | — | Should / reguła | P-02.7 |
-| N-08, N-09 | BR-09 Jedna podstawowa rola konta | US-01 | Should / reguła | P-01.1, P-02.1, P-03.1 |
+| N-07, N-09 | BR-08 Ograniczenie widoczności listy zapisów | — | Should / reguła | P-02.8–P-02.9 |
+| N-08, N-09 | BR-09 Jedna podstawowa rola konta | US-01 | Should / reguła | P-01.1, P-02.2, P-03.1 |
 
 ## Kontrola macierzy
 
