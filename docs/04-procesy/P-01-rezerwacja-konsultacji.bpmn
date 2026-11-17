@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_P01" targetNamespace="https://wspa.example/skw">
+  <bpmn:collaboration id="Collaboration_P-01"><bpmn:participant id="Participant_P-01" name="Uczelnia" processRef="Process_P01"/></bpmn:collaboration>
+  <bpmn:process id="Process_P01" name="P-01 Przeglądanie i zapis na konsultację" isExecutable="false">
+    <bpmn:laneSet id="LaneSet_P01">
+      <bpmn:lane id="Lane_P01_Student" name="Student"><bpmn:flowNodeRef>Start_P01</bpmn:flowNodeRef><bpmn:flowNodeRef>Login_P01</bpmn:flowNodeRef><bpmn:flowNodeRef>Browse_P01</bpmn:flowNodeRef><bpmn:flowNodeRef>Filter_P01</bpmn:flowNodeRef><bpmn:flowNodeRef>Details_P01</bpmn:flowNodeRef><bpmn:flowNodeRef>Submit_P01</bpmn:flowNodeRef></bpmn:lane>
+      <bpmn:lane id="Lane_P01_System" name="System SKW"><bpmn:flowNodeRef>Access_P01</bpmn:flowNodeRef><bpmn:flowNodeRef>End_Access_P01</bpmn:flowNodeRef><bpmn:flowNodeRef>Validate_P01</bpmn:flowNodeRef><bpmn:flowNodeRef>Available_P01</bpmn:flowNodeRef><bpmn:flowNodeRef>Duplicate_P01</bpmn:flowNodeRef><bpmn:flowNodeRef>Create_P01</bpmn:flowNodeRef><bpmn:flowNodeRef>Show_P01</bpmn:flowNodeRef><bpmn:flowNodeRef>End_Unavailable_P01</bpmn:flowNodeRef><bpmn:flowNodeRef>End_Duplicate_P01</bpmn:flowNodeRef><bpmn:flowNodeRef>End_Success_P01</bpmn:flowNodeRef></bpmn:lane>
+    </bpmn:laneSet>
+    <bpmn:startEvent id="Start_P01" name="Student szuka konsultacji"/>
+    <bpmn:userTask id="Login_P01" name="Zaloguj się do SKW"/>
+    <bpmn:exclusiveGateway id="Access_P01" name="Czy użytkownik ma rolę Student?"/>
+    <bpmn:userTask id="Browse_P01" name="Przeglądaj przyszłe terminy"/>
+    <bpmn:userTask id="Filter_P01" name="Filtruj listę terminów"/>
+    <bpmn:userTask id="Details_P01" name="Otwórz szczegóły terminu"/>
+    <bpmn:userTask id="Submit_P01" name="Zatwierdź zapis na termin"/>
+    <bpmn:serviceTask id="Validate_P01" name="Sprawdź termin, limit i zapis"/>
+    <bpmn:exclusiveGateway id="Available_P01" name="Czy termin jest dostępny?"/>
+    <bpmn:exclusiveGateway id="Duplicate_P01" name="Czy istnieje już aktywny zapis?"/>
+    <bpmn:serviceTask id="Create_P01" name="Utwórz aktywny zapis"/>
+    <bpmn:serviceTask id="Show_P01" name="Wyświetl potwierdzenie i status"/>
+    <bpmn:endEvent id="End_Access_P01" name="Odmowa dostępu"/>
+    <bpmn:endEvent id="End_Unavailable_P01" name="Termin niedostępny"/>
+    <bpmn:endEvent id="End_Duplicate_P01" name="Zapis już istnieje"/>
+    <bpmn:endEvent id="End_Success_P01" name="Zapis potwierdzony"/>
+    <bpmn:sequenceFlow id="F01_1" sourceRef="Start_P01" targetRef="Login_P01"/>
+    <bpmn:sequenceFlow id="F01_2" sourceRef="Login_P01" targetRef="Access_P01"/>
+    <bpmn:sequenceFlow id="F01_3" name="nie" sourceRef="Access_P01" targetRef="End_Access_P01"/>
+    <bpmn:sequenceFlow id="F01_4" name="tak" sourceRef="Access_P01" targetRef="Browse_P01"/>
+    <bpmn:sequenceFlow id="F01_5" sourceRef="Browse_P01" targetRef="Filter_P01"/>
+    <bpmn:sequenceFlow id="F01_6" sourceRef="Filter_P01" targetRef="Details_P01"/>
+    <bpmn:sequenceFlow id="F01_7" sourceRef="Details_P01" targetRef="Submit_P01"/>
+    <bpmn:sequenceFlow id="F01_8" sourceRef="Submit_P01" targetRef="Validate_P01"/>
+    <bpmn:sequenceFlow id="F01_9" sourceRef="Validate_P01" targetRef="Available_P01"/>
+    <bpmn:sequenceFlow id="F01_10" name="nie — termin pełny, przeszły lub anulowany" sourceRef="Available_P01" targetRef="End_Unavailable_P01"/>
+    <bpmn:sequenceFlow id="F01_11" name="tak" sourceRef="Available_P01" targetRef="Duplicate_P01"/>
+    <bpmn:sequenceFlow id="F01_12" name="tak" sourceRef="Duplicate_P01" targetRef="End_Duplicate_P01"/>
+    <bpmn:sequenceFlow id="F01_13" name="nie" sourceRef="Duplicate_P01" targetRef="Create_P01"/>
+    <bpmn:sequenceFlow id="F01_14" sourceRef="Create_P01" targetRef="Show_P01"/>
+    <bpmn:sequenceFlow id="F01_15" sourceRef="Show_P01" targetRef="End_Success_P01"/>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="Diagram_P01"><bpmndi:BPMNPlane id="Plane_P01" bpmnElement="Collaboration_P-01">
+    <bpmndi:BPMNShape id="LaneShape_P01_Student" bpmnElement="Lane_P01_Student" isHorizontal="true"><dc:Bounds x="35" y="55" width="1850" height="160"/></bpmndi:BPMNShape>
+    <bpmndi:BPMNShape id="LaneShape_P01_System" bpmnElement="Lane_P01_System" isHorizontal="true"><dc:Bounds x="35" y="215" width="1850" height="230"/></bpmndi:BPMNShape>
+    <bpmndi:BPMNShape id="Shape_Start_P01" bpmnElement="Start_P01"><dc:Bounds x="60" y="130" width="36" height="36"/></bpmndi:BPMNShape>
+    <bpmndi:BPMNShape id="Shape_Login_P01" bpmnElement="Login_P01"><dc:Bounds x="130" y="115" width="120" height="65"/></bpmndi:BPMNShape>
+    <bpmndi:BPMNShape id="Shape_Access_P01" bpmnElement="Access_P01"><dc:Bounds x="300" y="302" width="50" height="50"/></bpmndi:BPMNShape>
+    <bpmndi:BPMNShape id="Shape_Browse_P01" bpmnElement="Browse_P01"><dc:Bounds x="400" y="115" width="120" height="65"/></bpmndi:BPMNShape>
+    <bpmndi:BPMNShape id="Shape_Filter_P01" bpmnElement="Filter_P01"><dc:Bounds x="550" y="115" width="120" height="65"/></bpmndi:BPMNShape>
+    <bpmndi:BPMNShape id="Shape_Details_P01" bpmnElement="Details_P01"><dc:Bounds x="700" y="115" width="120" height="65"/></bpmndi:BPMNShape>
+    <bpmndi:BPMNShape id="Shape_Submit_P01" bpmnElement="Submit_P01"><dc:Bounds x="850" y="115" width="120" height="65"/></bpmndi:BPMNShape>
+    <bpmndi:BPMNShape id="Shape_Validate_P01" bpmnElement="Validate_P01"><dc:Bounds x="1010" y="295" width="130" height="65"/></bpmndi:BPMNShape>
+    <bpmndi:BPMNShape id="Shape_Available_P01" bpmnElement="Available_P01"><dc:Bounds x="1180" y="302" width="50" height="50"/></bpmndi:BPMNShape>
+    <bpmndi:BPMNShape id="Shape_Duplicate_P01" bpmnElement="Duplicate_P01"><dc:Bounds x="1320" y="302" width="50" height="50"/></bpmndi:BPMNShape>
+    <bpmndi:BPMNShape id="Shape_Create_P01" bpmnElement="Create_P01"><dc:Bounds x="1420" y="295" width="130" height="65"/></bpmndi:BPMNShape>
+    <bpmndi:BPMNShape id="Shape_Show_P01" bpmnElement="Show_P01"><dc:Bounds x="1590" y="295" width="130" height="65"/></bpmndi:BPMNShape>
+    <bpmndi:BPMNShape id="Shape_End_Access_P01" bpmnElement="End_Access_P01"><dc:Bounds x="307" y="390" width="36" height="36"/></bpmndi:BPMNShape>
+    <bpmndi:BPMNShape id="Shape_End_Unavailable_P01" bpmnElement="End_Unavailable_P01"><dc:Bounds x="1170" y="390" width="36" height="36"/></bpmndi:BPMNShape>
+    <bpmndi:BPMNShape id="Shape_End_Duplicate_P01" bpmnElement="End_Duplicate_P01"><dc:Bounds x="1327" y="390" width="36" height="36"/></bpmndi:BPMNShape>
+    <bpmndi:BPMNShape id="Shape_End_Success_P01" bpmnElement="End_Success_P01"><dc:Bounds x="1770" y="310" width="36" height="36"/></bpmndi:BPMNShape>
+    <bpmndi:BPMNEdge id="Edge_F01_1" bpmnElement="F01_1"><di:waypoint x="96" y="148"/><di:waypoint x="113" y="148"/><di:waypoint x="113" y="147.5"/><di:waypoint x="130" y="147.5"/></bpmndi:BPMNEdge><bpmndi:BPMNEdge id="Edge_F01_2" bpmnElement="F01_2"><di:waypoint x="250" y="147.5"/><di:waypoint x="275" y="147.5"/><di:waypoint x="275" y="147.5"/><di:waypoint x="275" y="327"/><di:waypoint x="300" y="327"/></bpmndi:BPMNEdge><bpmndi:BPMNEdge id="Edge_F01_3" bpmnElement="F01_3"><di:waypoint x="350" y="147"/><di:waypoint x="329" y="327"/><di:waypoint x="329" y="408"/><di:waypoint x="307" y="408"/></bpmndi:BPMNEdge><bpmndi:BPMNEdge id="Edge_F01_4" bpmnElement="F01_4"><di:waypoint x="350" y="147"/><di:waypoint x="375" y="327"/><di:waypoint x="375" y="147.5"/><di:waypoint x="400" y="147.5"/></bpmndi:BPMNEdge><bpmndi:BPMNEdge id="Edge_F01_5" bpmnElement="F01_5"><di:waypoint x="520" y="147.5"/><di:waypoint x="535" y="147.5"/><di:waypoint x="535" y="147.5"/><di:waypoint x="550" y="147.5"/></bpmndi:BPMNEdge><bpmndi:BPMNEdge id="Edge_F01_6" bpmnElement="F01_6"><di:waypoint x="670" y="147.5"/><di:waypoint x="685" y="147.5"/><di:waypoint x="685" y="147.5"/><di:waypoint x="700" y="147.5"/></bpmndi:BPMNEdge><bpmndi:BPMNEdge id="Edge_F01_7" bpmnElement="F01_7"><di:waypoint x="820" y="147.5"/><di:waypoint x="835" y="147.5"/><di:waypoint x="835" y="147.5"/><di:waypoint x="850" y="147.5"/></bpmndi:BPMNEdge><bpmndi:BPMNEdge id="Edge_F01_8" bpmnElement="F01_8"><di:waypoint x="970" y="147.5"/><di:waypoint x="990" y="147.5"/><di:waypoint x="990" y="327.5"/><di:waypoint x="1010" y="327.5"/></bpmndi:BPMNEdge><bpmndi:BPMNEdge id="Edge_F01_9" bpmnElement="F01_9"><di:waypoint x="1140" y="327.5"/><di:waypoint x="1160" y="327.5"/><di:waypoint x="1160" y="327"/><di:waypoint x="1180" y="327"/></bpmndi:BPMNEdge><bpmndi:BPMNEdge id="Edge_F01_10" bpmnElement="F01_10"><di:waypoint x="1180" y="327"/><di:waypoint x="1193" y="327"/><di:waypoint x="1193" y="408"/><di:waypoint x="1206" y="408"/></bpmndi:BPMNEdge><bpmndi:BPMNEdge id="Edge_F01_11" bpmnElement="F01_11"><di:waypoint x="1230" y="327"/><di:waypoint x="1275" y="327"/><di:waypoint x="1275" y="327"/><di:waypoint x="1320" y="327"/></bpmndi:BPMNEdge><bpmndi:BPMNEdge id="Edge_F01_12" bpmnElement="F01_12"><di:waypoint x="1370" y="327"/><di:waypoint x="1349" y="327"/><di:waypoint x="1349" y="408"/><di:waypoint x="1327" y="408"/></bpmndi:BPMNEdge><bpmndi:BPMNEdge id="Edge_F01_13" bpmnElement="F01_13"><di:waypoint x="1370" y="327"/><di:waypoint x="1395" y="327"/><di:waypoint x="1395" y="327.5"/><di:waypoint x="1420" y="327.5"/></bpmndi:BPMNEdge><bpmndi:BPMNEdge id="Edge_F01_14" bpmnElement="F01_14"><di:waypoint x="1550" y="327.5"/><di:waypoint x="1570" y="327.5"/><di:waypoint x="1570" y="327.5"/><di:waypoint x="1590" y="327.5"/></bpmndi:BPMNEdge><bpmndi:BPMNEdge id="Edge_F01_15" bpmnElement="F01_15"><di:waypoint x="1720" y="327.5"/><di:waypoint x="1745" y="327.5"/><di:waypoint x="1745" y="328"/><di:waypoint x="1770" y="328"/></bpmndi:BPMNEdge>
+  </bpmndi:BPMNPlane></bpmndi:BPMNDiagram>
+</bpmn:definitions>

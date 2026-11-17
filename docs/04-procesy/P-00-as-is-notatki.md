@@ -13,9 +13,10 @@ Opisać, jak student uzgadnia termin konsultacji z wykładowcą w obecnym stanie
 | 1 | Student | szuka informacji o terminach konsultacji | strona przedmiotu, wiadomości lub informacja ustna — do potwierdzenia | informacje mogą być rozproszone (N-01) |
 | 2 | Student | kontaktuje się z wykładowcą z prośbą o termin | e-mail, komunikator lub rozmowa — zgodnie z kartą projektu | konieczność ręcznego uzgadniania (N-01, N-02) |
 | 3 | Wykładowca | proponuje termin lub odpowiada, kiedy ma czas | wiadomość / rozmowa | brak wspólnego aktualnego widoku dostępności (N-01) |
-| 4 | Student i wykładowca | potwierdzają ustalony termin | wiadomość / rozmowa | możliwe wielokrotne wiadomości (N-04) |
-| 5 | Wykładowca | prowadzi listę zapisanych osób lub pamięta ustalenia | osobna lista / skrzynka / pamięć — wymaga wywiadu | lista może nie być aktualna (N-07) |
-| 6 | Student lub wykładowca | informuje o rezygnacji albo odwołaniu | wiadomość / rozmowa | inni uczestnicy mogą nie wiedzieć o zmianie (N-05, N-06, N-10) |
+| 4 | Student | ocenia zaproponowany termin | informacja otrzymana od wykładowcy | konieczność ręcznego uzgodnienia dogodnego terminu (N-02) |
+| 5 | Student i wykładowca | potwierdzają ustalony termin | wiadomość / rozmowa | możliwe wielokrotne wiadomości (N-02) |
+| 6 | Wykładowca | prowadzi listę zapisanych osób lub pamięta ustalenia | osobna lista / skrzynka / pamięć — wymaga wywiadu | lista może nie być aktualna (N-07) |
+| 7 | Student | informuje o rezygnacji albo zmianie własnego udziału | wiadomość / rozmowa | inni uczestnicy mogą nie wiedzieć o zmianie (N-05, N-06, N-10) |
 
 ## Schemat roboczy (niezatwierdzony)
 
@@ -23,15 +24,17 @@ Opisać, jak student uzgadnia termin konsultacji z wykładowcą w obecnym stanie
 flowchart TD
     A([Student potrzebuje konsultacji]) --> B[Sprawdza dostępne informacje]
     B --> C[Kontaktuje się z wykładowcą]
-    C --> D{Czy udało się uzgodnić termin?}
-    D -->|Nie| E[Ponawia kontakt lub szuka innego terminu]
-    E --> C
-    D -->|Tak| F[Student i wykładowca potwierdzają ustalenie]
-    F --> G[Wykładowca ręcznie śledzi listę zapisów]
-    G --> H{Czy termin ulega zmianie?}
-    H -->|Nie| I([Konsultacja się odbywa])
-    H -->|Tak| J[Strony kontaktują się ponownie]
-    J --> K([Termin zmieniony lub odwołany])
+    C --> D[Wykładowca proponuje termin]
+    D --> E[Student ocenia propozycję]
+    E --> F{Czy termin jest odpowiedni?}
+    F -->|Nie| G[Ponawiają uzgadnianie lub rezygnują]
+    G --> C
+    F -->|Tak| H[Student i wykładowca potwierdzają ustalenie]
+    H --> I[Wykładowca ręcznie śledzi listę zapisów]
+    I --> J{Czy termin ulega zmianie?}
+    J -->|Nie| K([Konsultacja uzgodniona])
+    J -->|Tak| L[Student przekazuje informację o zmianie lub rezygnacji]
+    L --> M([Termin zmieniony lub anulowany])
 ```
 
 ## Co trzeba ustalić podczas wywiadu
