@@ -35,7 +35,7 @@ Potrzeby N-xx pozostają hipotezami wyprowadzonymi z karty projektu, ponieważ n
 | N-06 | BR-01 Poprawny zakres terminu | US-05 | Must / reguła | P-02.4–P-02.5 |
 | N-04 | BR-02 Limit aktywnych zapisów | US-02 / US-03 | Must / reguła | P-01.7–P-01.8 |
 | N-04 | BR-03 Brak duplikatu aktywnego zapisu | US-03 | Must / reguła | P-01.7–P-01.8 |
-| N-05, N-06, N-08, N-09 | BR-04 Właściciel operacji i role | US-01 / US-04 / US-06 | Must / reguła | P-02.5, P-02.11–P-02.12, P-03.1–P-03.4 |
+| N-05, N-06, N-08, N-09 | BR-04 Właściciel operacji i role | US-01 / US-04 / US-06 | Must / reguła | P-02.5, P-02.10–P-02.12, P-03.1–P-03.4 |
 | N-06 | BR-05 Edycja tylko nieobsadzonego terminu | — | Should / reguła | P-02.4–P-02.7 |
 | N-06, N-10 | BR-06 Anulowany termin i powiązane zapisy | US-06 | Must / reguła | P-02.10–P-02.14 |
 | N-04, N-05 | BR-07 Anulowany zapis zwalnia miejsce | US-03 / US-04 | Must / reguła | P-03.4–P-03.7 |
