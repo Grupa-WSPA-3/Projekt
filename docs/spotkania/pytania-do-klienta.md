@@ -17,7 +17,7 @@
 7. Co się dzieje, gdy wykładowca musi odwołać konsultację?
 8. Co się dzieje, gdy student nie może przyjść po zapisaniu się?
 9. Jak obecnie wykładowca sprawdza, kto planuje przyjść?
-10. Jakie nietypowe sytuacje zdarzają się najczęściej i jak są rozwiązywane?
+10. Jakie nietypowe sytuacje zdarzają się najczęściej i jak są rozwiązywane? 
 
 ## C. Użytkownicy i uprawnienia
 
