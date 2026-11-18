@@ -7,7 +7,7 @@
 
 | ID | Proces | Typ | Główna rola | Pliki |
 |---|---|---|---|---|
-| P-00 | Obecny sposób uzgadniania konsultacji | AS-IS | Student, Wykładowca | [notatki P-00](P-00-as-is-notatki.md) |
+| P-00 | Obecny sposób uzgadniania konsultacji | AS-IS — hipoteza do walidacji | Student, Wykładowca | [notatki](P-00-as-is-notatki.md), [BPMN 2.0](P-00-rezerwacja-as-is.bpmn), [SVG](P-00-rezerwacja-as-is.svg) |
 | P-01 | Przeglądanie i zapis na konsultację | TO-BE — proces główny | Student, System SKW | [opis i kroki](P-01-rezerwacja-konsultacji.md), [BPMN 2.0](P-01-rezerwacja-konsultacji.bpmn), [SVG](P-01-rezerwacja-konsultacji.svg) |
 | P-02 | Zarządzanie terminami przez wykładowcę | TO-BE — proces pomocniczy | Wykładowca, System SKW | [opis i kroki](P-02-zarzadzanie-terminami.md) |
 | P-03 | Anulowanie własnego zapisu | TO-BE — proces pomocniczy | Student, System SKW | [opis i kroki](P-03-anulowanie-zapisu.md) |
@@ -20,7 +20,7 @@
 4. Bramki mają jawne pytania, a ich wyjścia są podpisane.
 5. Różne wyniki procesu kończą się odrębnymi zdarzeniami końcowymi.
 6. Każdy krok systemowy jest powiązany z FR lub ma jawne uzasadnienie braku mapowania.
-7. Plik BPMN i eksport SVG dotyczą tej samej wersji P-01.
+7. Pliki BPMN i eksport SVG dotyczą tej samej wersji odpowiedniego procesu P-00 / P-01.
 
 ## Założenia i zakres walidacji
 
