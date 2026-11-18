@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL"
+  xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+  xmlns:dc="http://www.omg.org/spec/DD/20100524/DC"
+  xmlns:di="http://www.omg.org/spec/DD/20100524/DI"
+  id="Definitions_SKW_P00"
+  targetNamespace="https://github.com/Grupa-WSPA-3/Projekt/skw/bpmn">
+
+  <bpmn:collaboration id="Collaboration_P00" name="P-00 — Obecny sposób organizacji konsultacji">
+    <bpmn:participant id="Participant_University_P00" name="Uczelnia" processRef="Process_P00"/>
+  </bpmn:collaboration>
+
+  <bpmn:process id="Process_P00" name="P-00 — Obecny sposób organizacji konsultacji (AS-IS)" isExecutable="false">
+    <bpmn:laneSet id="LaneSet_P00">
+      <bpmn:lane id="Lane_Student_P00" name="Student">
+        <bpmn:flowNodeRef>Start_NeedConsultation</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_SearchInformation</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_ContactLecturer</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_ReviewAlternative</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Gateway_AcceptAlternative</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_ConfirmTerm</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>End_NoAgreement</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_Lecturer_P00" name="Wykładowca">
+        <bpmn:flowNodeRef>Task_CheckAvailability</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Gateway_Available</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_ProposeAlternative</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_RecordAgreement</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_SendConfirmation</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Gateway_Change</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_NotifyChange</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>End_Agreed</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>End_Changed</bpmn:flowNodeRef>
+      </bpmn:lane>
+    </bpmn:laneSet>
+
+    <bpmn:startEvent id="Start_NeedConsultation" name="Student potrzebuje konsultacji"/>
+    <bpmn:manualTask id="Task_SearchInformation" name="Szuka informacji na stronie, w ogłoszeniu lub ustnie"/>
+    <bpmn:manualTask id="Task_ContactLecturer" name="Kontaktuje się z wykładowcą przez e-mail, komunikator lub telefon"/>
+    <bpmn:manualTask id="Task_CheckAvailability" name="Sprawdza własny kalendarz, plan lub prywatną listę"/>
+    <bpmn:exclusiveGateway id="Gateway_Available" name="Czy można uzgodnić wskazany termin?"/>
+    <bpmn:manualTask id="Task_ProposeAlternative" name="Proponuje inny termin i czeka na odpowiedź"/>
+    <bpmn:manualTask id="Task_ReviewAlternative" name="Rozważa zaproponowany termin"/>
+    <bpmn:exclusiveGateway id="Gateway_AcceptAlternative" name="Czy student akceptuje termin alternatywny?"/>
+    <bpmn:manualTask id="Task_ConfirmTerm" name="Potwierdza uzgodniony termin w wiadomości lub rozmowie"/>
+    <bpmn:manualTask id="Task_RecordAgreement" name="Zapisuje ustalenie w prywatnym kalendarzu lub liście"/>
+    <bpmn:manualTask id="Task_SendConfirmation" name="Przekazuje potwierdzenie studentowi"/>
+    <bpmn:exclusiveGateway id="Gateway_Change" name="Czy termin zostaje później zmieniony lub odwołany?"/>
+    <bpmn:manualTask id="Task_NotifyChange" name="Kontaktuje się ponownie, aby uzgodnić zmianę lub odwołanie"/>
+    <bpmn:endEvent id="End_NoAgreement" name="Koniec: nie uzgodniono terminu"/>
+    <bpmn:endEvent id="End_Agreed" name="Koniec: termin uzgodniony"/>
+    <bpmn:endEvent id="End_Changed" name="Koniec: termin zmieniony lub odwołany"/>
+
+    <bpmn:sequenceFlow id="P00_F01" sourceRef="Start_NeedConsultation" targetRef="Task_SearchInformation"/>
+    <bpmn:sequenceFlow id="P00_F02" sourceRef="Task_SearchInformation" targetRef="Task_ContactLecturer"/>
+    <bpmn:sequenceFlow id="P00_F03" sourceRef="Task_ContactLecturer" targetRef="Task_CheckAvailability"/>
+    <bpmn:sequenceFlow id="P00_F04" sourceRef="Task_CheckAvailability" targetRef="Gateway_Available"/>
+    <bpmn:sequenceFlow id="P00_F05_yes" name="TAK" sourceRef="Gateway_Available" targetRef="Task_ConfirmTerm"/>
+    <bpmn:sequenceFlow id="P00_F05_no" name="NIE" sourceRef="Gateway_Available" targetRef="Task_ProposeAlternative"/>
+    <bpmn:sequenceFlow id="P00_F06" sourceRef="Task_ProposeAlternative" targetRef="Task_ReviewAlternative"/>
+    <bpmn:sequenceFlow id="P00_F07" sourceRef="Task_ReviewAlternative" targetRef="Gateway_AcceptAlternative"/>
+    <bpmn:sequenceFlow id="P00_F08_yes" name="TAK" sourceRef="Gateway_AcceptAlternative" targetRef="Task_ConfirmTerm"/>
+    <bpmn:sequenceFlow id="P00_F08_no" name="NIE" sourceRef="Gateway_AcceptAlternative" targetRef="End_NoAgreement"/>
+    <bpmn:sequenceFlow id="P00_F09" sourceRef="Task_ConfirmTerm" targetRef="Task_RecordAgreement"/>
+    <bpmn:sequenceFlow id="P00_F10" sourceRef="Task_RecordAgreement" targetRef="Task_SendConfirmation"/>
+    <bpmn:sequenceFlow id="P00_F11" sourceRef="Task_SendConfirmation" targetRef="Gateway_Change"/>
+    <bpmn:sequenceFlow id="P00_F12_no" name="NIE" sourceRef="Gateway_Change" targetRef="End_Agreed"/>
+    <bpmn:sequenceFlow id="P00_F12_yes" name="TAK" sourceRef="Gateway_Change" targetRef="Task_NotifyChange"/>
+    <bpmn:sequenceFlow id="P00_F13" sourceRef="Task_NotifyChange" targetRef="End_Changed"/>
+  </bpmn:process>
+
+  <bpmndi:BPMNDiagram id="Diagram_P00">
+    <bpmndi:BPMNPlane id="Plane_P00" bpmnElement="Collaboration_P00">
+      <bpmndi:BPMNShape id="P00_Shape_Pool" bpmnElement="Participant_University_P00" isHorizontal="true"><dc:Bounds x="60" y="70" width="2390" height="570"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="P00_Shape_StudentLane" bpmnElement="Lane_Student_P00" isHorizontal="true"><dc:Bounds x="60" y="70" width="2390" height="260"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="P00_Shape_LecturerLane" bpmnElement="Lane_Lecturer_P00" isHorizontal="true"><dc:Bounds x="60" y="330" width="2390" height="310"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="P00_Shape_Start" bpmnElement="Start_NeedConsultation"><dc:Bounds x="110" y="175" width="36" height="36"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="P00_Shape_Search" bpmnElement="Task_SearchInformation"><dc:Bounds x="180" y="155" width="145" height="76"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="P00_Shape_Contact" bpmnElement="Task_ContactLecturer"><dc:Bounds x="370" y="155" width="160" height="76"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="P00_Shape_Check" bpmnElement="Task_CheckAvailability"><dc:Bounds x="575" y="430" width="165" height="76"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="P00_Shape_Available" bpmnElement="Gateway_Available" isMarkerVisible="true"><dc:Bounds x="790" y="443" width="50" height="50"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="P00_Shape_Propose" bpmnElement="Task_ProposeAlternative"><dc:Bounds x="890" y="545" width="160" height="76"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="P00_Shape_Review" bpmnElement="Task_ReviewAlternative"><dc:Bounds x="1085" y="155" width="160" height="76"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="P00_Shape_Accept" bpmnElement="Gateway_AcceptAlternative" isMarkerVisible="true"><dc:Bounds x="1280" y="168" width="50" height="50"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="P00_Shape_Confirm" bpmnElement="Task_ConfirmTerm"><dc:Bounds x="1390" y="155" width="165" height="76"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="P00_Shape_Record" bpmnElement="Task_RecordAgreement"><dc:Bounds x="1610" y="430" width="165" height="76"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="P00_Shape_Send" bpmnElement="Task_SendConfirmation"><dc:Bounds x="1820" y="430" width="165" height="76"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="P00_Shape_Change" bpmnElement="Gateway_Change" isMarkerVisible="true"><dc:Bounds x="2030" y="443" width="50" height="50"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="P00_Shape_NotifyChange" bpmnElement="Task_NotifyChange"><dc:Bounds x="2110" y="545" width="165" height="76"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="P00_Shape_EndNo" bpmnElement="End_NoAgreement"><dc:Bounds x="1450" y="175" width="36" height="36"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="P00_Shape_EndAgreed" bpmnElement="End_Agreed"><dc:Bounds x="2210" y="175" width="36" height="36"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="P00_Shape_EndChanged" bpmnElement="End_Changed"><dc:Bounds x="2330" y="565" width="36" height="36"/></bpmndi:BPMNShape>
+
+      <bpmndi:BPMNEdge id="P00_Edge01" bpmnElement="P00_F01"><di:waypoint x="146" y="193"/><di:waypoint x="180" y="193"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="P00_Edge02" bpmnElement="P00_F02"><di:waypoint x="325" y="193"/><di:waypoint x="370" y="193"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="P00_Edge03" bpmnElement="P00_F03"><di:waypoint x="530" y="193"/><di:waypoint x="550" y="193"/><di:waypoint x="550" y="468"/><di:waypoint x="575" y="468"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="P00_Edge04" bpmnElement="P00_F04"><di:waypoint x="740" y="468"/><di:waypoint x="790" y="468"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="P00_Edge05Yes" bpmnElement="P00_F05_yes"><di:waypoint x="840" y="468"/><di:waypoint x="850" y="468"/><di:waypoint x="850" y="193"/><di:waypoint x="1390" y="193"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="P00_Edge05No" bpmnElement="P00_F05_no"><di:waypoint x="815" y="493"/><di:waypoint x="815" y="583"/><di:waypoint x="890" y="583"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="P00_Edge06" bpmnElement="P00_F06"><di:waypoint x="1050" y="583"/><di:waypoint x="1065" y="583"/><di:waypoint x="1065" y="193"/><di:waypoint x="1085" y="193"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="P00_Edge07" bpmnElement="P00_F07"><di:waypoint x="1245" y="193"/><di:waypoint x="1280" y="193"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="P00_Edge08Yes" bpmnElement="P00_F08_yes"><di:waypoint x="1330" y="193"/><di:waypoint x="1390" y="193"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="P00_Edge08No" bpmnElement="P00_F08_no"><di:waypoint x="1305" y="218"/><di:waypoint x="1305" y="270"/><di:waypoint x="1468" y="270"/><di:waypoint x="1468" y="211"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="P00_Edge09" bpmnElement="P00_F09"><di:waypoint x="1555" y="193"/><di:waypoint x="1580" y="193"/><di:waypoint x="1580" y="468"/><di:waypoint x="1610" y="468"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="P00_Edge10" bpmnElement="P00_F10"><di:waypoint x="1775" y="468"/><di:waypoint x="1820" y="468"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="P00_Edge11" bpmnElement="P00_F11"><di:waypoint x="1985" y="468"/><di:waypoint x="2030" y="468"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="P00_Edge12No" bpmnElement="P00_F12_no"><di:waypoint x="2055" y="443"/><di:waypoint x="2055" y="193"/><di:waypoint x="2210" y="193"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="P00_Edge12Yes" bpmnElement="P00_F12_yes"><di:waypoint x="2055" y="493"/><di:waypoint x="2055" y="583"/><di:waypoint x="2110" y="583"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="P00_Edge13" bpmnElement="P00_F13"><di:waypoint x="2275" y="583"/><di:waypoint x="2330" y="583"/></bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
