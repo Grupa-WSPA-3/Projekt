@@ -1,38 +1,74 @@
-# Dokumentacja projektu SKW
+# SKW — System obsługi konsultacji wykładowców
 
-To miejsce zawiera aktualne dokumenty analityczne i materiały projektowe. Zmiany w dokumentacji należy wprowadzać w repozytorium, a większe aktualizacje przesyłać przez Pull Request do przeglądu przez innego członka zespołu.
+**Przedmiot:** Projekt zespołowy systemu informatycznego cz. 1  
+**Stan dokumentacji:** komplet roboczy na koniec 5. zajęć (AS-IS / TO-BE)  
+**Wersja:** 0.2 wymagań, 0.3 słownika, 0.3 karty projektu
 
-## Dokumenty podstawowe
+## Cel projektu
 
-| Plik | Zawartość |
+SKW ma uporządkować zapisy na konsultacje wykładowców w jednym miejscu. Student przegląda dostępne terminy, sprawdza szczegóły i zapisuje się na wybrane miejsce. Wykładowca zarządza własnymi terminami i listą zapisanych osób. System ma ograniczać ręczną wymianę wiadomości i zapobiegać przekroczeniu limitu miejsc.
+
+## Zespół
+
+| Osoba | Główna odpowiedzialność | Login GitHub |
+|---|---|---|
+| Maksym Tymoshenko | koordynacja, analiza wymagań i spójność dokumentacji | `@mtwspa` |
+| Kostiantyn Kyrylenko | model danych i architektura | `@Hryak123` |
+| Sofiia Vetvytska | UI/UX, słownik i dokumentacja | `@miumeowww` |
+| Alina Semeniuk | testowanie, kryteria akceptacji i kontrola reguł | `@semenukalina89-maker` |
+
+Podział odpowiedzialności ma charakter roboczy; każdy członek zespołu współpracuje przy przeglądzie dokumentów.
+
+## Najważniejsze dokumenty
+
+| Artefakt | Plik |
 |---|---|
-| [01-karta-projektu.md](01-karta-projektu.md) | problem, cel, interesariusze, użytkownicy, zakres IN/OUT, założenia i ryzyka |
-| [02-slownik.md](02-slownik.md) | pojęcia dziedzinowe, definicje, synonimy, homonimy i źródła |
-| [03-wymagania.md](03-wymagania.md) | potrzeby, wstępne FR/NFR, reguły i ograniczenia |
-| [macierz-sledzenia.md](macierz-sledzenia.md) | powiązania potrzeb z wymaganiami |
+| Karta projektu | [docs/01-karta-projektu.md](docs/01-karta-projektu.md) |
+| Słownik dziedzinowy 0.3 | [docs/02-slownik.md](docs/02-slownik.md) |
+| Wymagania 0.2: N, FR, NFR, BR, ograniczenia, historyjki i MoSCoW | [docs/03-wymagania.md](docs/03-wymagania.md) |
+| Procesy AS-IS / TO-BE | [docs/04-procesy/README.md](docs/04-procesy/README.md) |
+| Macierz śledzenia z kolumną „Proces” | [docs/macierz-sledzenia.md](docs/macierz-sledzenia.md) |
+| Przypadki użycia — zakres wstępny | [docs/05-przypadki-uzycia/README.md](docs/05-przypadki-uzycia/README.md) |
+| Diagram kontekstu | [docs/06-architektura/kontekst.md](docs/06-architektura/kontekst.md) |
+| Kandydaci make-or-buy | [docs/06-architektura/make-or-buy.md](docs/06-architektura/make-or-buy.md) |
+| Otwarte kwestie Q-01…Q-14 | [docs/12-otwarte-kwestie.md](docs/12-otwarte-kwestie.md) |
+| Rejestr ryzyk | [docs/13-ryzyka.md](docs/13-ryzyka.md) |
+| Pytania do klienta | [docs/spotkania/pytania-do-klienta.md](docs/spotkania/pytania-do-klienta.md) |
+| Protokół wywiadu | [docs/spotkania/wywiad-1.md](docs/spotkania/wywiad-1.md) |
+| Decyzja o narzędziach | [docs/adr/ADR-001-narzedzia.md](docs/adr/ADR-001-narzedzia.md) |
 
-## Kontekst i rozmowy
+## Zakres opracowany do etapu 5
 
-- [Diagram kontekstu](06-architektura/kontekst.md) — system, role zewnętrzne i przepływy informacji.
-- [Pytania do klienta](spotkania/pytania-do-klienta.md) — pytania do rozmowy i weryfikacji założeń.
-- [Protokół wywiadu](spotkania/wywiad-1.md) — ustalenia, cytaty, terminy, sprzeczności i pytania otwarte.
-- [Otwarte kwestie](12-otwarte-kwestie.md) — pytania z właścicielami i statusem.
-- [Rejestr ryzyk](13-ryzyka.md) — ryzyka projektu i działania ograniczające.
-- [ADR-001](adr/ADR-001-narzedzia.md) — wybór narzędzi pracy.
+- karta projektu, interesariusze, role oraz zakres IN/OUT;
+- słownik dziedzinowy z definicjami, synonimami, homonimami i źródłami;
+- lista potrzeb N-01…N-10 i specyfikacja 18 FR, 8 NFR oraz reguł BR;
+- sześć historyjek użytkownika z kryteriami Given/When/Then i priorytetami MoSCoW;
+- proces AS-IS oraz trzy procesy TO-BE;
+- główny proces P-01 w BPMN 2.0: plik źródłowy `.bpmn` i eksport `.svg`;
+- macierz śledzenia: potrzeba → wymaganie → historyjka → priorytet → krok procesu;
+- otwarte pytania, rejestr ryzyk, Issues i zasady pracy z PR.
 
-## Pozostałe obszary dokumentacji
+## Status wiarygodności
 
-- [04-procesy](04-procesy/README.md) — notatki do rozpoznania obecnego procesu; formalne opisy i diagramy są odrębnymi artefaktami.
-- [05-przypadki-uzycia](05-przypadki-uzycia/README.md)
-- [06-architektura](06-architektura/)
-- [07-model-dziedzinowy](07-model-dziedzinowy/README.md)
-- [08-baza-danych](08-baza-danych/README.md)
-- [09-interfejs](09-interfejs/README.md)
-- [10-model-wdrozenia](10-model-wdrozenia/README.md)
-- [11-plan-testow](11-plan-testow/README.md)
+**Dokumentacja jest spójna roboczo, ale nie wszystkie założenia są potwierdzone przez klienta.** W udostępnionych materiałach nie znaleziono rzeczywistego protokołu wywiadu z odpowiedziami i dosłownymi cytatami. Dlatego proces AS-IS, potrzeby i część reguł zostały oznaczone jako hipotezy zespołu. Nie dopisano fikcyjnych wypowiedzi klienta. Przed uznaniem specyfikacji za ostateczną należy uzupełnić `docs/spotkania/wywiad-1.md` na podstawie faktycznych notatek z zajęć.
 
-Foldery tych obszarów zachowują miejsce na kolejne artefakty. Nie należy interpretować pustego katalogu lub krótkiego README jako ukończonego projektu danego obszaru.
+## Zasady pracy zespołu
 
-## Status i wiarygodność źródeł
+1. Każde zadanie ma GitHub Issue, jednego właściciela i kryterium akceptacji.
+2. Zmiany dokumentacji są wprowadzane przez osobną gałąź i Pull Request.
+3. Każdy PR powinien być sprawdzony przez co najmniej jedną inną osobę; autor nie zatwierdza własnych zmian.
+4. W opisie PR używamy `Closes #numer` wyłącznie wtedy, gdy praca rzeczywiście zamyka dane Issue.
+5. Backlog prowadzimy w GitHub Projects, a zadania źródłowe w Issues.
+6. Statusy Issues, PR, recenzji i commitów muszą odpowiadać rzeczywistym działaniom zespołu.
 
-Potrzeby N-xx oraz część wymagań są hipotezami zespołu wynikającymi z karty projektu. Protokół wywiadu wymaga uzupełnienia rzeczywistymi ustaleniami, cytatami i terminami. Nie dopisujemy fikcyjnych wypowiedzi ani nie oznaczamy niezweryfikowanych założeń jako potwierdzonych.
+## Struktura repozytorium
+
+- `docs/01–03` — karta, słownik i wymagania;
+- `docs/04` — procesy biznesowe AS-IS / TO-BE;
+- `docs/05` — wstępne przypadki użycia;
+- `docs/06` — kontekst i analiza make-or-buy;
+- `docs/07–11` — artefakty kolejnych etapów modelowania, implementacji i testowania;
+- `docs/12–13` — otwarte kwestie i ryzyka;
+- `docs/adr` — decyzje architektoniczne i organizacyjne;
+- `docs/spotkania` — pytania, notatki i protokoły.
+
