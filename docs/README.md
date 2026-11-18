@@ -12,11 +12,14 @@ Dokumentacja przedstawia zakres i model rozwiązania na poziomie roboczym po opr
 | [macierz-sledzenia.md](macierz-sledzenia.md) | powiązania N → FR → US → priorytet → proces |
 | [12-otwarte-kwestie.md](12-otwarte-kwestie.md) | pytania Q-01…Q-14, właściciele, status i linki do Issues |
 | [13-ryzyka.md](13-ryzyka.md) | rejestr ryzyk z prawdopodobieństwem, wpływem, właścicielem i reakcją |
+| [checklista-zajecia-5.md](checklista-zajecia-5.md) | autokontrola wymagań prowadzącego do zajęć 5 i jawne elementy do potwierdzenia |
 
 ## Procesy — `04-procesy/`
 
 - [README.md](04-procesy/README.md) — indeks i konwencja numerowania;
 - [P-00-as-is-notatki.md](04-procesy/P-00-as-is-notatki.md) — hipotetyczny AS-IS, punkty bólu i kwestie do walidacji;
+- [P-00-rezerwacja-as-is.bpmn](04-procesy/P-00-rezerwacja-as-is.bpmn) — źródło BPMN AS-IS;
+- [P-00-rezerwacja-as-is.svg](04-procesy/P-00-rezerwacja-as-is.svg) — eksport diagramu AS-IS;
 - [P-00-rezerwacja-as-is.bpmn](04-procesy/P-00-rezerwacja-as-is.bpmn) — źródło BPMN AS-IS;
 - [P-00-rezerwacja-as-is.svg](04-procesy/P-00-rezerwacja-as-is.svg) — eksport diagramu AS-IS;
 - [P-01-rezerwacja-konsultacji.md](04-procesy/P-01-rezerwacja-konsultacji.md) — główny TO-BE: przeglądanie i zapis;
