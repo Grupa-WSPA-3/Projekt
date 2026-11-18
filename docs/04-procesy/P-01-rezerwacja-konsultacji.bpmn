@@ -17,16 +17,16 @@
         <bpmn:flowNodeRef>Task_ShowAvailable</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Gateway_TermValid</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Task_RejectInvalid</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>End_Invalid</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Gateway_Duplicate</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Task_RejectDuplicate</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>End_Duplicate</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Gateway_SeatAvailable</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Task_RejectFull</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>End_Full</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Task_CreateBooking</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Task_ShowConfirmation</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>End_Booked</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>End_Invalid</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>End_Duplicate</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>End_Full</bpmn:flowNodeRef>
       </bpmn:lane>
     </bpmn:laneSet>
 
@@ -37,16 +37,16 @@
     <bpmn:userTask id="Task_SelectDetails" name="Wybiera termin i sprawdza szczegóły"/>
     <bpmn:exclusiveGateway id="Gateway_TermValid" name="Termin istnieje, jest aktywny i przyszły?"/>
     <bpmn:serviceTask id="Task_RejectInvalid" name="Odrzuca próbę i pokazuje niedostępność"/>
+    <bpmn:endEvent id="End_Invalid" name="Termin niedostępny — bez zapisu"/>
     <bpmn:exclusiveGateway id="Gateway_Duplicate" name="Student ma już aktywny zapis?"/>
     <bpmn:serviceTask id="Task_RejectDuplicate" name="Informuje o istniejącym zapisie"/>
+    <bpmn:endEvent id="End_Duplicate" name="Duplikat — bez nowego zapisu"/>
     <bpmn:exclusiveGateway id="Gateway_SeatAvailable" name="Czy w chwili zatwierdzenia jest wolne miejsce?"/>
     <bpmn:serviceTask id="Task_RejectFull" name="Odrzuca zapis — brak miejsca"/>
+    <bpmn:endEvent id="End_Full" name="Brak miejsca — bez zapisu"/>
     <bpmn:serviceTask id="Task_CreateBooking" name="Atomowo tworzy aktywny zapis"/>
     <bpmn:serviceTask id="Task_ShowConfirmation" name="Wyświetla potwierdzenie i status zapisu"/>
     <bpmn:endEvent id="End_Booked" name="Zapis potwierdzony"/>
-    <bpmn:endEvent id="End_Invalid" name="Termin niedostępny — bez zapisu"/>
-    <bpmn:endEvent id="End_Duplicate" name="Duplikat — bez nowego zapisu"/>
-    <bpmn:endEvent id="End_Full" name="Brak miejsca — bez zapisu"/>
 
     <bpmn:sequenceFlow id="Flow_01" sourceRef="Start_ConsultationNeed" targetRef="Task_OpenList"/>
     <bpmn:sequenceFlow id="Flow_02" sourceRef="Task_OpenList" targetRef="Task_Filter"/>
@@ -69,25 +69,45 @@
   <bpmndi:BPMNDiagram id="Diagram_P01">
     <bpmndi:BPMNPlane id="Plane_P01" bpmnElement="Process_P01">
       <bpmndi:BPMNShape id="Shape_LaneStudent" bpmnElement="Lane_Student" isHorizontal="true">
-        <dc:Bounds x="80" y="80" width="1500" height="170"/>
+        <dc:Bounds x="80" y="80" width="1830" height="170"/>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Shape_LaneSystem" bpmnElement="Lane_System" isHorizontal="true">
-        <dc:Bounds x="80" y="250" width="1500" height="300"/>
+        <dc:Bounds x="80" y="250" width="1830" height="390"/>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Shape_Start" bpmnElement="Start_ConsultationNeed"><dc:Bounds x="110" y="145" width="36" height="36"/></bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Shape_OpenList" bpmnElement="Task_OpenList"><dc:Bounds x="180" y="125" width="120" height="76"/></bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Shape_Filter" bpmnElement="Task_Filter"><dc:Bounds x="335" y="125" width="135" height="76"/></bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Shape_ShowAvailable" bpmnElement="Task_ShowAvailable"><dc:Bounds x="520" y="330" width="160" height="86"/></bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Shape_Select" bpmnElement="Task_SelectDetails"><dc:Bounds x="730" y="125" width="140" height="76"/></bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Shape_GatewayValid" bpmnElement="Gateway_TermValid" isMarkerVisible="true"><dc:Bounds x="930" y="347" width="50" height="50"/></bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Shape_RejectInvalid" bpmnElement="Task_RejectInvalid"><dc:Bounds x="1020" y="445" width="145" height="70"/></bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Shape_GatewayDuplicate" bpmnElement="Gateway_Duplicate" isMarkerVisible="true"><dc:Bounds x="1050" y="330" width="50" height="50"/></bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Shape_RejectDuplicate" bpmnElement="Task_RejectDuplicate"><dc:Bounds x="1160" y="445" width="145" height="70"/></bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Shape_GatewaySeat" bpmnElement="Gateway_SeatAvailable" isMarkerVisible="true"><dc:Bounds x="1165" y="330" width="50" height="50"/></bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Shape_RejectFull" bpmnElement="Task_RejectFull"><dc:Bounds x="1330" y="445" width="130" height="70"/></bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Shape_Create" bpmnElement="Task_CreateBooking"><dc:Bounds x="1280" y="310" width="140" height="70"/></bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Shape_Confirm" bpmnElement="Task_ShowConfirmation"><dc:Bounds x="1435" y="310" width="130" height="70"/></bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Shape_EndBooked" bpmnElement="End_Booked"><dc:Bounds x="1530" y="145" width="36" height="36"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Filter" bpmnElement="Task_Filter"><dc:Bounds x="340" y="125" width="140" height="76"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_ShowAvailable" bpmnElement="Task_ShowAvailable"><dc:Bounds x="530" y="345" width="160" height="80"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Select" bpmnElement="Task_SelectDetails"><dc:Bounds x="740" y="125" width="145" height="76"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_GatewayValid" bpmnElement="Gateway_TermValid" isMarkerVisible="true"><dc:Bounds x="930" y="360" width="50" height="50"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_RejectInvalid" bpmnElement="Task_RejectInvalid"><dc:Bounds x="900" y="500" width="150" height="70"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_EndInvalid" bpmnElement="End_Invalid"><dc:Bounds x="1090" y="518" width="36" height="36"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_GatewayDuplicate" bpmnElement="Gateway_Duplicate" isMarkerVisible="true"><dc:Bounds x="1110" y="360" width="50" height="50"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_RejectDuplicate" bpmnElement="Task_RejectDuplicate"><dc:Bounds x="1080" y="500" width="150" height="70"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_EndDuplicate" bpmnElement="End_Duplicate"><dc:Bounds x="1260" y="518" width="36" height="36"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_GatewaySeat" bpmnElement="Gateway_SeatAvailable" isMarkerVisible="true"><dc:Bounds x="1290" y="360" width="50" height="50"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_RejectFull" bpmnElement="Task_RejectFull"><dc:Bounds x="1270" y="500" width="145" height="70"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_EndFull" bpmnElement="End_Full"><dc:Bounds x="1445" y="518" width="36" height="36"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Create" bpmnElement="Task_CreateBooking"><dc:Bounds x="1410" y="345" width="145" height="70"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Confirm" bpmnElement="Task_ShowConfirmation"><dc:Bounds x="1590" y="345" width="145" height="70"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_EndBooked" bpmnElement="End_Booked"><dc:Bounds x="1790" y="362" width="36" height="36"/></bpmndi:BPMNShape>
+
+      <bpmndi:BPMNEdge id="Edge_Flow01" bpmnElement="Flow_01"><di:waypoint x="146" y="163"/><di:waypoint x="180" y="163"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow02" bpmnElement="Flow_02"><di:waypoint x="300" y="163"/><di:waypoint x="340" y="163"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow03" bpmnElement="Flow_03"><di:waypoint x="480" y="163"/><di:waypoint x="505" y="163"/><di:waypoint x="505" y="385"/><di:waypoint x="530" y="385"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow04" bpmnElement="Flow_04"><di:waypoint x="690" y="385"/><di:waypoint x="715" y="385"/><di:waypoint x="715" y="163"/><di:waypoint x="740" y="163"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow05" bpmnElement="Flow_05"><di:waypoint x="885" y="163"/><di:waypoint x="905" y="163"/><di:waypoint x="905" y="385"/><di:waypoint x="930" y="385"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow06Yes" bpmnElement="Flow_06_yes"><di:waypoint x="980" y="385"/><di:waypoint x="1110" y="385"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow06No" bpmnElement="Flow_06_no"><di:waypoint x="955" y="410"/><di:waypoint x="955" y="500"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow07" bpmnElement="Flow_07"><di:waypoint x="1050" y="535"/><di:waypoint x="1090" y="536"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow08Yes" bpmnElement="Flow_08_yes"><di:waypoint x="1135" y="410"/><di:waypoint x="1135" y="480"/><di:waypoint x="1155" y="480"/><di:waypoint x="1155" y="500"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow08No" bpmnElement="Flow_08_no"><di:waypoint x="1160" y="385"/><di:waypoint x="1290" y="385"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow09" bpmnElement="Flow_09"><di:waypoint x="1230" y="535"/><di:waypoint x="1260" y="536"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow10Yes" bpmnElement="Flow_10_yes"><di:waypoint x="1340" y="385"/><di:waypoint x="1410" y="380"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow10No" bpmnElement="Flow_10_no"><di:waypoint x="1315" y="410"/><di:waypoint x="1315" y="500"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow11" bpmnElement="Flow_11"><di:waypoint x="1415" y="535"/><di:waypoint x="1445" y="536"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow12" bpmnElement="Flow_12"><di:waypoint x="1555" y="380"/><di:waypoint x="1590" y="380"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow13" bpmnElement="Flow_13"><di:waypoint x="1735" y="380"/><di:waypoint x="1790" y="380"/></bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
 </bpmn:definitions>
