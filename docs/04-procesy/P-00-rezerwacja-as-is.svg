@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2480" height="740" viewBox="0 0 2480 740" role="img" aria-labelledby="title desc">
+<title id="title">P-00 — Obecny sposób organizacji konsultacji (AS-IS)</title>
+<desc id="desc">Hipotetyczny diagram BPMN AS-IS. Jedna pula Uczelnia, tory Student i Wykładowca. Czerwoną ramką oznaczono punkty bólu: rozproszone informacje, ręczny kontakt, ręczne sprawdzanie dostępności, propozycję alternatywy, prywatną listę i ponowny kontakt przy zmianie.</desc>
+<defs>
+ <marker id="arr" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#334155"/></marker>
+ <style>
+ .pool{fill:#fff;stroke:#64748b;stroke-width:2}.lane{fill:#f8fafc;stroke:#94a3b8;stroke-width:1.5}.head{fill:#e8eef5;stroke:#94a3b8;stroke-width:1.5}
+ .task{fill:#fff4f3;stroke:#b33b36;stroke-width:2.5;rx:9}.taskplain{fill:#fff;stroke:#315a7d;stroke-width:2;rx:9}
+ .gate{fill:#fff5dd;stroke:#9a6a14;stroke-width:2.2}.start{fill:#e5f5e9;stroke:#287447;stroke-width:3}.end{fill:#eef5fb;stroke:#315a7d;stroke-width:3}.flow{fill:none;stroke:#334155;stroke-width:2;marker-end:url(#arr)}
+ .title{font:700 26px Arial,sans-serif;fill:#13263a}.sub{font:14px Arial,sans-serif;fill:#475569}.laneText{font:700 18px Arial,sans-serif;fill:#27384b}
+ .txt{font:600 14px Arial,sans-serif;fill:#27384b}.small{font:13px Arial,sans-serif;fill:#475569}.pain{font:700 13px Arial,sans-serif;fill:#a22e2a}
+ </style>
+</defs>
+<rect x="18" y="18" width="2440" height="700" rx="16" fill="#fff" stroke="#d7dee8"/>
+<text class="title" x="55" y="58">P-00 · Obecny sposób organizacji konsultacji (AS-IS)</text>
+<text class="sub" x="55" y="82">BPMN 2.0 · model roboczy / hipoteza zespołu do walidacji z rozmówcą</text>
+<rect class="pool" x="55" y="110" width="2380" height="550"/>
+<rect class="lane" x="55" y="110" width="2380" height="245"/>
+<rect class="head" x="55" y="110" width="100" height="245"/>
+<text class="laneText" x="105" y="235" text-anchor="middle" transform="rotate(-90 105 235)">STUDENT</text>
+<rect class="lane" x="55" y="355" width="2380" height="305"/>
+<rect class="head" x="55" y="355" width="100" height="305"/>
+<text class="laneText" x="105" y="515" text-anchor="middle" transform="rotate(-90 105 515)">WYKŁADOWCA</text>
+
+<circle class="start" cx="190" cy="230" r="18"/>
+<path class="flow" d="M208 230 H245"/>
+<rect class="task" x="245" y="188" width="145" height="84"/>
+<text class="txt" x="317" y="216" text-anchor="middle"><tspan x="317">Szuka informacji</tspan><tspan x="317" dy="19">na stronie /</tspan><tspan x="317" dy="19">w ogłoszeniu</tspan></text>
+<text class="pain" x="317" y="292" text-anchor="middle">PUNKT BÓLU</text>
+<path class="flow" d="M390 230 H430"/>
+<rect class="task" x="430" y="188" width="170" height="84"/>
+<text class="txt" x="515" y="216" text-anchor="middle"><tspan x="515">Kontaktuje się</tspan><tspan x="515" dy="19">z wykładowcą</tspan><tspan x="515" dy="19">e-mail / telefon</tspan></text>
+<text class="pain" x="515" y="292" text-anchor="middle">PUNKT BÓLU</text>
+<path class="flow" d="M600 230 H635 V510 H670"/>
+<rect class="task" x="670" y="468" width="165" height="84"/>
+<text class="txt" x="752" y="496" text-anchor="middle"><tspan x="752">Sprawdza własny</tspan><tspan x="752" dy="19">kalendarz / listę</tspan><tspan x="752" dy="19">/ plan</tspan></text>
+<text class="pain" x="752" y="572" text-anchor="middle">PUNKT BÓLU</text>
+<path class="flow" d="M835 510 H875"/>
+<polygon class="gate" points="910,475 945,510 910,545 875,510"/>
+<text class="small" x="910" y="568" text-anchor="middle">Termin dostępny?</text>
+<path class="flow" d="M945 510 H1000 V230 H1050"/>
+<text class="small" x="963" y="496">TAK</text>
+<path class="flow" d="M910 545 V620 H970"/>
+<text class="small" x="921" y="600">NIE</text>
+<rect class="task" x="970" y="578" width="170" height="72"/>
+<text class="txt" x="1055" y="605" text-anchor="middle"><tspan x="1055">Proponuje inny</tspan><tspan x="1055" dy="19">termin i czeka</tspan></text>
+<text class="pain" x="1055" y="670" text-anchor="middle">PUNKT BÓLU</text>
+<path class="flow" d="M1140 614 H1180 V230 H1210"/>
+<rect class="taskplain" x="1050" y="188" width="160" height="84"/>
+<text class="txt" x="1130" y="216" text-anchor="middle"><tspan x="1130">Rozważa termin</tspan><tspan x="1130" dy="19">alternatywny</tspan></text>
+<path class="flow" d="M1210 230 H1250"/>
+<polygon class="gate" points="1285,195 1320,230 1285,265 1250,230"/>
+<text class="small" x="1285" y="290" text-anchor="middle">Akceptuje?</text>
+<path class="flow" d="M1320 230 H1400"/>
+<text class="small" x="1340" y="216">TAK</text>
+<path class="flow" d="M1285 265 V330 H1470 V230"/>
+<text class="small" x="1300" y="316">NIE</text>
+<circle class="end" cx="1470" cy="230" r="18"/>
+<text class="small" x="1470" y="270" text-anchor="middle">Brak uzgodnienia</text>
+<rect class="taskplain" x="1400" y="188" width="165" height="84"/>
+<text class="txt" x="1482" y="216" text-anchor="middle"><tspan x="1482">Potwierdza</tspan><tspan x="1482" dy="19">termin w rozmowie</tspan><tspan x="1482" dy="19">/ wiadomości</tspan></text>
+<path class="flow" d="M1565 230 H1595 V510 H1635"/>
+<rect class="task" x="1635" y="468" width="170" height="84"/>
+<text class="txt" x="1720" y="496" text-anchor="middle"><tspan x="1720">Zapisuje ustalenie</tspan><tspan x="1720" dy="19">w prywatnym</tspan><tspan x="1720" dy="19">kalendarzu / liście</tspan></text>
+<text class="pain" x="1720" y="572" text-anchor="middle">PUNKT BÓLU</text>
+<path class="flow" d="M1805 510 H1840"/>
+<rect class="task" x="1840" y="468" width="155" height="84"/>
+<text class="txt" x="1917" y="496" text-anchor="middle"><tspan x="1917">Przekazuje</tspan><tspan x="1917" dy="19">potwierdzenie</tspan><tspan x="1917" dy="19">studentowi</tspan></text>
+<text class="pain" x="1917" y="572" text-anchor="middle">PUNKT BÓLU</text>
+<path class="flow" d="M1995 510 H2035"/>
+<polygon class="gate" points="2070,475 2105,510 2070,545 2035,510"/>
+<text class="small" x="2070" y="568" text-anchor="middle">Zmiana / odwołanie?</text>
+<path class="flow" d="M2105 510 H2210 V230 H2250"/>
+<text class="small" x="2120" y="495">NIE</text>
+<circle class="end" cx="2270" cy="230" r="18"/>
+<text class="small" x="2270" y="270" text-anchor="middle">Termin uzgodniony</text>
+<path class="flow" d="M2070 545 V615 H2130"/>
+<text class="small" x="2082" y="594">TAK</text>
+<rect class="task" x="2130" y="578" width="165" height="72"/>
+<text class="txt" x="2212" y="605" text-anchor="middle"><tspan x="2212">Ponowny kontakt</tspan><tspan x="2212" dy="19">i uzgadnianie zmiany</tspan></text>
+<text class="pain" x="2212" y="670" text-anchor="middle">PUNKT BÓLU</text>
+<path class="flow" d="M2295 614 H2330"/>
+<circle class="end" cx="2350" cy="614" r="18"/>
+<text class="small" x="2350" y="650" text-anchor="middle">Zmieniony / odwołany</text>
+</svg>
