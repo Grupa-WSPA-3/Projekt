@@ -11,7 +11,7 @@ flowchart LR
     A([Administrator]) -->|zarządza kontami i rolami| SKW
     SKW -->|pokazuje dostępność i status własnego zapisu| S
 ```
-
+             
 ## Granica systemu
 
 W pierwszej wersji SKW nie integruje się z uczelnianym systemem planu zajęć, zewnętrznym SSO ani serwerem pocztowym. Powiadomienia e-mail/SMS i prowadzenie wideokonferencji pozostają poza zakresem. Jeżeli wywiad wykaże, że któreś z tych połączeń jest konieczne, należy zaktualizować kartę, zakres IN/OUT i ADR, zamiast dodawać integrację po cichu.
