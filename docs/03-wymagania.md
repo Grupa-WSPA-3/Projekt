@@ -161,6 +161,6 @@ Szczegóły, właściciele, status i odpowiadające Issues znajdują się w [otw
 | Element | Zmiana | Powód / ślad |
 |---|---|---|
 | FR-08 | doprecyzowano atomową kontrolę dostępności w chwili zapisu | P-01.8; wcześniejszy podgląd listy nie gwarantuje wolnego miejsca |
-| FR-14 | rozszerzono o jednoznaczny status powiązanych zapisów po odwołaniu terminu | P-02.6; student musi rozpoznać, dlaczego termin przestał obowiązywać |
-| BR-10 | dodano regułę: zapis możliwy wyłącznie dla terminu aktywnego, przyszłego i z wolnym miejscem w chwili zatwierdzenia | P-01.8–P-01.10; nowa reguła do walidacji |
+| FR-14 | rozszerzono o jednoznaczny status powiązanych zapisów po odwołaniu terminu | P-02.7; student musi rozpoznać, dlaczego termin przestał obowiązywać |
+| BR-10 | dodano regułę: zapis możliwy wyłącznie dla terminu aktywnego, przyszłego i z wolnym miejscem w chwili zatwierdzenia | P-01.6–P-01.8; nowa reguła do walidacji |
 
