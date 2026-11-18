@@ -9,8 +9,8 @@
 |---|---|---|---|---|
 | P-00 | Obecny sposób uzgadniania konsultacji | AS-IS — hipoteza do walidacji | Student, Wykładowca | [notatki](P-00-as-is-notatki.md), [BPMN 2.0](P-00-rezerwacja-as-is.bpmn), [SVG](P-00-rezerwacja-as-is.svg) |
 | P-01 | Przeglądanie i zapis na konsultację | TO-BE — proces główny | Student, System SKW | [opis i kroki](P-01-rezerwacja-konsultacji.md), [BPMN 2.0](P-01-rezerwacja-konsultacji.bpmn), [SVG](P-01-rezerwacja-konsultacji.svg) |
-| P-02 | Zarządzanie terminami przez wykładowcę | TO-BE — proces pomocniczy | Wykładowca, System SKW | [opis i kroki](P-02-zarzadzanie-terminami.md) |
-| P-03 | Anulowanie własnego zapisu | TO-BE — proces pomocniczy | Student, System SKW | [opis i kroki](P-03-anulowanie-zapisu.md) |
+| P-02 | Zarządzanie terminami przez wykładowcę | TO-BE — proces pomocniczy | Wykładowca, System SKW | [opis i kroki](P-02-zarzadzanie-terminami.md), [BPMN 2.0](P-02-zarzadzanie-terminami.bpmn), [SVG](P-02-zarzadzanie-terminami.svg) |
+| P-03 | Anulowanie własnego zapisu | TO-BE — proces pomocniczy | Student, System SKW | [opis i kroki](P-03-anulowanie-zapisu.md), [BPMN 2.0](P-03-anulowanie-zapisu.bpmn), [SVG](P-03-anulowanie-zapisu.svg) |
 
 ## Konwencje modelowania
 
