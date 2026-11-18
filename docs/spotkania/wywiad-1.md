@@ -2,7 +2,7 @@
 
 **Data:** nieudokumentowana · **Czas:** nieudokumentowany · **Forma:** do potwierdzenia (brak rzeczywistego protokołu w przekazanych materiałach)
 
-> Ten plik zachowuje strukturę szablonu prowadzącego. W przekazanym archiwum nie znaleziono rzeczywistych odpowiedzi klienta, dlatego nie wpisano fikcyjnych ustaleń ani cytatów. Uzupełnijcie protokół na podstawie faktycznie przeprowadzonej rozmowy.
+> Ten plik jest protokołem roboczym. Nie uzupełniono go fikcyjnymi wypowiedziami ani cytatami. Wpiszcie wyłącznie informacje zanotowane podczas rzeczywistej rozmowy lub ćwiczenia wywiadowego; oddzielajcie dosłowne słowa rozmówcy od interpretacji zespołu.
 
 ## Uczestnicy
 
@@ -67,3 +67,13 @@
 - **Którego pytania zabrakło na naszej liście?** — do uzupełnienia po rozmowie.
 - **Które założenie z karty projektu trzeba zmienić?** — wskazać sekcję karty i uzasadnienie.
 - **Co zmieniamy w N-xx / FR / BR / słowniku?** — podać identyfikatory i zaktualizować macierz śledzenia.
+
+## Kontrola kompletności protokołu
+
+Przed uznaniem protokołu za kompletny należy uzupełnić:
+- co najmniej 5 konkretnych ustaleń z oznaczeniem statusu (potwierdzone / do sprawdzenia);
+- co najmniej 3 dosłowne cytaty rozmówcy;
+- co najmniej 3 nowe terminy lub synonimy / homonimy do słownika;
+- otwarte pytania z właścicielami i odpowiadającymi im Issues.
+
+Puste pola oznaczają brak danych, a nie potwierdzenie założenia.

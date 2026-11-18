@@ -15,28 +15,28 @@ Podział odpowiedzialności ma charakter roboczy i wymaga potwierdzenia przez ws
 
 ## Dokumentacja
 
+Pełny spis dokumentów i aktualny status znajduje się w [indeksie dokumentacji](docs/README.md).
+
 - [Karta projektu](docs/01-karta-projektu.md)
 - [Słownik dziedzinowy](docs/02-slownik.md)
-- [Wymagania](docs/03-wymagania.md)
-- [Notatki do procesu AS-IS](docs/04-procesy/P-00-as-is-notatki.md)
-- [Przypadki użycia](docs/05-przypadki-uzycia/)
+- [Wymagania i potrzeby](docs/03-wymagania.md)
+- [Macierz śledzenia](docs/macierz-sledzenia.md)
 - [Diagram kontekstu](docs/06-architektura/kontekst.md)
-- [Model dziedzinowy](docs/07-model-dziedzinowy/)
-- [Baza danych](docs/08-baza-danych/)
-- [Projekt interfejsu](docs/09-interfejs/)
-- [Model wdrożenia](docs/10-model-wdrozenia/)
-- [Plan testów](docs/11-plan-testow/)
+- [Pytania do klienta](docs/spotkania/pytania-do-klienta.md)
+- [Protokół wywiadu](docs/spotkania/wywiad-1.md)
 - [Otwarte kwestie](docs/12-otwarte-kwestie.md)
 - [Rejestr ryzyk](docs/13-ryzyka.md)
-- [Macierz śledzenia](docs/macierz-sledzenia.md)
-- [Decyzja ADR-001](docs/adr/ADR-001-narzedzia.md)
-- [Pytania do klienta](docs/spotkania/pytania-do-klienta.md)
-- [Notatka z wywiadu](docs/spotkania/wywiad-1.md)
+- [Narzędzia i decyzje projektowe (ADR-001)](docs/adr/ADR-001-narzedzia.md)
+- [Notatki do rozpoznania procesu AS-IS](docs/04-procesy/P-00-as-is-notatki.md)
 
 ## Narzędzia
 
 Zob. [ADR-001 — Narzędzia pracy projektowej](docs/adr/ADR-001-narzedzia.md).
 
-## Status
+## Status dokumentacji
 
-Wersja dokumentacji: 0.3 (robocza). Dokumenty dotyczące kolejnych etapów będą uzupełniane zgodnie z harmonogramem przedmiotu. Protokół wywiadu pozostaje nieuzupełniony, ponieważ w przekazanych materiałach nie znaleziono rzeczywistych odpowiedzi klienta.
+Dokumentacja ma status roboczy. Karta projektu i słownik są opracowane w wersji 0.3; zestaw wymagań zawiera potrzeby N-xx, 18 wymagań funkcjonalnych, 8 niefunkcjonalnych i wstępne reguły biznesowe. Źródła oparte wyłącznie na założeniach zespołu pozostają do potwierdzenia.
+
+Protokół wywiadu jest przygotowany jako szablon, ale wymaga uzupełnienia rzeczywistymi ustaleniami i dosłownymi cytatami. Nie należy traktować pustych pól jako odpowiedzi klienta.
+
+Dokumenty dotyczące modelowania procesów, przypadków użycia, modelu danych, interfejsu, wdrożenia i testów są rozwijane oddzielnie. Ich obecność w strukturze katalogów nie oznacza, że są już kompletne.
