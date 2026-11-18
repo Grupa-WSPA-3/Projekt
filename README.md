@@ -42,8 +42,8 @@ Podział odpowiedzialności ma charakter roboczy; każdy członek zespołu wspó
 
 - karta projektu, interesariusze, role oraz zakres IN/OUT;
 - słownik dziedzinowy z definicjami, synonimami, homonimami i źródłami;
-- lista potrzeb N-01…N-10 i specyfikacja 18 FR, 8 NFR oraz reguł BR;
-- sześć historyjek użytkownika z kryteriami Given/When/Then i priorytetami MoSCoW;
+- lista potrzeb N-01…N-10 i specyfikacja 18 FR (10 Must / 8 Should), 8 mierzalnych NFR według kategorii ISO/IEC 25010:2023 oraz 10 reguł BR;
+- siedem historyjek użytkownika (US-01…US-07), w tym scenariusze Given/When/Then dla wszystkich wymagań Must;
 - proces AS-IS w BPMN (źródło + SVG) oraz trzy procesy TO-BE;
 - proces P-00 AS-IS i główny proces P-01 TO-BE w BPMN 2.0: źródła `.bpmn` i eksporty `.svg`;
 - macierz śledzenia: potrzeba → wymaganie → historyjka → priorytet → krok procesu;
