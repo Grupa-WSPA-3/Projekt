@@ -1,5 +1,5 @@
 # Diagram kontekstu — SKW
-
+  
 
 Diagram przedstawia system jako jeden element, role zewnętrzne i najważniejsze przepływy informacji.
 
