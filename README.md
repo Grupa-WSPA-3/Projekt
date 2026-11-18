@@ -33,6 +33,7 @@ Podział odpowiedzialności ma charakter roboczy; każdy członek zespołu wspó
 | Kandydaci make-or-buy | [docs/06-architektura/make-or-buy.md](docs/06-architektura/make-or-buy.md) |
 | Otwarte kwestie Q-01…Q-14 | [docs/12-otwarte-kwestie.md](docs/12-otwarte-kwestie.md) |
 | Rejestr ryzyk | [docs/13-ryzyka.md](docs/13-ryzyka.md) |
+| Checklista kryteriów zajęć 5 | [docs/checklista-zajecia-5.md](docs/checklista-zajecia-5.md) |
 | Pytania do klienta | [docs/spotkania/pytania-do-klienta.md](docs/spotkania/pytania-do-klienta.md) |
 | Protokół wywiadu | [docs/spotkania/wywiad-1.md](docs/spotkania/wywiad-1.md) |
 | Decyzja o narzędziach | [docs/adr/ADR-001-narzedzia.md](docs/adr/ADR-001-narzedzia.md) |
@@ -44,7 +45,7 @@ Podział odpowiedzialności ma charakter roboczy; każdy członek zespołu wspó
 - lista potrzeb N-01…N-10 i specyfikacja 18 FR, 8 NFR oraz reguł BR;
 - sześć historyjek użytkownika z kryteriami Given/When/Then i priorytetami MoSCoW;
 - proces AS-IS w BPMN (źródło + SVG) oraz trzy procesy TO-BE;
-- główny proces P-01 w BPMN 2.0: plik źródłowy `.bpmn` i eksport `.svg`;
+- proces P-00 AS-IS i główny proces P-01 TO-BE w BPMN 2.0: źródła `.bpmn` i eksporty `.svg`;
 - macierz śledzenia: potrzeba → wymaganie → historyjka → priorytet → krok procesu;
 - otwarte pytania, rejestr ryzyk, Issues i zasady pracy z PR.
 
