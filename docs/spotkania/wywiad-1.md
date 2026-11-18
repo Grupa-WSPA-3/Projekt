@@ -45,15 +45,15 @@
 | Do uzupełnienia | Do uzupełnienia | Do ustalenia | Do ustalenia |
 | Do uzupełnienia | Do uzupełnienia | Do ustalenia | Do ustalenia |
 | Do uzupełnienia | Do uzupełnienia | Do ustalenia | Do ustalenia |
-
+    
 ## Sprzeczności
-
+    
 | Wypowiedź A | Wypowiedź B | Jak rozstrzygnąć? |
 |---|---|---|
 | Do uzupełnienia, jeżeli wystąpi sprzeczność. | Do uzupełnienia, jeżeli wystąpi sprzeczność. | Utworzyć pytanie i Issue po rozmowie. |
-
+   
 ## Otwarte pytania
-
+   
 | Nr | Pytanie | Issue | Odpowiedź (po uzyskaniu) |
 |---|---|---|---|
 | Q-01 | Czy limit miejsc dla konsultacji może być większy niż 1 i kto go ustala? | do utworzenia na GitHubie | otwarte |
