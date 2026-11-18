@@ -1,38 +1,45 @@
-# Dokumentacja projektu SKW
+# Indeks dokumentacji SKW
 
-To miejsce zawiera dokumentację analityczną i materiały projektowe. Zmiany należy wprowadzać w repozytorium; większe aktualizacje powinny być przesyłane przez Pull Request do przeglądu przez innego członka zespołu.
+Dokumentacja przedstawia zakres i model rozwiązania na poziomie roboczym po opracowaniu wymagań oraz procesów AS-IS / TO-BE. Wymagania i procesy mają identyfikatory, źródła oraz powiązania w macierzy śledzenia.
 
-## Dokumenty podstawowe
+## Dokumenty główne
 
-| Plik | Zawartość |
+| Dokument | Zawartość |
 |---|---|
-| [01-karta-projektu.md](01-karta-projektu.md) | problem, cel, interesariusze, użytkownicy, zakres IN/OUT, założenia i wstępne ryzyka |
-| [02-slownik.md](02-slownik.md) | pojęcia dziedzinowe, definicje, synonimy, homonimy i źródła |
-| [03-wymagania.md](03-wymagania.md) | potrzeby N-xx oraz wstępne wymagania funkcjonalne i niefunkcjonalne |
-| [ADR-001](adr/ADR-001-narzedzia.md) | decyzja dotycząca narzędzi pracy projektowej |
+| [01-karta-projektu.md](01-karta-projektu.md) | problem, cel, role, interesariusze, IN/OUT, założenia |
+| [02-slownik.md](02-slownik.md) | słownik 0.3: definicje, synonimy, homonimy, przykłady i źródła |
+| [03-wymagania.md](03-wymagania.md) | N-xx, FR, NFR, BR, ograniczenia, historyjki GWT, MoSCoW |
+| [macierz-sledzenia.md](macierz-sledzenia.md) | powiązania N → FR → US → priorytet → proces |
+| [12-otwarte-kwestie.md](12-otwarte-kwestie.md) | pytania Q-01…Q-14, właściciele, status i linki do Issues |
+| [13-ryzyka.md](13-ryzyka.md) | rejestr ryzyk z prawdopodobieństwem, wpływem, właścicielem i reakcją |
 
-## Kontekst i rozmowy
+## Procesy — `04-procesy/`
 
-- [Diagram kontekstu](06-architektura/kontekst.md) — system, role zewnętrzne i przepływy informacji.
-- [Pytania do klienta](spotkania/pytania-do-klienta.md) — pytania do rozmowy i weryfikacji założeń.
-- [Protokół wywiadu](spotkania/wywiad-1.md) — miejsce na ustalenia, cytaty, terminy, sprzeczności i pytania otwarte.
-- [Otwarte kwestie](12-otwarte-kwestie.md) — pytania wymagające odpowiedzi lub decyzji.
-  
-## Struktura pozostałych obszarów
+- [README.md](04-procesy/README.md) — indeks i konwencja numerowania;
+- [P-00-as-is-notatki.md](04-procesy/P-00-as-is-notatki.md) — hipotetyczny AS-IS, punkty bólu i kwestie do walidacji;
+- [P-01-rezerwacja-konsultacji.md](04-procesy/P-01-rezerwacja-konsultacji.md) — główny TO-BE: przeglądanie i zapis;
+- [P-01-rezerwacja-konsultacji.bpmn](04-procesy/P-01-rezerwacja-konsultacji.bpmn) — źródło BPMN 2.0;
+- [P-01-rezerwacja-konsultacji.svg](04-procesy/P-01-rezerwacja-konsultacji.svg) — eksport diagramu BPMN;
+- [P-02-zarzadzanie-terminami.md](04-procesy/P-02-zarzadzanie-terminami.md) — TO-BE: zarządzanie terminami przez wykładowcę;
+- [P-03-anulowanie-zapisu.md](04-procesy/P-03-anulowanie-zapisu.md) — TO-BE: anulowanie własnego zapisu przez studenta.
 
-- [04-procesy](04-procesy/) — miejsce na opis rozpoznanych procesów.
-- [05-przypadki-uzycia](05-przypadki-uzycia/) — miejsce na przypadki użycia.
-- [06-architektura](06-architektura/) — kontekst systemu i granice rozwiązania.
-- [07-model-dziedzinowy](07-model-dziedzinowy/) — miejsce na model dziedzinowy.
-- [08-baza-danych](08-baza-danych/) — miejsce na projekt bazy danych.
-- [09-interfejs](09-interfejs/) — miejsce na projekt interfejsu.
-- [10-model-wdrozenia](10-model-wdrozenia/) — miejsce na model wdrożenia.
-- [11-plan-testow](11-plan-testow/) — miejsce na plan testów.
+## Pozostałe obszary
 
-Katalogi bez opracowanych artefaktów zawierają wyłącznie plik techniczny `.gitkeep`, aby zachować docelową strukturę repozytorium. Nie oznacza to, że dany obszar jest już opracowany.
+- [05-przypadki-uzycia/README.md](05-przypadki-uzycia/README.md) — wstępne scenariusze UC wynikające z FR;
+- [06-architektura/kontekst.md](06-architektura/kontekst.md) — diagram kontekstu i granica systemu;
+- [06-architektura/make-or-buy.md](06-architektura/make-or-buy.md) — lista kandydatów do dalszej analizy;
+- [adr/ADR-001-narzedzia.md](adr/ADR-001-narzedzia.md) — narzędzia i sposób pracy.
 
-## Status i wiarygodność źródeł
+## Spotkania i pytania
 
-Karta projektu i słownik są opracowane w wersji 0.3. Dokument wymagań zawiera 10 potrzeb, 18 wstępnych wymagań funkcjonalnych i 8 wstępnych wymagań niefunkcjonalnych.
+- [spotkania/pytania-do-klienta.md](spotkania/pytania-do-klienta.md) — 25 pytań do wywiadu;
+- [spotkania/wywiad-1.md](spotkania/wywiad-1.md) — protokół do uzupełnienia rzeczywistymi danymi.
 
-Potrzeby i kryteria oparte wyłącznie na założeniach zespołu należy zweryfikować. Protokół wywiadu jest przygotowany jako szablon i wymaga uzupełnienia rzeczywistymi ustaleniami oraz dosłownymi cytatami. Nie dopisujemy fikcyjnych wypowiedzi ani nie oznaczamy niezweryfikowanych założeń jako potwierdzonych.
+## Konwencje
+
+1. Potrzeby mają identyfikatory `N-xx`, wymagania `FR-xx`, `NFR-xx`, reguły `BR-xx`, historyjki `US-xx`, procesy `P-xx`, kroki `P-xx.n`.
+2. Każde FR ma źródło potrzeby oraz powiązanie z historyjką i krokiem procesu albo jawne uzasadnienie braku mapowania.
+3. Hipotezy zespołu są odróżniane od ustaleń potwierdzonych przez klienta.
+4. Diagram BPMN i jego eksport SVG muszą przedstawiać tę samą wersję procesu.
+5. Zmiana wymagania lub procesu wymaga aktualizacji macierzy śledzenia.
+
