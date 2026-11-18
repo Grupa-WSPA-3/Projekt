@@ -20,13 +20,13 @@ Dokumentacja przedstawia zakres i model rozwiązania na poziomie roboczym po opr
 - [P-00-as-is-notatki.md](04-procesy/P-00-as-is-notatki.md) — hipotetyczny AS-IS, punkty bólu i kwestie do walidacji;
 - [P-00-rezerwacja-as-is.bpmn](04-procesy/P-00-rezerwacja-as-is.bpmn) — źródło BPMN AS-IS;
 - [P-00-rezerwacja-as-is.svg](04-procesy/P-00-rezerwacja-as-is.svg) — eksport diagramu AS-IS;
-- [P-00-rezerwacja-as-is.bpmn](04-procesy/P-00-rezerwacja-as-is.bpmn) — źródło BPMN AS-IS;
-- [P-00-rezerwacja-as-is.svg](04-procesy/P-00-rezerwacja-as-is.svg) — eksport diagramu AS-IS;
 - [P-01-rezerwacja-konsultacji.md](04-procesy/P-01-rezerwacja-konsultacji.md) — główny TO-BE: przeglądanie i zapis;
 - [P-01-rezerwacja-konsultacji.bpmn](04-procesy/P-01-rezerwacja-konsultacji.bpmn) — źródło BPMN 2.0;
 - [P-01-rezerwacja-konsultacji.svg](04-procesy/P-01-rezerwacja-konsultacji.svg) — eksport diagramu BPMN;
 - [P-02-zarzadzanie-terminami.md](04-procesy/P-02-zarzadzanie-terminami.md) — TO-BE: zarządzanie terminami przez wykładowcę;
-- [P-03-anulowanie-zapisu.md](04-procesy/P-03-anulowanie-zapisu.md) — TO-BE: anulowanie własnego zapisu przez studenta.
+- [P-02-zarzadzanie-terminami.bpmn](04-procesy/P-02-zarzadzanie-terminami.bpmn) i [SVG](04-procesy/P-02-zarzadzanie-terminami.svg) — diagram P-02;
+- [P-03-anulowanie-zapisu.md](04-procesy/P-03-anulowanie-zapisu.md) — TO-BE: anulowanie własnego zapisu przez studenta;
+- [P-03-anulowanie-zapisu.bpmn](04-procesy/P-03-anulowanie-zapisu.bpmn) i [SVG](04-procesy/P-03-anulowanie-zapisu.svg) — diagram P-03.
 
 ## Pozostałe obszary
 
