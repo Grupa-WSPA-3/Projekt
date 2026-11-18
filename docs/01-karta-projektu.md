@@ -155,4 +155,3 @@ Ta część nie oznacza zatwierdzenia stosu technologicznego aplikacji. Wybór i
 
 **Baza danych:** nie wybrano — do decyzji na późniejszym etapie.
 
-**Inne:** do dokumentacji i współpracy zespołu proponuje się GitHub, Markdown, Mermaid oraz diagrams.net; decyzje dotyczące narzędzi pracy opisuje ADR-001.
