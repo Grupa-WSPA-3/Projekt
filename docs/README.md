@@ -28,6 +28,11 @@ Dokumentacja przedstawia zakres i model rozwiązania na poziomie roboczym po opr
 - [05-przypadki-uzycia/README.md](05-przypadki-uzycia/README.md) — wstępne scenariusze UC wynikające z FR;
 - [06-architektura/kontekst.md](06-architektura/kontekst.md) — diagram kontekstu i granica systemu;
 - [06-architektura/make-or-buy.md](06-architektura/make-or-buy.md) — lista kandydatów do dalszej analizy;
+- [07-model-dziedzinowy/README.md](07-model-dziedzinowy/README.md) — szkic pojęć i relacji dziedzinowych;
+- [08-baza-danych/README.md](08-baza-danych/README.md) — wstępny model logiczny danych i ograniczenia integralności;
+- [09-interfejs/README.md](09-interfejs/README.md) — role, widoki i zasady UI;
+- [10-model-wdrozenia/README.md](10-model-wdrozenia/README.md) — wariant logiczny wdrożenia bez przesądzania technologii;
+- [11-plan-testow/README.md](11-plan-testow/README.md) — katalog scenariuszy wynikających z FR / BR / NFR;
 - [adr/ADR-001-narzedzia.md](adr/ADR-001-narzedzia.md) — narzędzia i sposób pracy.
 
 ## Spotkania i pytania
