@@ -48,9 +48,9 @@ Priorytety wynikają z wartości dla użytkownika na pierwszą wersję. „Must�
 
 ## 3. Wymagania niefunkcjonalne (NFR)
 
-Wartości poniżej są kryteriami projektowymi dla prototypu / przyszłej implementacji. Jeśli po konsultacji z prowadzącym lub klientem skala systemu okaże się inna, zmiana musi zostać odnotowana wraz z uzasadnieniem. Kategorie odnoszą się do modelu jakości produktu ISO/IEC 25010; norma opisuje charakterystyki jakości produktu. Oficjalna karta normy: https://www.iso.org/standard/78176.html.
+Wartości poniżej są wstępnymi, mierzalnymi kryteriami jakości, zaproponowanymi przez zespół. Należy je zweryfikować z klientem i dostosować do uzgodnionej skali systemu.
 
-| ID | Kategoria (ISO/IEC 25010) | Treść (mierzalna) | Źródło | Sposób weryfikacji |
+| ID | Obszar jakości (wstępny) | Treść (mierzalna) | Źródło | Sposób weryfikacji |
 | --- | --- | --- | --- | --- |
 | NFR-01 | Przydatność funkcjonalna | Przed odbiorem każde uzgodnione wymaganie funkcjonalne musi mieć co najmniej jeden opisany i wykonany test akceptacyjny. | N-01, N-04, N-05, N-06, N-09, N-10 | lista kontrolna testów powiązana z identyfikatorami FR |
 | NFR-02 | Wydajność | Przy bazie testowej zawierającej 5 000 terminów i 50 równoczesnych użytkownikach 95% wyszukiwań ma zwrócić wyniki w czasie poniżej 2 sekund. | N-01, N-02 | test obciążeniowy po implementacji; zapisać konfigurację i wynik |
@@ -61,41 +61,10 @@ Wartości poniżej są kryteriami projektowymi dla prototypu / przyszłej implem
 | NFR-07 | Utrzymywalność | Każda potwierdzona reguła dotycząca zapisu, anulowania lub zarządzania terminem musi mieć co najmniej jeden opisany test akceptacyjny przed zakończeniem implementacji. | N-04, N-05, N-06 | przegląd mapowania reguł na testy |
 | NFR-08 | Elastyczność / przenośność | Podstawowe ekrany muszą pozostać czytelne i nie wymagać poziomego przewijania przy szerokości widoku 360 px, 768 px i 1366 px. | N-01, N-04 | kontrola w trzech szerokościach widoku |
 
-**Charakterystyka Safety (bezpieczeństwo w rozumieniu zagrożeń dla ludzi/otoczenia):** obecnie uznajemy ją za nieadekwatną do systemu rejestracji konsultacji, ponieważ system nie steruje urządzeniami ani procesami fizycznymi. Ryzyka organizacyjne i integralność zapisów pokrywają NFR-05 i NFR-06. Założenie należy ponownie ocenić, jeżeli zakres systemu się zmieni.
+## 4. Materiały do dalszej weryfikacji
 
-## 4. Wstępne reguły biznesowe (BR) — hipotezy do potwierdzenia
+- [Pytania do klienta](spotkania/pytania-do-klienta.md) — pytania dotyczące procesu, ról, reguł, danych i priorytetów.
+- [Protokół wywiadu](spotkania/wywiad-1.md) — uzupełnić rzeczywistymi ustaleniami, cytatami i terminami.
+- [Otwarte kwestie](12-otwarte-kwestie.md) — pytania, które wymagają odpowiedzi lub jawnej decyzji zespołu.
 
-| ID | Reguła | Źródło | Dotyczy |
-|---|---|---|---|
-| BR-01 | Początek terminu musi być wcześniejszy niż jego koniec, a nowy termin nie może rozpoczynać się w przeszłości. | N-06; założenie do potwierdzenia | FR-11, FR-12 |
-| BR-02 | Liczba aktywnych zapisów dla terminu nie może przekroczyć ustawionego limitu miejsc. Domyślny limit wynosi 1, dopóki nie zostanie potwierdzona obsługa konsultacji grupowych. | N-04; założenie do potwierdzenia | FR-03, FR-07, FR-08, FR-18 |
-| BR-03 | Student może mieć tylko jeden aktywny zapis na dany termin. | N-04; założenie do potwierdzenia | FR-09 |
-| BR-04 | Student może anulować wyłącznie własny zapis; wykładowca może zarządzać i anulować wyłącznie własne terminy; administrator zarządza kontami i rolami. | N-05, N-06, N-08, N-09 | FR-02, FR-10, FR-12, FR-13, FR-14, FR-15 |
-| BR-05 | Termin z co najmniej jednym aktywnym zapisem nie może być edytowany w zakresie daty i godziny w wersji podstawowej. Wykładowca powinien anulować termin i utworzyć nowy. | N-06; założenie do potwierdzenia | FR-12, FR-14 |
-| BR-06 | Anulowany termin nie jest dostępny dla nowych zapisów, a powiązane zapisy pozostają możliwe do rozpoznania jako anulowane. | N-06, N-10; założenie do potwierdzenia | FR-14, FR-16, FR-18 |
-| BR-07 | Aktywny zapis zajmuje jedno miejsce; anulowany zapis nie zajmuje miejsca. | N-04, N-05; założenie do potwierdzenia | FR-08, FR-10 |
-| BR-08 | Lista zapisów zawierająca dane studentów jest widoczna wyłącznie dla wykładowcy danego terminu oraz uprawnionego administratora, jeśli taki dostęp zostanie uzasadniony. | N-07, N-09 | FR-02, FR-13 |
-| BR-09 | Każde konto ma jedną podstawową rolę: Student, Wykładowca albo Administrator. Obsługa wielu ról jednego konta nie należy do pierwszej wersji. | N-08, N-09; założenie do potwierdzenia | FR-02, FR-15 |
-
-## 5. Ograniczenia i założenia
-
-1. Pierwsza wersja nie prowadzi wideokonferencji ani rozmów audio.
-2. Pierwsza wersja nie wysyła automatycznych powiadomień e-mail/SMS.
-3. Pierwsza wersja nie synchronizuje dostępności z uczelnianym planem zajęć ani systemem SSO.
-4. System nie obsługuje płatności, ocen, egzaminów ani pełnego harmonogramu dydaktycznego.
-5. Natywna aplikacja mobilna pozostaje poza zakresem; responsywny widok webowy jest objęty NFR-08.
-6. Wymagania i reguły oparte wyłącznie na hipotezach nie mogą zostać uznane za ostateczne bez weryfikacji przez zespół / klienta.
-7. Technologia implementacji nie została zatwierdzona; jej wybór wymaga osobnej decyzji po modelowaniu procesu, danych i architektury.
-
-## 6. Pytania otwarte
-
-Pełna lista, właściciele i status znajdują się w `docs/12-otwarte-kwestie.md`. Najważniejsze kwestie do rozstrzygnięcia przed finalizacją wymagań:
-
-1. Czy limit miejsc może być większy niż 1 i kto go ustala?
-2. Czy student może anulować zapis do samego początku konsultacji?
-3. Jak są tworzone konta i kto je aktywuje?
-4. Czy terminy mogą być cykliczne?
-5. Jakie informacje o konsultacji muszą być widoczne na liście?
-6. Czy administrator może zobaczyć listę zapisanych studentów?
-7. Czy potrzebny jest link do spotkania online, mimo że wideokonferencja jest poza zakresem?
-8. Czy czas systemowy zawsze odpowiada `Europe/Warsaw`?
+Potrzeby, wymagania i kryteria jakości oparte wyłącznie na założeniach zespołu pozostają wstępne do czasu ich weryfikacji.

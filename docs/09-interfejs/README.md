@@ -1,1 +1,0 @@
-Zawartość katalogu zostanie dodana na późniejszym etapie projektu.
