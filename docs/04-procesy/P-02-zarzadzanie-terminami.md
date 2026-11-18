@@ -1,53 +1,59 @@
 # P-02 — Zarządzanie terminami konsultacji przez wykładowcę (TO-BE)
 
-**Wersja:** 0.1 — proces pomocniczy  
+**Wersja:** 0.2 — proces pomocniczy  
 **Właściciel procesu:** Kostiantyn Kyrylenko  
-**Uczestnicy / tory:** Wykładowca, System SKW  
-**Cel:** umożliwić wykładowcy utrzymywanie aktualnych terminów i list zapisów w granicach jego uprawnień.
+**Pula BPMN (opis logiczny):** Uczelnia · **Tory:** Wykładowca, System SKW
 
-## Zdarzenie początkowe
+## Cel procesu
 
-Wykładowca chce opublikować nowy termin, zmienić termin bez aktywnych zapisów albo odwołać własną konsultację.
+Umożliwić wykładowcy publikowanie i utrzymywanie własnych terminów oraz przeglądanie list zapisów bez naruszania uprawnień i spójności danych.
 
-## Kroki
+## Wyzwalacz i warunki
 
-| Krok | Tor | Czynność | Typ | Wymagania / reguły |
+**Zdarzenie początkowe:** Wykładowca chce utworzyć nowy termin, edytować termin bez aktywnych zapisów, odwołać własny termin albo sprawdzić listę zapisów.
+
+**Warunki wstępne:** wykładowca jest zalogowany; system weryfikuje rolę i własność terminu przy każdej chronionej operacji (FR-01, FR-02, BR-04).
+
+## Kroki procesu i wymagania
+
+| Krok | Tor | Typ zadania | Czynność biznesowa | Wymagania / reguły |
 |---|---|---|---|---|
-| P-02.1 | Wykładowca | rozpoczyna zarządzanie własnymi terminami | zadanie użytkownika | FR-02, FR-11, FR-12, FR-14 |
-| P-02.2 | System SKW | weryfikuje rolę wykładowcy i właściciela operacji | zadanie usługi | FR-02, BR-04 |
-| P-02.3 | Wykładowca | wybiera utworzenie, edycję albo anulowanie terminu | zadanie użytkownika | FR-11, FR-12, FR-14 |
-| P-02.4 | Wykładowca | podaje dane nowego terminu lub zakres zmiany | zadanie użytkownika | FR-11, FR-12, BR-01 |
-| P-02.5 | System SKW | waliduje początek, koniec, status i właściciela terminu | zadanie usługi | FR-02, FR-11, FR-12, BR-01, BR-04 |
-| P-02.6 | System SKW | sprawdza liczbę aktywnych zapisów przed zmianą daty/godziny lub anulowaniem | zadanie usługi | FR-12, FR-14, BR-05, BR-06 |
-| P-02.7 | System SKW | zapisuje nowy termin, zmianę albo status anulowania | zadanie usługi | FR-11, FR-12, FR-14 |
-| P-02.8 | System SKW | udostępnia zaktualizowany termin / listę zapisów i status operacji | zadanie usługi | FR-13, FR-16, FR-17 |
+| P-02.1 | Wykładowca | użytkownika | rozpoczyna zarządzanie własnymi terminami | FR-01 |
+| P-02.2 | System SKW | usługi | weryfikuje rolę Wykładowca i własność wybranego terminu | FR-02, BR-04 |
+| P-02.3 | Wykładowca | użytkownika | wybiera utworzenie, edycję, anulowanie albo przegląd listy zapisów | FR-11, FR-12, FR-13, FR-14 |
+| P-02.4 | Wykładowca | użytkownika | podaje dane nowego terminu lub zakres zmian | FR-11, FR-12, BR-01 |
+| P-02.5 | System SKW | usługi | waliduje datę, czas, status oraz właściciela terminu | FR-02, FR-11, FR-12, BR-01, BR-04 |
+| P-02.6 | System SKW | usługi | sprawdza aktywne zapisy przed edycją daty/godziny albo anulowaniem terminu | FR-12, FR-14, BR-05, BR-06 |
+| P-02.7 | System SKW | usługi | zapisuje nowy termin, zmianę bez aktywnych zapisów albo status anulowania i statusy powiązanych zapisów | FR-11, FR-12, FR-14, BR-06 |
+| P-02.8 | System SKW | usługi | udostępnia wykładowcy zaktualizowany termin, listę zapisów lub wynik operacji | FR-13, FR-16, FR-17 |
 
-## Główne decyzje i ścieżki alternatywne
+## Bramki i ścieżki alternatywne
 
 | Bramka | Pytanie | TAK | NIE |
 |---|---|---|---|
-| G-01 | Czy użytkownik ma rolę wykładowcy i jest właścicielem terminu? | kontynuuj operację | odmów dostępu, bez zmiany danych |
-| G-02 | Czy dane terminu są poprawne (data przyszła, koniec po początku)? | zapisz nowy termin / zmianę | pokaż błąd walidacji |
-| G-03 | Czy termin ma aktywne zapisy? | przy edycji daty/godziny zablokuj; przy anulowaniu przejdź do aktualizacji statusów | edytuj / anuluj zgodnie z wybraną operacją |
+| G-01 | Czy użytkownik ma rolę Wykładowca i jest właścicielem terminu? | kontynuuj | odmów dostępu; dane pozostają bez zmian |
+| G-02 | Czy dane terminu są poprawne (start w przyszłości, koniec po początku)? | kontynuuj zapis | pokaż błąd walidacji |
+| G-03 | Czy termin ma aktywne zapisy? | przy zmianie daty/godziny zablokuj; anulowanie przeprowadź z aktualizacją statusów | zezwól na edycję / anulowanie zgodnie z operacją |
 
 ## Wyniki procesu
 
-- nowy termin został utworzony i może być pokazany studentom;
+- termin został utworzony i może zostać pokazany studentom;
 - termin bez aktywnych zapisów został zmieniony;
-- termin został anulowany, a zapisy powiązane uzyskały jasny status anulowania terminu;
-- operacja została odrzucona z powodu braku uprawnień, niepoprawnych danych lub konfliktu z aktywnymi zapisami.
+- termin został anulowany, a powiązane aktywne zapisy mają czytelny status odwołania;
+- lista zapisów została pokazana wyłącznie uprawnionemu wykładowcy;
+- operacja została odrzucona z powodu braku uprawnień, błędnej daty albo ograniczenia edycji.
 
 ## Wyjątki
 
 1. Wykładowca próbuje zarządzać terminem należącym do innej osoby — odmowa autoryzacji (FR-02 / BR-04).
-2. Data jest przeszła lub koniec nie następuje po początku — odrzucenie walidacji (FR-11 / BR-01).
-3. Wykładowca próbuje zmienić datę/godzinę terminu z aktywnymi zapisami — blokada zgodnie z BR-05; alternatywą jest anulowanie i utworzenie nowego terminu.
-4. Odwołanie terminu ma aktywne zapisy — system musi zmienić widoczny status powiązanych zapisów (FR-14 / FR-16).
+2. Początek terminu jest w przeszłości albo koniec nie następuje po początku — błąd walidacji (FR-11 / BR-01).
+3. Wykładowca próbuje zmienić datę/godzinę terminu z aktywnymi zapisami — blokada zgodnie z BR-05; dostępna ścieżka to anulowanie i utworzenie nowego terminu.
+4. Odwołany termin ma aktywne zapisy — System SKW aktualizuje powiązane statusy, aby student rozumiał przyczynę zmiany (FR-14 / FR-16).
 
-## Założenia i pytania
+## Otwarte kwestie
 
-- Zmiana miejsca / opisu bez zmiany daty i godziny wymaga doprecyzowania: obecny zakres blokady dotyczy daty i godziny.
-- Czy można edytować termin, jeżeli ma aktywne zapisy? Q-04.
-- Jakie dane terminu są obowiązkowe? Q-13.
-- Kto ma prawo wglądu do list zapisów poza właścicielem terminu? Q-06.
+- Edycja terminu z aktywnymi zapisami — Q-04.
+- Obowiązkowe dane terminu / miejsce / forma — Q-13 i Q-07.
+- Wgląd administratora do list zapisów — Q-06.
+- Retencja danych historycznych — Q-11.
 
