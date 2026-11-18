@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_P03" targetNamespace="https://wspa.example/skw">
+  <bpmn:collaboration id="Collaboration_P-03"><bpmn:participant id="Participant_P-03" name="Uczelnia" processRef="Process_P03"/></bpmn:collaboration>
+  <bpmn:process id="Process_P03" name="P-03 Anulowanie własnego zapisu przez studenta" isExecutable="false">
+    <bpmn:laneSet id="LaneSet_P03">
+      <bpmn:lane id="Lane_P03_Student" name="Student"><bpmn:flowNodeRef>Start_P03</bpmn:flowNodeRef><bpmn:flowNodeRef>Login_P03</bpmn:flowNodeRef><bpmn:flowNodeRef>Open_P03</bpmn:flowNodeRef><bpmn:flowNodeRef>Select_P03</bpmn:flowNodeRef><bpmn:flowNodeRef>Confirm_P03</bpmn:flowNodeRef></bpmn:lane>
+      <bpmn:lane id="Lane_P03_System" name="System SKW"><bpmn:flowNodeRef>Check_P03</bpmn:flowNodeRef><bpmn:flowNodeRef>Owner_P03</bpmn:flowNodeRef><bpmn:flowNodeRef>Cancel_P03</bpmn:flowNodeRef><bpmn:flowNodeRef>Release_P03</bpmn:flowNodeRef><bpmn:flowNodeRef>Show_P03</bpmn:flowNodeRef><bpmn:flowNodeRef>End_Denied_P03</bpmn:flowNodeRef><bpmn:flowNodeRef>End_Cancelled_P03</bpmn:flowNodeRef></bpmn:lane>
+    </bpmn:laneSet>
+    <bpmn:startEvent id="Start_P03" name="Student rezygnuje z konsultacji"/>
+    <bpmn:userTask id="Login_P03" name="Zaloguj się do SKW"/>
+    <bpmn:userTask id="Open_P03" name="Otwórz listę własnych zapisów"/>
+    <bpmn:userTask id="Select_P03" name="Wybierz aktywny zapis"/>
+    <bpmn:serviceTask id="Check_P03" name="Sprawdź właściciela i status zapisu"/>
+    <bpmn:exclusiveGateway id="Owner_P03" name="Czy zapis należy do studenta i jest aktywny?"/>
+    <bpmn:userTask id="Confirm_P03" name="Potwierdź anulowanie"/>
+    <bpmn:serviceTask id="Cancel_P03" name="Zmień status zapisu na Anulowany"/>
+    <bpmn:serviceTask id="Release_P03" name="Zwolnij miejsce w limicie terminu"/>
+    <bpmn:serviceTask id="Show_P03" name="Wyświetl status i wynik operacji"/>
+    <bpmn:endEvent id="End_Denied_P03" name="Operacja odrzucona — zapis bez zmian"/>
+    <bpmn:endEvent id="End_Cancelled_P03" name="Zapis anulowany — miejsce zwolnione"/>
+    <bpmn:sequenceFlow id="F03_1" sourceRef="Start_P03" targetRef="Login_P03"/>
+    <bpmn:sequenceFlow id="F03_2" sourceRef="Login_P03" targetRef="Open_P03"/>
+    <bpmn:sequenceFlow id="F03_3" sourceRef="Open_P03" targetRef="Select_P03"/>
+    <bpmn:sequenceFlow id="F03_4" sourceRef="Select_P03" targetRef="Check_P03"/>
+    <bpmn:sequenceFlow id="F03_5" sourceRef="Check_P03" targetRef="Owner_P03"/>
+    <bpmn:sequenceFlow id="F03_6" name="nie — cudzy / nieaktywny zapis" sourceRef="Owner_P03" targetRef="End_Denied_P03"/>
+    <bpmn:sequenceFlow id="F03_7" name="tak" sourceRef="Owner_P03" targetRef="Confirm_P03"/>
+    <bpmn:sequenceFlow id="F03_8" sourceRef="Confirm_P03" targetRef="Cancel_P03"/>
+    <bpmn:sequenceFlow id="F03_9" sourceRef="Cancel_P03" targetRef="Release_P03"/>
+    <bpmn:sequenceFlow id="F03_10" sourceRef="Release_P03" targetRef="Show_P03"/>
+    <bpmn:sequenceFlow id="F03_11" sourceRef="Show_P03" targetRef="End_Cancelled_P03"/>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="Diagram_P03"><bpmndi:BPMNPlane id="Plane_P03" bpmnElement="Collaboration_P-03">
+    <bpmndi:BPMNShape id="LaneShape_P03_Student" bpmnElement="Lane_P03_Student" isHorizontal="true"><dc:Bounds x="35" y="55" width="1700" height="150"/></bpmndi:BPMNShape>
+    <bpmndi:BPMNShape id="LaneShape_P03_System" bpmnElement="Lane_P03_System" isHorizontal="true"><dc:Bounds x="35" y="205" width="1700" height="210"/></bpmndi:BPMNShape>
+    <bpmndi:BPMNShape id="Shape_Start_P03" bpmnElement="Start_P03"><dc:Bounds x="60" y="120" width="36" height="36"/></bpmndi:BPMNShape>
+    <bpmndi:BPMNShape id="Shape_Login_P03" bpmnElement="Login_P03"><dc:Bounds x="125" y="105" width="120" height="65"/></bpmndi:BPMNShape>
+    <bpmndi:BPMNShape id="Shape_Open_P03" bpmnElement="Open_P03"><dc:Bounds x="270" y="105" width="135" height="65"/></bpmndi:BPMNShape>
+    <bpmndi:BPMNShape id="Shape_Select_P03" bpmnElement="Select_P03"><dc:Bounds x="430" y="105" width="130" height="65"/></bpmndi:BPMNShape>
+    <bpmndi:BPMNShape id="Shape_Check_P03" bpmnElement="Check_P03"><dc:Bounds x="600" y="250" width="150" height="65"/></bpmndi:BPMNShape>
+    <bpmndi:BPMNShape id="Shape_Owner_P03" bpmnElement="Owner_P03"><dc:Bounds x="800" y="257" width="50" height="50"/></bpmndi:BPMNShape>
+    <bpmndi:BPMNShape id="Shape_End_Denied_P03" bpmnElement="End_Denied_P03"><dc:Bounds x="860" y="345" width="36" height="36"/></bpmndi:BPMNShape>
+    <bpmndi:BPMNShape id="Shape_Confirm_P03" bpmnElement="Confirm_P03"><dc:Bounds x="930" y="105" width="130" height="65"/></bpmndi:BPMNShape>
+    <bpmndi:BPMNShape id="Shape_Cancel_P03" bpmnElement="Cancel_P03"><dc:Bounds x="1100" y="250" width="150" height="65"/></bpmndi:BPMNShape>
+    <bpmndi:BPMNShape id="Shape_Release_P03" bpmnElement="Release_P03"><dc:Bounds x="1280" y="250" width="145" height="65"/></bpmndi:BPMNShape>
+    <bpmndi:BPMNShape id="Shape_Show_P03" bpmnElement="Show_P03"><dc:Bounds x="1450" y="250" width="150" height="65"/></bpmndi:BPMNShape>
+    <bpmndi:BPMNShape id="Shape_End_Cancelled_P03" bpmnElement="End_Cancelled_P03"><dc:Bounds x="1640" y="265" width="36" height="36"/></bpmndi:BPMNShape>
+    <bpmndi:BPMNEdge id="Edge_F03_1" bpmnElement="F03_1"><di:waypoint x="96" y="138"/><di:waypoint x="111" y="138"/><di:waypoint x="111" y="137.5"/><di:waypoint x="125" y="137.5"/></bpmndi:BPMNEdge><bpmndi:BPMNEdge id="Edge_F03_2" bpmnElement="F03_2"><di:waypoint x="245" y="137.5"/><di:waypoint x="258" y="137.5"/><di:waypoint x="258" y="137.5"/><di:waypoint x="270" y="137.5"/></bpmndi:BPMNEdge><bpmndi:BPMNEdge id="Edge_F03_3" bpmnElement="F03_3"><di:waypoint x="405" y="137.5"/><di:waypoint x="418" y="137.5"/><di:waypoint x="418" y="137.5"/><di:waypoint x="430" y="137.5"/></bpmndi:BPMNEdge><bpmndi:BPMNEdge id="Edge_F03_4" bpmnElement="F03_4"><di:waypoint x="560" y="137.5"/><di:waypoint x="580" y="137.5"/><di:waypoint x="580" y="282.5"/><di:waypoint x="600" y="282.5"/></bpmndi:BPMNEdge><bpmndi:BPMNEdge id="Edge_F03_5" bpmnElement="F03_5"><di:waypoint x="750" y="282.5"/><di:waypoint x="775" y="282.5"/><di:waypoint x="775" y="282"/><di:waypoint x="800" y="282"/></bpmndi:BPMNEdge><bpmndi:BPMNEdge id="Edge_F03_6" bpmnElement="F03_6"><di:waypoint x="850" y="282"/><di:waypoint x="855" y="282"/><di:waypoint x="855" y="363"/><di:waypoint x="860" y="363"/></bpmndi:BPMNEdge><bpmndi:BPMNEdge id="Edge_F03_7" bpmnElement="F03_7"><di:waypoint x="850" y="282"/><di:waypoint x="890" y="282"/><di:waypoint x="890" y="137.5"/><di:waypoint x="930" y="137.5"/></bpmndi:BPMNEdge><bpmndi:BPMNEdge id="Edge_F03_8" bpmnElement="F03_8"><di:waypoint x="1060" y="137.5"/><di:waypoint x="1080" y="137.5"/><di:waypoint x="1080" y="282.5"/><di:waypoint x="1100" y="282.5"/></bpmndi:BPMNEdge><bpmndi:BPMNEdge id="Edge_F03_9" bpmnElement="F03_9"><di:waypoint x="1250" y="282.5"/><di:waypoint x="1265" y="282.5"/><di:waypoint x="1265" y="282.5"/><di:waypoint x="1280" y="282.5"/></bpmndi:BPMNEdge><bpmndi:BPMNEdge id="Edge_F03_10" bpmnElement="F03_10"><di:waypoint x="1425" y="282.5"/><di:waypoint x="1438" y="282.5"/><di:waypoint x="1438" y="282.5"/><di:waypoint x="1450" y="282.5"/></bpmndi:BPMNEdge><bpmndi:BPMNEdge id="Edge_F03_11" bpmnElement="F03_11"><di:waypoint x="1600" y="282.5"/><di:waypoint x="1620" y="282.5"/><di:waypoint x="1620" y="283"/><di:waypoint x="1640" y="283"/></bpmndi:BPMNEdge>
+  </bpmndi:BPMNPlane></bpmndi:BPMNDiagram>
+</bpmn:definitions>
