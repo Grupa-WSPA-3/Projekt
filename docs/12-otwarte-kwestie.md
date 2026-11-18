@@ -26,3 +26,6 @@
 2. Odpowiedź skopiować do tego pliku oraz do źródłowego dokumentu (wywiad, wymagania, słownik lub karta).
 3. Jeśli odpowiedź zmienia regułę lub wymaganie, dodać zmianę w tym samym PR i zaktualizować macierz śledzenia.
 4. Jeśli odpowiedzi brak, zachować status „otwarte” i opisać bezpieczne założenie oraz wpływ na zakres.
+
+
+   
