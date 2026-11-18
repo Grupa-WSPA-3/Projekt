@@ -10,9 +10,9 @@
 3. Jakich narzędzi używacie dziś do ustalania terminów — poczty, komunikatora, strony, dokumentu czy czegoś innego?
 4. Kto aktualizuje informację o wolnym terminie i skąd wiadomo, że jest ona aktualna?
 5. Co najczęściej zabiera czas w organizacji konsultacji?
-
+     
 ## B. Problemy i wyjątki
-
+    
 6. W jakich sytuacjach dochodzi do nieporozumień lub podwójnych ustaleń?
 7. Co się dzieje, gdy wykładowca musi odwołać konsultację?
 8. Co się dzieje, gdy student nie może przyjść po zapisaniu się?
