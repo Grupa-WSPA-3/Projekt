@@ -4,110 +4,140 @@
   xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
   xmlns:dc="http://www.omg.org/spec/DD/20100524/DC"
   xmlns:di="http://www.omg.org/spec/DD/20100524/DI"
-  id="Definitions_SKw_P01" targetNamespace="https://example.org/skw/bpmn">
-  <bpmn:process id="Process_P01" name="P-01 Przeglądanie i zapis na konsultację" isExecutable="false">
+  id="Definitions_SKW_P01"
+  targetNamespace="https://github.com/Grupa-WSPA-3/Projekt/skw/bpmn">
+
+  <bpmn:collaboration id="Collaboration_P01" name="P-01 — Przeglądanie i zapis na konsultację">
+    <bpmn:participant id="Participant_University" name="Uczelnia" processRef="Process_P01"/>
+  </bpmn:collaboration>
+
+  <bpmn:process id="Process_P01" name="P-01 — Przeglądanie i zapis na konsultację" isExecutable="false">
     <bpmn:laneSet id="LaneSet_P01">
       <bpmn:lane id="Lane_Student" name="Student">
         <bpmn:flowNodeRef>Start_ConsultationNeed</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Task_OpenList</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>Task_Filter</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>Task_SelectDetails</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_SetFilters</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_ViewDetails</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_InitiateBooking</bpmn:flowNodeRef>
       </bpmn:lane>
       <bpmn:lane id="Lane_System" name="System SKW">
-        <bpmn:flowNodeRef>Task_ShowAvailable</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PresentSlots</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_ValidateTerm</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Gateway_TermValid</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>Task_RejectInvalid</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>End_Invalid</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_RejectTerm</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>End_TermUnavailable</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_CheckDuplicate</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Gateway_Duplicate</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Task_RejectDuplicate</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>End_Duplicate</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>Gateway_SeatAvailable</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_CheckCapacity</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Gateway_Capacity</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Task_RejectFull</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>End_Full</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>End_NoCapacity</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Task_CreateBooking</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>Task_ShowConfirmation</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_ShowResult</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>End_Booked</bpmn:flowNodeRef>
       </bpmn:lane>
     </bpmn:laneSet>
 
     <bpmn:startEvent id="Start_ConsultationNeed" name="Student potrzebuje konsultacji"/>
-    <bpmn:userTask id="Task_OpenList" name="Otwiera listę konsultacji"/>
-    <bpmn:userTask id="Task_Filter" name="Ustawia filtr wykładowcy / daty"/>
-    <bpmn:serviceTask id="Task_ShowAvailable" name="Pokazuje przyszłe aktywne terminy z wolnymi miejscami"/>
-    <bpmn:userTask id="Task_SelectDetails" name="Wybiera termin i sprawdza szczegóły"/>
+    <bpmn:userTask id="Task_OpenList" name="Przegląda dostępne konsultacje"/>
+    <bpmn:userTask id="Task_SetFilters" name="Określa kryteria wyszukiwania"/>
+    <bpmn:serviceTask id="Task_PresentSlots" name="Wyszukuje i pokazuje przyszłe aktywne terminy z wolnymi miejscami"/>
+    <bpmn:userTask id="Task_ViewDetails" name="Wybiera termin i sprawdza szczegóły"/>
+    <bpmn:userTask id="Task_InitiateBooking" name="Inicjuje zapis na wybrany termin"/>
+    <bpmn:serviceTask id="Task_ValidateTerm" name="Sprawdza istnienie, status i datę terminu"/>
     <bpmn:exclusiveGateway id="Gateway_TermValid" name="Termin istnieje, jest aktywny i przyszły?"/>
-    <bpmn:serviceTask id="Task_RejectInvalid" name="Odrzuca próbę i pokazuje niedostępność"/>
-    <bpmn:endEvent id="End_Invalid" name="Termin niedostępny — bez zapisu"/>
+    <bpmn:serviceTask id="Task_RejectTerm" name="Odrzuca zapis i podaje powód: termin niedostępny"/>
+    <bpmn:endEvent id="End_TermUnavailable" name="Koniec: termin niedostępny — bez zapisu"/>
+    <bpmn:serviceTask id="Task_CheckDuplicate" name="Sprawdza aktywny zapis studenta na ten termin"/>
     <bpmn:exclusiveGateway id="Gateway_Duplicate" name="Student ma już aktywny zapis?"/>
-    <bpmn:serviceTask id="Task_RejectDuplicate" name="Informuje o istniejącym zapisie"/>
-    <bpmn:endEvent id="End_Duplicate" name="Duplikat — bez nowego zapisu"/>
-    <bpmn:exclusiveGateway id="Gateway_SeatAvailable" name="Czy w chwili zatwierdzenia jest wolne miejsce?"/>
-    <bpmn:serviceTask id="Task_RejectFull" name="Odrzuca zapis — brak miejsca"/>
-    <bpmn:endEvent id="End_Full" name="Brak miejsca — bez zapisu"/>
-    <bpmn:serviceTask id="Task_CreateBooking" name="Atomowo tworzy aktywny zapis"/>
-    <bpmn:serviceTask id="Task_ShowConfirmation" name="Wyświetla potwierdzenie i status zapisu"/>
-    <bpmn:endEvent id="End_Booked" name="Zapis potwierdzony"/>
+    <bpmn:serviceTask id="Task_RejectDuplicate" name="Odrzuca duplikat i pokazuje istniejący zapis"/>
+    <bpmn:endEvent id="End_Duplicate" name="Koniec: duplikat — bez nowego zapisu"/>
+    <bpmn:serviceTask id="Task_CheckCapacity" name="Atomowo sprawdza dostępność miejsca w chwili zatwierdzania"/>
+    <bpmn:exclusiveGateway id="Gateway_Capacity" name="Czy w chwili zatwierdzania jest wolne miejsce?"/>
+    <bpmn:serviceTask id="Task_RejectFull" name="Odrzuca zapis i podaje powód: brak miejsca"/>
+    <bpmn:endEvent id="End_NoCapacity" name="Koniec: brak miejsca — bez zapisu"/>
+    <bpmn:serviceTask id="Task_CreateBooking" name="Tworzy aktywny zapis i aktualizuje dostępność"/>
+    <bpmn:serviceTask id="Task_ShowResult" name="Pokazuje potwierdzenie i status zapisu"/>
+    <bpmn:endEvent id="End_Booked" name="Koniec: zapis potwierdzony"/>
 
     <bpmn:sequenceFlow id="Flow_01" sourceRef="Start_ConsultationNeed" targetRef="Task_OpenList"/>
-    <bpmn:sequenceFlow id="Flow_02" sourceRef="Task_OpenList" targetRef="Task_Filter"/>
-    <bpmn:sequenceFlow id="Flow_03" sourceRef="Task_Filter" targetRef="Task_ShowAvailable"/>
-    <bpmn:sequenceFlow id="Flow_04" sourceRef="Task_ShowAvailable" targetRef="Task_SelectDetails"/>
-    <bpmn:sequenceFlow id="Flow_05" sourceRef="Task_SelectDetails" targetRef="Gateway_TermValid"/>
-    <bpmn:sequenceFlow id="Flow_06_yes" name="TAK" sourceRef="Gateway_TermValid" targetRef="Gateway_Duplicate"/>
-    <bpmn:sequenceFlow id="Flow_06_no" name="NIE" sourceRef="Gateway_TermValid" targetRef="Task_RejectInvalid"/>
-    <bpmn:sequenceFlow id="Flow_07" sourceRef="Task_RejectInvalid" targetRef="End_Invalid"/>
-    <bpmn:sequenceFlow id="Flow_08_yes" name="TAK" sourceRef="Gateway_Duplicate" targetRef="Task_RejectDuplicate"/>
-    <bpmn:sequenceFlow id="Flow_08_no" name="NIE" sourceRef="Gateway_Duplicate" targetRef="Gateway_SeatAvailable"/>
-    <bpmn:sequenceFlow id="Flow_09" sourceRef="Task_RejectDuplicate" targetRef="End_Duplicate"/>
-    <bpmn:sequenceFlow id="Flow_10_yes" name="TAK" sourceRef="Gateway_SeatAvailable" targetRef="Task_CreateBooking"/>
-    <bpmn:sequenceFlow id="Flow_10_no" name="NIE" sourceRef="Gateway_SeatAvailable" targetRef="Task_RejectFull"/>
-    <bpmn:sequenceFlow id="Flow_11" sourceRef="Task_RejectFull" targetRef="End_Full"/>
-    <bpmn:sequenceFlow id="Flow_12" sourceRef="Task_CreateBooking" targetRef="Task_ShowConfirmation"/>
-    <bpmn:sequenceFlow id="Flow_13" sourceRef="Task_ShowConfirmation" targetRef="End_Booked"/>
+    <bpmn:sequenceFlow id="Flow_02" sourceRef="Task_OpenList" targetRef="Task_SetFilters"/>
+    <bpmn:sequenceFlow id="Flow_03" sourceRef="Task_SetFilters" targetRef="Task_PresentSlots"/>
+    <bpmn:sequenceFlow id="Flow_04" sourceRef="Task_PresentSlots" targetRef="Task_ViewDetails"/>
+    <bpmn:sequenceFlow id="Flow_05" sourceRef="Task_ViewDetails" targetRef="Task_InitiateBooking"/>
+    <bpmn:sequenceFlow id="Flow_06" sourceRef="Task_InitiateBooking" targetRef="Task_ValidateTerm"/>
+    <bpmn:sequenceFlow id="Flow_07" sourceRef="Task_ValidateTerm" targetRef="Gateway_TermValid"/>
+    <bpmn:sequenceFlow id="Flow_08_yes" name="TAK" sourceRef="Gateway_TermValid" targetRef="Task_CheckDuplicate"/>
+    <bpmn:sequenceFlow id="Flow_08_no" name="NIE" sourceRef="Gateway_TermValid" targetRef="Task_RejectTerm"/>
+    <bpmn:sequenceFlow id="Flow_09" sourceRef="Task_RejectTerm" targetRef="End_TermUnavailable"/>
+    <bpmn:sequenceFlow id="Flow_10" sourceRef="Task_CheckDuplicate" targetRef="Gateway_Duplicate"/>
+    <bpmn:sequenceFlow id="Flow_11_yes" name="TAK" sourceRef="Gateway_Duplicate" targetRef="Task_RejectDuplicate"/>
+    <bpmn:sequenceFlow id="Flow_11_no" name="NIE" sourceRef="Gateway_Duplicate" targetRef="Task_CheckCapacity"/>
+    <bpmn:sequenceFlow id="Flow_12" sourceRef="Task_RejectDuplicate" targetRef="End_Duplicate"/>
+    <bpmn:sequenceFlow id="Flow_13" sourceRef="Task_CheckCapacity" targetRef="Gateway_Capacity"/>
+    <bpmn:sequenceFlow id="Flow_14_yes" name="TAK" sourceRef="Gateway_Capacity" targetRef="Task_CreateBooking"/>
+    <bpmn:sequenceFlow id="Flow_14_no" name="NIE" sourceRef="Gateway_Capacity" targetRef="Task_RejectFull"/>
+    <bpmn:sequenceFlow id="Flow_15" sourceRef="Task_RejectFull" targetRef="End_NoCapacity"/>
+    <bpmn:sequenceFlow id="Flow_16" sourceRef="Task_CreateBooking" targetRef="Task_ShowResult"/>
+    <bpmn:sequenceFlow id="Flow_17" sourceRef="Task_ShowResult" targetRef="End_Booked"/>
   </bpmn:process>
 
   <bpmndi:BPMNDiagram id="Diagram_P01">
-    <bpmndi:BPMNPlane id="Plane_P01" bpmnElement="Process_P01">
+    <bpmndi:BPMNPlane id="Plane_P01" bpmnElement="Collaboration_P01">
+      <bpmndi:BPMNShape id="Shape_Participant" bpmnElement="Participant_University" isHorizontal="true">
+        <dc:Bounds x="70" y="70" width="2510" height="600"/>
+      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Shape_LaneStudent" bpmnElement="Lane_Student" isHorizontal="true">
-        <dc:Bounds x="80" y="80" width="1830" height="170"/>
+        <dc:Bounds x="70" y="70" width="2510" height="170"/>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Shape_LaneSystem" bpmnElement="Lane_System" isHorizontal="true">
-        <dc:Bounds x="80" y="250" width="1830" height="390"/>
+        <dc:Bounds x="70" y="240" width="2510" height="430"/>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Shape_Start" bpmnElement="Start_ConsultationNeed"><dc:Bounds x="110" y="145" width="36" height="36"/></bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Shape_OpenList" bpmnElement="Task_OpenList"><dc:Bounds x="180" y="125" width="120" height="76"/></bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Shape_Filter" bpmnElement="Task_Filter"><dc:Bounds x="340" y="125" width="140" height="76"/></bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Shape_ShowAvailable" bpmnElement="Task_ShowAvailable"><dc:Bounds x="530" y="345" width="160" height="80"/></bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Shape_Select" bpmnElement="Task_SelectDetails"><dc:Bounds x="740" y="125" width="145" height="76"/></bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Shape_GatewayValid" bpmnElement="Gateway_TermValid" isMarkerVisible="true"><dc:Bounds x="930" y="360" width="50" height="50"/></bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Shape_RejectInvalid" bpmnElement="Task_RejectInvalid"><dc:Bounds x="900" y="500" width="150" height="70"/></bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Shape_EndInvalid" bpmnElement="End_Invalid"><dc:Bounds x="1090" y="518" width="36" height="36"/></bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Shape_GatewayDuplicate" bpmnElement="Gateway_Duplicate" isMarkerVisible="true"><dc:Bounds x="1110" y="360" width="50" height="50"/></bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Shape_RejectDuplicate" bpmnElement="Task_RejectDuplicate"><dc:Bounds x="1080" y="500" width="150" height="70"/></bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Shape_EndDuplicate" bpmnElement="End_Duplicate"><dc:Bounds x="1260" y="518" width="36" height="36"/></bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Shape_GatewaySeat" bpmnElement="Gateway_SeatAvailable" isMarkerVisible="true"><dc:Bounds x="1290" y="360" width="50" height="50"/></bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Shape_RejectFull" bpmnElement="Task_RejectFull"><dc:Bounds x="1270" y="500" width="145" height="70"/></bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Shape_EndFull" bpmnElement="End_Full"><dc:Bounds x="1445" y="518" width="36" height="36"/></bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Shape_Create" bpmnElement="Task_CreateBooking"><dc:Bounds x="1410" y="345" width="145" height="70"/></bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Shape_Confirm" bpmnElement="Task_ShowConfirmation"><dc:Bounds x="1590" y="345" width="145" height="70"/></bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Shape_EndBooked" bpmnElement="End_Booked"><dc:Bounds x="1790" y="362" width="36" height="36"/></bpmndi:BPMNShape>
 
-      <bpmndi:BPMNEdge id="Edge_Flow01" bpmnElement="Flow_01"><di:waypoint x="146" y="163"/><di:waypoint x="180" y="163"/></bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Edge_Flow02" bpmnElement="Flow_02"><di:waypoint x="300" y="163"/><di:waypoint x="340" y="163"/></bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Edge_Flow03" bpmnElement="Flow_03"><di:waypoint x="480" y="163"/><di:waypoint x="505" y="163"/><di:waypoint x="505" y="385"/><di:waypoint x="530" y="385"/></bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Edge_Flow04" bpmnElement="Flow_04"><di:waypoint x="690" y="385"/><di:waypoint x="715" y="385"/><di:waypoint x="715" y="163"/><di:waypoint x="740" y="163"/></bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Edge_Flow05" bpmnElement="Flow_05"><di:waypoint x="885" y="163"/><di:waypoint x="905" y="163"/><di:waypoint x="905" y="385"/><di:waypoint x="930" y="385"/></bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Edge_Flow06Yes" bpmnElement="Flow_06_yes"><di:waypoint x="980" y="385"/><di:waypoint x="1110" y="385"/></bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Edge_Flow06No" bpmnElement="Flow_06_no"><di:waypoint x="955" y="410"/><di:waypoint x="955" y="500"/></bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Edge_Flow07" bpmnElement="Flow_07"><di:waypoint x="1050" y="535"/><di:waypoint x="1090" y="536"/></bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Edge_Flow08Yes" bpmnElement="Flow_08_yes"><di:waypoint x="1135" y="410"/><di:waypoint x="1135" y="480"/><di:waypoint x="1155" y="480"/><di:waypoint x="1155" y="500"/></bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Edge_Flow08No" bpmnElement="Flow_08_no"><di:waypoint x="1160" y="385"/><di:waypoint x="1290" y="385"/></bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Edge_Flow09" bpmnElement="Flow_09"><di:waypoint x="1230" y="535"/><di:waypoint x="1260" y="536"/></bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Edge_Flow10Yes" bpmnElement="Flow_10_yes"><di:waypoint x="1340" y="385"/><di:waypoint x="1410" y="380"/></bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Edge_Flow10No" bpmnElement="Flow_10_no"><di:waypoint x="1315" y="410"/><di:waypoint x="1315" y="500"/></bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Edge_Flow11" bpmnElement="Flow_11"><di:waypoint x="1415" y="535"/><di:waypoint x="1445" y="536"/></bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Edge_Flow12" bpmnElement="Flow_12"><di:waypoint x="1555" y="380"/><di:waypoint x="1590" y="380"/></bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Edge_Flow13" bpmnElement="Flow_13"><di:waypoint x="1735" y="380"/><di:waypoint x="1790" y="380"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Shape_Start" bpmnElement="Start_ConsultationNeed"><dc:Bounds x="110" y="135" width="36" height="36"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_OpenList" bpmnElement="Task_OpenList"><dc:Bounds x="190" y="115" width="125" height="76"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_SetFilters" bpmnElement="Task_SetFilters"><dc:Bounds x="355" y="115" width="140" height="76"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_PresentSlots" bpmnElement="Task_PresentSlots"><dc:Bounds x="545" y="345" width="160" height="86"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_ViewDetails" bpmnElement="Task_ViewDetails"><dc:Bounds x="755" y="115" width="140" height="76"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_InitiateBooking" bpmnElement="Task_InitiateBooking"><dc:Bounds x="935" y="115" width="150" height="76"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_ValidateTerm" bpmnElement="Task_ValidateTerm"><dc:Bounds x="1120" y="345" width="160" height="86"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_GatewayTerm" bpmnElement="Gateway_TermValid" isMarkerVisible="true"><dc:Bounds x="1320" y="363" width="50" height="50"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_RejectTerm" bpmnElement="Task_RejectTerm"><dc:Bounds x="1280" y="535" width="150" height="70"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_EndTerm" bpmnElement="End_TermUnavailable"><dc:Bounds x="1480" y="552" width="36" height="36"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_CheckDuplicate" bpmnElement="Task_CheckDuplicate"><dc:Bounds x="1480" y="345" width="160" height="86"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_GatewayDuplicate" bpmnElement="Gateway_Duplicate" isMarkerVisible="true"><dc:Bounds x="1680" y="363" width="50" height="50"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_RejectDuplicate" bpmnElement="Task_RejectDuplicate"><dc:Bounds x="1600" y="535" width="160" height="70"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_EndDuplicate" bpmnElement="End_Duplicate"><dc:Bounds x="1800" y="552" width="36" height="36"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_CheckCapacity" bpmnElement="Task_CheckCapacity"><dc:Bounds x="1840" y="345" width="165" height="86"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_GatewayCapacity" bpmnElement="Gateway_Capacity" isMarkerVisible="true"><dc:Bounds x="2045" y="363" width="50" height="50"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_RejectFull" bpmnElement="Task_RejectFull"><dc:Bounds x="1950" y="535" width="155" height="70"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_EndFull" bpmnElement="End_NoCapacity"><dc:Bounds x="2150" y="552" width="36" height="36"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_CreateBooking" bpmnElement="Task_CreateBooking"><dc:Bounds x="2130" y="345" width="155" height="86"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_ShowResult" bpmnElement="Task_ShowResult"><dc:Bounds x="2320" y="345" width="150" height="86"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_EndBooked" bpmnElement="End_Booked"><dc:Bounds x="2505" y="370" width="36" height="36"/></bpmndi:BPMNShape>
+
+      <bpmndi:BPMNEdge id="Edge_Flow01" bpmnElement="Flow_01"><di:waypoint x="146" y="153"/><di:waypoint x="190" y="153"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow02" bpmnElement="Flow_02"><di:waypoint x="315" y="153"/><di:waypoint x="355" y="153"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow03" bpmnElement="Flow_03"><di:waypoint x="495" y="153"/><di:waypoint x="520" y="153"/><di:waypoint x="520" y="388"/><di:waypoint x="545" y="388"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow04" bpmnElement="Flow_04"><di:waypoint x="705" y="388"/><di:waypoint x="730" y="388"/><di:waypoint x="730" y="153"/><di:waypoint x="755" y="153"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow05" bpmnElement="Flow_05"><di:waypoint x="895" y="153"/><di:waypoint x="935" y="153"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow06" bpmnElement="Flow_06"><di:waypoint x="1085" y="153"/><di:waypoint x="1098" y="153"/><di:waypoint x="1098" y="388"/><di:waypoint x="1120" y="388"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow07" bpmnElement="Flow_07"><di:waypoint x="1280" y="388"/><di:waypoint x="1320" y="388"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow08Yes" bpmnElement="Flow_08_yes"><di:waypoint x="1370" y="388"/><di:waypoint x="1480" y="388"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow08No" bpmnElement="Flow_08_no"><di:waypoint x="1345" y="413"/><di:waypoint x="1345" y="535"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow09" bpmnElement="Flow_09"><di:waypoint x="1430" y="570"/><di:waypoint x="1480" y="570"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow10" bpmnElement="Flow_10"><di:waypoint x="1640" y="388"/><di:waypoint x="1680" y="388"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow11Yes" bpmnElement="Flow_11_yes"><di:waypoint x="1705" y="413"/><di:waypoint x="1705" y="500"/><di:waypoint x="1680" y="500"/><di:waypoint x="1680" y="535"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow11No" bpmnElement="Flow_11_no"><di:waypoint x="1730" y="388"/><di:waypoint x="1840" y="388"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow12" bpmnElement="Flow_12"><di:waypoint x="1760" y="570"/><di:waypoint x="1800" y="570"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow13" bpmnElement="Flow_13"><di:waypoint x="2005" y="388"/><di:waypoint x="2045" y="388"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow14Yes" bpmnElement="Flow_14_yes"><di:waypoint x="2095" y="388"/><di:waypoint x="2130" y="388"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow14No" bpmnElement="Flow_14_no"><di:waypoint x="2070" y="413"/><di:waypoint x="2070" y="535"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow15" bpmnElement="Flow_15"><di:waypoint x="2105" y="570"/><di:waypoint x="2150" y="570"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow16" bpmnElement="Flow_16"><di:waypoint x="2285" y="388"/><di:waypoint x="2320" y="388"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow17" bpmnElement="Flow_17"><di:waypoint x="2470" y="388"/><di:waypoint x="2505" y="388"/></bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
 </bpmn:definitions>
