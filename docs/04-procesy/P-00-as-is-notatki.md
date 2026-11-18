@@ -24,34 +24,25 @@ Proces opisuje hipotetyczny przebieg od pojawienia się potrzeby konsultacji po 
 | P-00.5 | Wykładowca | zapisuje informację o osobie lub prowadzi listę uczestników | arkusz, lista, skrzynka lub pamięć — do potwierdzenia | ryzyko nieaktualnej listy lub przekroczenia limitu | N-04, N-07 |
 | P-00.6 | Student lub Wykładowca | informuje drugą stronę o rezygnacji albo odwołaniu | e-mail / komunikator / rozmowa | informacja o zmianie może nie dotrzeć do wszystkich | N-05, N-06, N-10 |
 
-## Schemat AS-IS (roboczy)
+## Diagram BPMN 2.0 AS-IS (hipoteza do walidacji)
 
-```mermaid
-flowchart TD
-    A((Potrzeba konsultacji)) --> B[Student szuka informacji]
-    B --> C[Student kontaktuje się z wykładowcą]
-    C --> D[Wykładowca sprawdza dostępność]
-    D --> E{Czy można uzgodnić termin?}
-    E -->|Nie| F[Student ponawia kontakt lub szuka innej możliwości]
-    F --> C
-    E -->|Tak| G[Strony potwierdzają termin]
-    G --> H[Wykładowca prowadzi listę zapisów]
-    H --> I{Czy następuje zmiana?}
-    I -->|Nie| J((Konsultacja odbywa się))
-    I -->|Tak| K[Student lub wykładowca informuje drugą stronę]
-    K --> L((Termin zmieniony lub odwołany))
-```
+![P-00 — Obecny sposób organizacji konsultacji](P-00-rezerwacja-as-is.svg)
+
+- Źródło edytowalne: [P-00-rezerwacja-as-is.bpmn](P-00-rezerwacja-as-is.bpmn)
+- Eksport SVG: [P-00-rezerwacja-as-is.svg](P-00-rezerwacja-as-is.svg)
+
+Diagram przedstawia jedną pulę „Uczelnia” z torami Student i Wykładowca. Czynności są ręczne; e-mail, komunikator, telefon, prywatny kalendarz i lista są wskazane w nazwach czynności jako używane kanały / narzędzia do potwierdzenia. Czerwone obramowanie i etykieta „PUNKT BÓLU” oznaczają miejsca, które SKW może usprawnić. Diagram jest rekonstrukcją do walidacji — nie potwierdzonym wynikiem wywiadu.
 
 ## Punkty bólu i odpowiedź w TO-BE
 
 | Punkt bólu (hipoteza) | Odpowiedź w SKW | Proces / wymaganie |
 |---|---|---|
-| Informacje o terminach rozproszone | jeden widok przyszłych dostępnych terminów | P-01.1–P-01.4 / FR-03, FR-06 |
-| Trzeba ręcznie pytać o dostępność | filtrowanie po wykładowcy i dacie | P-01.2–P-01.4 / FR-04, FR-05 |
-| Nie wiadomo, czy pozostało miejsce | dostępność i kontrola limitu w chwili zapisu | P-01.4–P-01.9 / FR-07, FR-08, BR-02 |
-| Lista zapisów jest prowadzona osobno | wykładowca widzi listę zapisów do własnego terminu | P-02.7 / FR-13 |
+| Informacje o terminach rozproszone | jeden widok przyszłych dostępnych terminów | P-01.1, P-01.3 / FR-03, FR-06 |
+| Trzeba ręcznie pytać o dostępność | filtrowanie po wykładowcy i dacie | P-01.2–P-01.3 / FR-04, FR-05 |
+| Nie wiadomo, czy pozostało miejsce | dostępność i kontrola limitu w chwili zapisu | P-01.3, P-01.8–P-01.9 / FR-03, FR-08, BR-02, BR-10 |
+| Lista zapisów jest prowadzona osobno | wykładowca widzi listę zapisów do własnego terminu | P-02.3, P-02.8 / FR-13 |
 | Rezygnacja wymaga kontaktu | student anuluje własny zapis w systemie | P-03.1–P-03.6 / FR-10 |
-| Odwołanie terminu może nie dotrzeć do studentów | status powiązanych zapisów zostaje zaktualizowany i pokazany | P-02.5–P-02.8 / FR-14, FR-16 |
+| Odwołanie terminu może nie dotrzeć do studentów | status powiązanych zapisów zostaje zaktualizowany i pokazany | P-02.6–P-02.8 / FR-14, FR-16 |
 
 ## Co należy potwierdzić podczas wywiadu
 
