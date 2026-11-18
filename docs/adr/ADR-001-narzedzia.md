@@ -1,6 +1,6 @@
 # ADR-001: Narzędzia pracy projektowej
 
-
+    
 ## Kontekst
 
 Zespół SKW składa się z czterech osób o różnych głównych odpowiedzialnościach: koordynacji i analizie wymagań, modelowaniu danych i architekturze, UI/UX i dokumentacji oraz testowaniu. Projekt wymaga wspólnego repozytorium, wersjonowanej dokumentacji, tablicy zadań z właścicielami, diagramów oraz przeglądu zmian przez Pull Request. Narzędzia powinny być dostępne dla wszystkich członków zespołu i umożliwiać zachowanie rezultatów w repozytorium na kolejnych etapach przedmiotu.
