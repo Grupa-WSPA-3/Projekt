@@ -24,7 +24,7 @@
 ## 2. Wymagania funkcjonalne (FR)
 
 Priorytety wynikają z wartości dla użytkownika na pierwszą wersję. „Must” stanowi 10 z 18 FR (55,6%), czyli mniej niż zalecane około 60%.
-
+    
 | ID | Treść | Źródło | Priorytet | Uwagi |
 |---|---|---|---|---|
 | FR-01 | System umożliwia zalogowanie się użytkownikowi posiadającemu aktywne konto. | N-09 | Must | poprawne dane otwierają sesję; błędne dane nie otwierają sesji |
