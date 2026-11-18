@@ -59,33 +59,5 @@ Wagi: 1 — mała ważność, 3 — duża ważność. Oceny: 1–5. Wynik ważon
 
 **Propozycja:** Penpot jako rozwiązanie open source. Makiety należy zachować w formacie źródłowym oraz dołączyć eksport SVG/PNG. Jeśli zespół zdecyduje się na Figma z uwagi na doświadczenie, powinien uzasadnić tę zmianę.
 
-## Decyzja
 
-Poniższa tabela przedstawia proponowany zestaw narzędzi. Wybór pozostaje propozycją do wspólnego zatwierdzenia.
-
-| Obszar | Narzędzie | Format plików w repozytorium |
-|---|---|---|
-| repozytorium | GitHub | pliki projektu, historia commitów, Pull Requests |
-| zadania | GitHub Issues + GitHub Projects | zadania i backlog w repozytorium / projekcie GitHub, z przypisanymi właścicielami |
-| dokumentacja | Markdown | pliki `.md` |
-| diagramy UML / BPMN | Mermaid i diagrams.net | `.md` z blokami Mermaid; `.drawio` oraz eksport `.png` / `.svg` |
-| model danych | Mermaid ER na początek; ewentualnie dbdiagram.io po ponownej ocenie | `.md` z kodem Mermaid; dodatkowo eksport, jeżeli będzie potrzebny |
-| interfejs | Penpot | pliki źródłowe projektu oraz eksporty `.svg` / `.png` |
-| komunikacja | wspólny komunikator zespołu — narzędzie do potwierdzenia | istotne decyzje, pytania i ustalenia zapisywane dodatkowo w GitHub Issues oraz ADR |
-
-## Konsekwencje
-
-### Co zyskujemy
-
-- Wspólną historię zmian oraz możliwość sprawdzenia wkładu poszczególnych członków zespołu.
-- Powiązanie zadań z wymaganiami, commitami i Pull Requests.
-- Możliwość przechowywania większości dokumentacji i diagramów bezpośrednio w repozytorium.
-- Wykorzystanie narzędzi open source lub rozwiązań dostępnych bez zakupu licencji na potrzeby projektu.
-
-### Co tracimy / jakie są ryzyka
-
-- GitHub Projects wymaga krótkiego wdrożenia i przyzwyczajenia się do pracy z Issues.
-- Mermaid jest mniej wygodny przy złożonych diagramach BPMN/UML niż edytor graficzny.
-- Makiety interfejsu wymagają eksportu, aby można je było łatwo przeglądać bez otwierania narzędzia.
-- Dostępność bezpłatnych planów i funkcji usług zewnętrznych może się zmienić.
 
