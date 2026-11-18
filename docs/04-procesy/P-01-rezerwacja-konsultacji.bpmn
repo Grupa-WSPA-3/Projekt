@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL"
+  xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+  xmlns:dc="http://www.omg.org/spec/DD/20100524/DC"
+  xmlns:di="http://www.omg.org/spec/DD/20100524/DI"
+  id="Definitions_SKw_P01" targetNamespace="https://example.org/skw/bpmn">
+  <bpmn:process id="Process_P01" name="P-01 Przeglądanie i zapis na konsultację" isExecutable="false">
+    <bpmn:laneSet id="LaneSet_P01">
+      <bpmn:lane id="Lane_Student" name="Student">
+        <bpmn:flowNodeRef>Start_ConsultationNeed</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_OpenList</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_Filter</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_SelectDetails</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_System" name="System SKW">
+        <bpmn:flowNodeRef>Task_ShowAvailable</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Gateway_TermValid</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_RejectInvalid</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Gateway_Duplicate</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_RejectDuplicate</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Gateway_SeatAvailable</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_RejectFull</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_CreateBooking</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_ShowConfirmation</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>End_Booked</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>End_Invalid</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>End_Duplicate</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>End_Full</bpmn:flowNodeRef>
+      </bpmn:lane>
+    </bpmn:laneSet>
+
+    <bpmn:startEvent id="Start_ConsultationNeed" name="Student potrzebuje konsultacji"/>
+    <bpmn:userTask id="Task_OpenList" name="Otwiera listę konsultacji"/>
+    <bpmn:userTask id="Task_Filter" name="Ustawia filtr wykładowcy / daty"/>
+    <bpmn:serviceTask id="Task_ShowAvailable" name="Pokazuje przyszłe aktywne terminy z wolnymi miejscami"/>
+    <bpmn:userTask id="Task_SelectDetails" name="Wybiera termin i sprawdza szczegóły"/>
+    <bpmn:exclusiveGateway id="Gateway_TermValid" name="Termin istnieje, jest aktywny i przyszły?"/>
+    <bpmn:serviceTask id="Task_RejectInvalid" name="Odrzuca próbę i pokazuje niedostępność"/>
+    <bpmn:exclusiveGateway id="Gateway_Duplicate" name="Student ma już aktywny zapis?"/>
+    <bpmn:serviceTask id="Task_RejectDuplicate" name="Informuje o istniejącym zapisie"/>
+    <bpmn:exclusiveGateway id="Gateway_SeatAvailable" name="Czy w chwili zatwierdzenia jest wolne miejsce?"/>
+    <bpmn:serviceTask id="Task_RejectFull" name="Odrzuca zapis — brak miejsca"/>
+    <bpmn:serviceTask id="Task_CreateBooking" name="Atomowo tworzy aktywny zapis"/>
+    <bpmn:serviceTask id="Task_ShowConfirmation" name="Wyświetla potwierdzenie i status zapisu"/>
+    <bpmn:endEvent id="End_Booked" name="Zapis potwierdzony"/>
+    <bpmn:endEvent id="End_Invalid" name="Termin niedostępny — bez zapisu"/>
+    <bpmn:endEvent id="End_Duplicate" name="Duplikat — bez nowego zapisu"/>
+    <bpmn:endEvent id="End_Full" name="Brak miejsca — bez zapisu"/>
+
+    <bpmn:sequenceFlow id="Flow_01" sourceRef="Start_ConsultationNeed" targetRef="Task_OpenList"/>
+    <bpmn:sequenceFlow id="Flow_02" sourceRef="Task_OpenList" targetRef="Task_Filter"/>
+    <bpmn:sequenceFlow id="Flow_03" sourceRef="Task_Filter" targetRef="Task_ShowAvailable"/>
+    <bpmn:sequenceFlow id="Flow_04" sourceRef="Task_ShowAvailable" targetRef="Task_SelectDetails"/>
+    <bpmn:sequenceFlow id="Flow_05" sourceRef="Task_SelectDetails" targetRef="Gateway_TermValid"/>
+    <bpmn:sequenceFlow id="Flow_06_yes" name="TAK" sourceRef="Gateway_TermValid" targetRef="Gateway_Duplicate"/>
+    <bpmn:sequenceFlow id="Flow_06_no" name="NIE" sourceRef="Gateway_TermValid" targetRef="Task_RejectInvalid"/>
+    <bpmn:sequenceFlow id="Flow_07" sourceRef="Task_RejectInvalid" targetRef="End_Invalid"/>
+    <bpmn:sequenceFlow id="Flow_08_yes" name="TAK" sourceRef="Gateway_Duplicate" targetRef="Task_RejectDuplicate"/>
+    <bpmn:sequenceFlow id="Flow_08_no" name="NIE" sourceRef="Gateway_Duplicate" targetRef="Gateway_SeatAvailable"/>
+    <bpmn:sequenceFlow id="Flow_09" sourceRef="Task_RejectDuplicate" targetRef="End_Duplicate"/>
+    <bpmn:sequenceFlow id="Flow_10_yes" name="TAK" sourceRef="Gateway_SeatAvailable" targetRef="Task_CreateBooking"/>
+    <bpmn:sequenceFlow id="Flow_10_no" name="NIE" sourceRef="Gateway_SeatAvailable" targetRef="Task_RejectFull"/>
+    <bpmn:sequenceFlow id="Flow_11" sourceRef="Task_RejectFull" targetRef="End_Full"/>
+    <bpmn:sequenceFlow id="Flow_12" sourceRef="Task_CreateBooking" targetRef="Task_ShowConfirmation"/>
+    <bpmn:sequenceFlow id="Flow_13" sourceRef="Task_ShowConfirmation" targetRef="End_Booked"/>
+  </bpmn:process>
+
+  <bpmndi:BPMNDiagram id="Diagram_P01">
+    <bpmndi:BPMNPlane id="Plane_P01" bpmnElement="Process_P01">
+      <bpmndi:BPMNShape id="Shape_LaneStudent" bpmnElement="Lane_Student" isHorizontal="true">
+        <dc:Bounds x="80" y="80" width="1500" height="170"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_LaneSystem" bpmnElement="Lane_System" isHorizontal="true">
+        <dc:Bounds x="80" y="250" width="1500" height="300"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Start" bpmnElement="Start_ConsultationNeed"><dc:Bounds x="110" y="145" width="36" height="36"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_OpenList" bpmnElement="Task_OpenList"><dc:Bounds x="180" y="125" width="120" height="76"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Filter" bpmnElement="Task_Filter"><dc:Bounds x="335" y="125" width="135" height="76"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_ShowAvailable" bpmnElement="Task_ShowAvailable"><dc:Bounds x="520" y="330" width="160" height="86"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Select" bpmnElement="Task_SelectDetails"><dc:Bounds x="730" y="125" width="140" height="76"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_GatewayValid" bpmnElement="Gateway_TermValid" isMarkerVisible="true"><dc:Bounds x="930" y="347" width="50" height="50"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_RejectInvalid" bpmnElement="Task_RejectInvalid"><dc:Bounds x="1020" y="445" width="145" height="70"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_GatewayDuplicate" bpmnElement="Gateway_Duplicate" isMarkerVisible="true"><dc:Bounds x="1050" y="330" width="50" height="50"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_RejectDuplicate" bpmnElement="Task_RejectDuplicate"><dc:Bounds x="1160" y="445" width="145" height="70"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_GatewaySeat" bpmnElement="Gateway_SeatAvailable" isMarkerVisible="true"><dc:Bounds x="1165" y="330" width="50" height="50"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_RejectFull" bpmnElement="Task_RejectFull"><dc:Bounds x="1330" y="445" width="130" height="70"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Create" bpmnElement="Task_CreateBooking"><dc:Bounds x="1280" y="310" width="140" height="70"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Confirm" bpmnElement="Task_ShowConfirmation"><dc:Bounds x="1435" y="310" width="130" height="70"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_EndBooked" bpmnElement="End_Booked"><dc:Bounds x="1530" y="145" width="36" height="36"/></bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
