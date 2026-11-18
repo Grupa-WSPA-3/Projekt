@@ -3,7 +3,7 @@
 **Ważne:** poniższy przebieg nie pochodzi z udokumentowanej obserwacji ani rzeczywistego wywiadu. To robocza rekonstrukcja wynikająca z karty projektu; po rozmowie należy ją poprawić przed narysowaniem BPMN.
 
 ## Cel procesu
-
+     
 Opisać, jak student uzgadnia termin konsultacji z wykładowcą w obecnym stanie, zanim zostanie wdrożony SKW.
 
 ## Hipotetyczny przebieg do walidacji
