@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1680" height="690" viewBox="0 0 1680 690" role="img" aria-labelledby="title desc">
+<title id="title">P-01 — Przeglądanie i zapis na konsultację</title>
+<desc id="desc">Diagram procesu BPMN z dwoma torami: Student i System SKW. System waliduje termin, sprawdza duplikat i dostępność ostatniego miejsca. Pokazano cztery odrębne wyniki końcowe.</desc>
+<defs>
+  <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#263445"/></marker>
+  <style>
+    .lane{fill:#f7f9fc;stroke:#8b98a8;stroke-width:1.5}
+    .lanehead{fill:#e7edf5;stroke:#8b98a8;stroke-width:1.5}
+    .task{fill:#ffffff;stroke:#294c70;stroke-width:2;rx:10}
+    .service{fill:#eef5fb;stroke:#294c70;stroke-width:2;rx:10}
+    .decision{fill:#fff6df;stroke:#9b6c16;stroke-width:2}
+    .start{fill:#e4f4e9;stroke:#287447;stroke-width:3}
+    .endok{fill:#e4f4e9;stroke:#287447;stroke-width:4}
+    .endbad{fill:#fff0ef;stroke:#a23a36;stroke-width:4}
+    .flow{fill:none;stroke:#263445;stroke-width:2.2;marker-end:url(#arrow)}
+    .label{font:600 16px Arial,sans-serif;fill:#213246}
+    .small{font:14px Arial,sans-serif;fill:#334155}
+    .laneText{font:700 19px Arial,sans-serif;fill:#334155}
+    .title{font:700 25px Arial,sans-serif;fill:#13263a}
+    .sub{font:14px Arial,sans-serif;fill:#475569}
+    .yes{font:700 14px Arial,sans-serif;fill:#287447}
+    .no{font:700 14px Arial,sans-serif;fill:#a23a36}
+  </style>
+</defs>
+<rect x="20" y="18" width="1640" height="650" rx="16" fill="#ffffff" stroke="#d2d9e2"/>
+<text x="55" y="58" class="title">P-01 · Przeglądanie i zapis na konsultację (TO-BE)</text>
+<text x="55" y="82" class="sub">BPMN 2.0 · proces główny · wyjątki: nieaktualny termin, duplikat zapisu, brak miejsca / wyścig ostatniego miejsca</text>
+
+<rect class="lane" x="55" y="110" width="1570" height="185" rx="6"/>
+<rect class="lanehead" x="55" y="110" width="120" height="185"/>
+<text x="115" y="205" class="laneText" text-anchor="middle" transform="rotate(-90 115 205)">STUDENT</text>
+<rect class="lane" x="55" y="295" width="1570" height="330" rx="6"/>
+<rect class="lanehead" x="55" y="295" width="120" height="330"/>
+<text x="115" y="465" class="laneText" text-anchor="middle" transform="rotate(-90 115 465)">SYSTEM SKW</text>
+
+<!-- Student lane -->
+<circle class="start" cx="210" cy="205" r="18"/>
+<path class="flow" d="M228 205 H265"/>
+<rect class="task" x="265" y="165" width="145" height="80"/>
+<text class="label" x="337" y="195" text-anchor="middle"><tspan x="337">Otwiera listę</tspan><tspan x="337" dy="20">konsultacji</tspan></text>
+<path class="flow" d="M410 205 H455"/>
+<rect class="task" x="455" y="165" width="155" height="80"/>
+<text class="label" x="532" y="195" text-anchor="middle"><tspan x="532">Filtruje po</tspan><tspan x="532" dy="20">wykładowcy / dacie</tspan></text>
+<path class="flow" d="M610 205 H650"/>
+<rect class="task" x="650" y="165" width="145" height="80"/>
+<text class="label" x="722" y="195" text-anchor="middle"><tspan x="722">Wybiera termin</tspan><tspan x="722" dy="20">i szczegóły</tspan></text>
+<path class="flow" d="M795 205 H835 V340"/>
+
+<!-- System lane tasks and gateways -->
+<rect class="service" x="270" y="365" width="185" height="85"/>
+<text class="label" x="362" y="394" text-anchor="middle"><tspan x="362">Pokazuje przyszłe</tspan><tspan x="362" dy="20">aktywne terminy</tspan><tspan x="362" dy="20">z wolnymi miejscami</tspan></text>
+<path class="flow" d="M455 407 H505 V205 H650"/>
+<text class="small" x="485" y="390">lista</text>
+
+<polygon class="decision" points="875,340 910,375 875,410 840,375"/>
+<text class="small" x="875" y="434" text-anchor="middle">Termin aktywny</text>
+<text class="small" x="875" y="451" text-anchor="middle">i przyszły?</text>
+<path class="flow" d="M910 375 H965"/>
+<text class="yes" x="922" y="363">TAK</text>
+<path class="flow" d="M875 410 V520 H975"/>
+<text class="no" x="887" y="472">NIE</text>
+<rect class="service" x="975" y="485" width="165" height="70"/>
+<text class="label" x="1057" y="512" text-anchor="middle"><tspan x="1057">Odrzuca próbę</tspan><tspan x="1057" dy="20">i pokazuje powód</tspan></text>
+<path class="flow" d="M1140 520 H1170"/>
+<circle class="endbad" cx="1190" cy="520" r="17"/>
+<text class="small" x="1190" y="555" text-anchor="middle">Termin niedostępny</text>
+
+<polygon class="decision" points="1010,340 1045,375 1010,410 975,375"/>
+<text class="small" x="1010" y="434" text-anchor="middle">Aktywny zapis</text>
+<text class="small" x="1010" y="451" text-anchor="middle">już istnieje?</text>
+<path class="flow" d="M1045 375 H1110"/>
+<text class="yes" x="1060" y="363">TAK</text>
+<rect class="service" x="1110" y="315" width="155" height="58"/>
+<text class="label" x="1187" y="340" text-anchor="middle"><tspan x="1187">Informuje</tspan><tspan x="1187" dy="18">o duplikacie</tspan></text>
+<path class="flow" d="M1265 344 H1290"/>
+<circle class="endbad" cx="1310" cy="344" r="17"/>
+<text class="small" x="1310" y="310" text-anchor="middle">Duplikat</text>
+<path class="flow" d="M1010 410 V585 H1260 V435"/>
+<text class="no" x="1022" y="475">NIE</text>
+
+<polygon class="decision" points="1295,400 1330,435 1295,470 1260,435"/>
+<text class="small" x="1295" y="490" text-anchor="middle">Wolne miejsce</text>
+<text class="small" x="1295" y="507" text-anchor="middle">w tej chwili?</text>
+<path class="flow" d="M1330 435 H1370"/>
+<text class="yes" x="1338" y="423">TAK</text>
+<rect class="service" x="1370" y="395" width="120" height="80"/>
+<text class="label" x="1430" y="425" text-anchor="middle"><tspan x="1430">Atomowo</tspan><tspan x="1430" dy="20">tworzy zapis</tspan></text>
+<path class="flow" d="M1490 435 H1510"/>
+<rect class="service" x="1510" y="395" width="100" height="80"/>
+<text class="label" x="1560" y="425" text-anchor="middle"><tspan x="1560">Potwierdza</tspan><tspan x="1560" dy="20">status</tspan></text>
+<path class="flow" d="M1560 395 V160 H1620"/>
+<circle class="endok" cx="1620" cy="160" r="18"/>
+<text class="small" x="1595" y="135" text-anchor="end">Zapis potwierdzony</text>
+<path class="flow" d="M1295 470 V570 H1430"/>
+<text class="no" x="1307" y="540">NIE</text>
+<rect class="service" x="1430" y="535" width="150" height="60"/>
+<text class="label" x="1505" y="558" text-anchor="middle"><tspan x="1505">Odrzuca zapis:</tspan><tspan x="1505" dy="18">brak miejsca</tspan></text>
+<path class="flow" d="M1580 565 H1600"/>
+<circle class="endbad" cx="1618" cy="565" r="17"/>
+<text class="small" x="1580" y="610" text-anchor="end">Brak miejsca / wyścig</text>
+
+<text class="sub" x="65" y="650">Wszystkie odmowy pozostawiają dane bez zmian. Samo wyświetlenie listy nie rezerwuje miejsca. Ostatnie miejsce przydziela tylko jedna zatwierdzona transakcja.</text>
+</svg>
