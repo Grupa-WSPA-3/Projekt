@@ -56,4 +56,3 @@ Umożliwić wykładowcy publikowanie i utrzymywanie własnych terminów oraz prz
 - Obowiązkowe dane terminu / miejsce / forma — Q-13 i Q-07.
 - Wgląd administratora do list zapisów — Q-06.
 - Retencja danych historycznych — Q-11.
-
