@@ -19,7 +19,7 @@ Kody potrzeb N-xx, FR-xx, NFR-xx, BR-xx, US-xx oraz P-xx są spójne z `docs/03-
 | N-04 | FR-08 — atomowa kontrola limitu w chwili zatwierdzania | US-03 | Must | P-01.8 |
 | N-04 | FR-09 — brak duplikatu aktywnego zapisu | US-03 | Must | P-01.7, P-01.12 |
 | N-05 | FR-10 — anulowanie własnego zapisu | US-04 | Must | P-03.1–P-03.6 |
-| N-06 | FR-11 — utworzenie terminu przez wykładowcę | US-05 | Must | P-02.3–P-02.7 |
+| N-06 | FR-11 — utworzenie terminu przez wykładowcę | US-05 | Must | P-02.3–P-02.7 | 
 | N-06 | FR-12 — edycja własnego terminu bez aktywnych zapisów | US-05 | Should | P-02.3–P-02.7 |
 | N-07, N-09 | FR-13 — lista zapisów dla własnego terminu | US-06 | Should | P-02.3, P-02.8 |
 | N-06, N-10 | FR-14 — anulowanie własnego terminu i aktualizacja zapisów | US-05 | Must | P-02.3, P-02.6–P-02.8 |
