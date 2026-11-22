@@ -29,4 +29,3 @@
 - P-02 zakłada, że wykładowca nie może zmienić daty/godziny terminu z aktywnymi zapisami w pierwszej wersji.
 - P-03 zakłada, że student może anulować własny aktywny zapis; termin graniczny anulowania pozostaje pytaniem Q-03.
 - Nie modelowano zewnętrznej poczty, SSO ani planu zajęć, ponieważ są poza zakresem v1.
-
