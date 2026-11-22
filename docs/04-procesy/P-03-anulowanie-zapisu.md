@@ -40,7 +40,6 @@ Umożliwić studentowi anulowanie własnego aktywnego zapisu, zwolnienie miejsca
 - odmowa — zapis jest już anulowany / nieaktywny;
 - odmowa — upłynął termin anulowania, jeżeli taka reguła zostanie przyjęta.
 
-## Otwarte kwestie
+## Otwarte kwestie 
 
 Graniczny czas anulowania nie został ustalony. Nie wpisujemy konkretnej liczby godzin ani dni bez odpowiedzi na Q-03. W obecnej wersji opisujemy anulowanie aktywnego własnego zapisu, a ograniczenie czasowe traktujemy jako warunkowe.
-
