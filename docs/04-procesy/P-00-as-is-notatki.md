@@ -38,7 +38,7 @@ Diagram przedstawia jedną pulę „Uczelnia” z torami Student i Wykładowca. 
 | Punkt bólu (hipoteza) | Odpowiedź w SKW | Proces / wymaganie |
 |---|---|---|
 | Informacje o terminach rozproszone | jeden widok przyszłych dostępnych terminów | P-01.1, P-01.3 / FR-03, FR-06 |
-| Trzeba ręcznie pytać o dostępność | filtrowanie po wykładowcy i dacie | P-01.2–P-01.3 / FR-04, FR-05 |
+| Trzeba ręcznie pytać o dostępność | filtrowanie po wykładowcy i dacie | P-01.2–P-01.3 / FR-04, FR-05 | 
 | Nie wiadomo, czy pozostało miejsce | dostępność i kontrola limitu w chwili zapisu | P-01.3, P-01.8–P-01.9 / FR-03, FR-08, BR-02, BR-10 |
 | Lista zapisów jest prowadzona osobno | wykładowca widzi listę zapisów do własnego terminu | P-02.3, P-02.8 / FR-13 |
 | Rezygnacja wymaga kontaktu | student anuluje własny zapis w systemie | P-03.1–P-03.6 / FR-10 |
