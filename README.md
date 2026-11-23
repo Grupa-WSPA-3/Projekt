@@ -1,8 +1,8 @@
 # SKW — System obsługi konsultacji wykładowców
 
 **Przedmiot:** Projekt zespołowy systemu informatycznego cz. 1  
-**Stan dokumentacji:** komplet roboczy na koniec 5. zajęć (AS-IS / TO-BE)  
-**Wersja:** 0.2 wymagań, 0.3 słownika, 0.3 karty projektu
+**Stan dokumentacji:** pakiet M1 / 0.5 — przygotowany do wspólnego przeglądu zespołu  
+**Wersje szczegółowe artefaktów:** karta 0.3, słownik 0.3, wymagania 0.2; pakiet M1 grupuje je pod wspólną wersją przeglądową 0.5.
 
 ## Cel projektu
 
@@ -12,12 +12,10 @@ SKW ma uporządkować zapisy na konsultacje wykładowców w jednym miejscu. Stud
 
 | Osoba | Główna odpowiedzialność | Login GitHub |
 |---|---|---|
-| Maksym Tymoshenko | koordynacja, analiza wymagań i spójność dokumentacji | `@mtwspa` |
-| Kostiantyn Kyrylenko | model danych i architektura | `@Hryak123` |
-| Sofiia Vetvytska | UI/UX, słownik i dokumentacja | `@miumeowww` |
-| Alina Semeniuk | testowanie, kryteria akceptacji i kontrola reguł | `@semenukalina89-maker` |
-
-Podział odpowiedzialności ma charakter roboczy; każdy członek zespołu współpracuje przy przeglądzie dokumentów.
+| Maksym Tymoshenko | koordynacja, analiza wymagań i spójność dokumentacji | @mtwspa |
+| Kostiantyn Kyrylenko | model danych i architektura | @Hryak123 |
+| Sofiia Vetvytska | UI/UX, słownik i dokumentacja | @miumeowww |
+| Alina Semeniuk | testowanie, kryteria akceptacji i kontrola reguł | @semenukalina89-maker |
 
 ## Najważniejsze dokumenty
 
@@ -27,49 +25,47 @@ Podział odpowiedzialności ma charakter roboczy; każdy członek zespołu wspó
 | Słownik dziedzinowy 0.3 | [docs/02-slownik.md](docs/02-slownik.md) |
 | Wymagania 0.2: N, FR, NFR, BR, ograniczenia, historyjki i MoSCoW | [docs/03-wymagania.md](docs/03-wymagania.md) |
 | Procesy AS-IS / TO-BE | [docs/04-procesy/README.md](docs/04-procesy/README.md) |
-| Macierz śledzenia z kolumną „Proces” | [docs/macierz-sledzenia.md](docs/macierz-sledzenia.md) |
-| Przypadki użycia — zakres wstępny | [docs/05-przypadki-uzycia/README.md](docs/05-przypadki-uzycia/README.md) |
-| Diagram kontekstu | [docs/06-architektura/kontekst.md](docs/06-architektura/kontekst.md) |
-| Kandydaci make-or-buy | [docs/06-architektura/make-or-buy.md](docs/06-architektura/make-or-buy.md) |
+| Macierz śledzenia | [docs/macierz-sledzenia.md](docs/macierz-sledzenia.md) |
+| Aktorzy i kandydaci przypadków użycia | [docs/05-przypadki-uzycia/README.md](docs/05-przypadki-uzycia/README.md) |
+| C4 L1 — kontekst | [docs/06-architektura/kontekst.md](docs/06-architektura/kontekst.md) |
+| C4 L2 — kontenery i wpływ NFR | [docs/06-architektura/kontenery.md](docs/06-architektura/kontenery.md) |
+| Make-or-buy | [docs/06-architektura/make-or-buy.md](docs/06-architektura/make-or-buy.md) |
+| ADR-001 — narzędzia | [docs/adr/ADR-001-narzedzia.md](docs/adr/ADR-001-narzedzia.md) |
+| ADR-002 — modularny monolit | [docs/adr/ADR-002-styl-architektury.md](docs/adr/ADR-002-styl-architektury.md) |
+| ADR-003 — rdzeń SKW MAKE | [docs/adr/ADR-003-rdzen-skw-make.md](docs/adr/ADR-003-rdzen-skw-make.md) |
+| Backlog M1–M3 | [docs/backlog-m1-m3.md](docs/backlog-m1-m3.md) |
+| Checklista M1 / v0.5 | [docs/checklista-m1-v0.5.md](docs/checklista-m1-v0.5.md) |
 | Otwarte kwestie Q-01…Q-14 | [docs/12-otwarte-kwestie.md](docs/12-otwarte-kwestie.md) |
-| Rejestr ryzyk | [docs/13-ryzyka.md](docs/13-ryzyka.md) |
-| Checklista kryteriów zajęć 5 | [docs/checklista-zajecia-5.md](docs/checklista-zajecia-5.md) |
-| Pytania do klienta | [docs/spotkania/pytania-do-klienta.md](docs/spotkania/pytania-do-klienta.md) |
-| Protokół wywiadu | [docs/spotkania/wywiad-1.md](docs/spotkania/wywiad-1.md) |
-| Decyzja o narzędziach | [docs/adr/ADR-001-narzedzia.md](docs/adr/ADR-001-narzedzia.md) |
+| Rejestr ryzyk R-01…R-12 | [docs/13-ryzyka.md](docs/13-ryzyka.md) |
 
-## Zakres opracowany do etapu 5
+## Stan pakietu M1
 
-- karta projektu, interesariusze, role oraz zakres IN/OUT;
-- słownik dziedzinowy z definicjami, synonimami, homonimami i źródłami;
-- lista potrzeb N-01…N-10 i specyfikacja 18 FR (10 Must / 8 Should), 8 mierzalnych NFR według kategorii ISO/IEC 25010:2023 oraz 10 reguł BR;
-- siedem historyjek użytkownika (US-01…US-07), w tym scenariusze Given/When/Then dla wszystkich wymagań Must; 
-- proces AS-IS w BPMN (źródło + SVG) oraz trzy procesy TO-BE;
-- proces P-00 AS-IS i główny proces P-01 TO-BE w BPMN 2.0: źródła `.bpmn` i eksporty `.svg`;
-- macierz śledzenia: potrzeba → wymaganie → historyjka → priorytet → krok procesu;
-- otwarte pytania, rejestr ryzyk, Issues i zasady pracy z PR.
+- wymagania: 10 potrzeb, 18 FR (10 Must / 8 Should), 8 mierzalnych NFR i 10 BR;
+- historyjki: US-01…US-07, wraz z kryteriami GWT dla wymagań Must;
+- procesy: P-00 AS-IS oraz P-01, P-02, P-03 TO-BE; każdy ma opis, źródło BPMN i eksport SVG;
+- macierz śledzenia: potrzeba → wymaganie → historyjka → priorytet → proces;
+- architektura: C4 L1 i L2, wpływ NFR, make-or-buy, ADR-002 i ADR-003;
+- ryzyka: 12 pozycji z przyczyną, właścicielem, P×S, reakcją, statusem i powiązanymi Issues;
+- przypadki użycia: aktor → US → kandydaci UC;
+- szablony Issue i PR znajdują się w .github/.
 
-## Status wiarygodności
+## Ważne granice v1
 
-**Dokumentacja jest spójna roboczo, ale nie wszystkie założenia są potwierdzone przez klienta.** W udostępnionych materiałach nie znaleziono rzeczywistego protokołu wywiadu z odpowiedziami i dosłownymi cytatami. Dlatego proces AS-IS, potrzeby i część reguł zostały oznaczone jako hipotezy zespołu. Nie dopisano fikcyjnych wypowiedzi klienta. Przed uznaniem specyfikacji za ostateczną należy uzupełnić `docs/spotkania/wywiad-1.md` na podstawie faktycznych notatek z zajęć.
+W pierwszej wersji nie zakładamy integracji z SSO, serwerem poczty, systemem planu zajęć, wideokonferencjami, płatnościami ani natywną aplikacją mobilną. Dodanie takiej integracji wymaga osobnej decyzji o zakresie, wymaganiach, ryzykach i architekturze.
+
+## Status akceptacji
+
+Pakiet 0.5 jest przygotowany do przeglądu zespołu. Propozycje ADR-002 i ADR-003 wymagają zatwierdzenia zespołu. Konfiguracja faktycznych widoków GitHub Projects, użycie szablonów w nowym PR i utworzenie tagu v0.5 pozostają osobnymi czynnościami do potwierdzenia w GitHub.
 
 ## Zasady pracy zespołu
 
-1. Każde zadanie ma GitHub Issue, jednego właściciela i kryterium akceptacji.
-2. Zmiany dokumentacji są wprowadzane przez osobną gałąź i Pull Request.
-3. Każdy PR powinien być sprawdzony przez co najmniej jedną inną osobę; autor nie zatwierdza własnych zmian.
-4. W opisie PR używamy `Closes #numer` wyłącznie wtedy, gdy praca rzeczywiście zamyka dane Issue.
-5. Backlog prowadzimy w GitHub Projects, a zadania źródłowe w Issues.
+1. Każde zadanie ma GitHub Issue, jednego głównego właściciela i kryteria akceptacji.
+2. Powiązane zadania są łączone relacją Parent / Sub-issue lub Blocked by / Blocking, jeżeli istnieje rzeczywista zależność.
+3. Zmiany dokumentacji są przeglądane przez co najmniej jedną osobę inną niż autor.
+4. W opisie PR używamy Closes #numer wyłącznie wtedy, gdy PR rzeczywiście zamyka dane Issue.
+5. Backlog prowadzimy w jednym GitHub Project; widoki M1, M2 i M3 filtrują te same Issues.
 6. Statusy Issues, PR, recenzji i commitów muszą odpowiadać rzeczywistym działaniom zespołu.
 
-## Struktura repozytorium
+## Indeks dokumentacji
 
-- `docs/01–03` — karta, słownik i wymagania;
-- `docs/04` — procesy biznesowe AS-IS / TO-BE;
-- `docs/05` — wstępne przypadki użycia;
-- `docs/06` — kontekst i analiza make-or-buy;
-- `docs/07–11` — artefakty kolejnych etapów modelowania, implementacji i testowania;
-- `docs/12–13` — otwarte kwestie i ryzyka;
-- `docs/adr` — decyzje architektoniczne i organizacyjne;
-- `docs/spotkania` — pytania, notatki i protokoły.
-
+Pełny indeks: [docs/README.md](docs/README.md)
