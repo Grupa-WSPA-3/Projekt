@@ -36,7 +36,11 @@ erDiagram
 
 ## Zasady dziedzinowe
 
-
+- Każdy termin ma jednego wykładowcę-właściciela.
+- Każdy zapis dotyczy jednego studenta i jednego terminu.
+- Aktywny zapis zajmuje jedno miejsce; anulowany zapis go nie zajmuje.
+- Liczba aktywnych zapisów nie przekracza limitu terminu.
+- Student nie może anulować zapisu innej osoby.
 
 ## Do dopracowania
 
