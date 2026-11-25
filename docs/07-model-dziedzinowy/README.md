@@ -4,13 +4,7 @@
 
 ## Główne pojęcia
 
-| Pojęcie | Znaczenie | Powiązanie |
-|---|---|---|
-| Konto użytkownika | osoba posiadająca dostęp do systemu | ma jedną podstawową rolę |
-| Rola | Student, Wykładowca albo Administrator | określa uprawnienia konta |
-| Termin konsultacji | przedział czasu udostępniony przez wykładowcę | ma właściciela, limit miejsc i status |
-| Zapis | powiązanie studenta z terminem | ma status Aktywny lub Anulowany |
-| Limit miejsc | maksymalna liczba aktywnych zapisów dla terminu | liczba aktywnych zapisów nie może go przekroczyć |
+
 
 ## Relacje pojęciowe
 
