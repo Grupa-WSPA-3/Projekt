@@ -7,7 +7,9 @@
   id="Definitions_SKW_P01"
   targetNamespace="https://github.com/Grupa-WSPA-3/Projekt/skw/bpmn">
 
- 
+  <bpmn:collaboration id="Collaboration_P01" name="P-01 — Przeglądanie i zapis na konsultację">
+    <bpmn:participant id="Participant_University" name="Uczelnia" processRef="Process_P01"/>
+  </bpmn:collaboration>
 
   <bpmn:process id="Process_P01" name="P-01 — Przeglądanie i zapis na konsultację" isExecutable="false">
     <bpmn:laneSet id="LaneSet_P01">
