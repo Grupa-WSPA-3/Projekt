@@ -32,8 +32,3 @@
 
 ## Warunki odbioru
 
-- Każde FR ma przynajmniej jeden scenariusz testowy.
-- Każda reguła BR ma co najmniej jeden test.
-- Wszystkie scenariusze Must przechodzą przed uznaniem wersji za gotową.
-- Wyniki testów zapisujemy z datą, środowiskiem, wersją i dowodem wykonania.
-- Wartości NFR-02 i NFR-04 muszą zostać zmierzone, a nie tylko zadeklarowane.
