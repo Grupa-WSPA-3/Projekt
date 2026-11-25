@@ -27,6 +27,12 @@ Umożliwić studentowi anulowanie własnego aktywnego zapisu, zwolnienie miejsca
 
 ## Bramki / alternatywy
 
+| Bramka | Pytanie | TAK | NIE |
+|---|---|---|---|
+| G-01 | Czy zapis należy do zalogowanego studenta? | kontynuuj | odmów dostępu; status bez zmian |
+| G-02 | Czy zapis jest aktywny? | kontynuuj | pokaż informację, że zapis jest już nieaktywny |
+| G-03 | Czy anulowanie mieści się w dopuszczalnym czasie? | kontynuuj | odmów, jeżeli zostanie zatwierdzony limit czasowy; Q-03 pozostaje otwarte |
+
 
 ## Wyniki
 
