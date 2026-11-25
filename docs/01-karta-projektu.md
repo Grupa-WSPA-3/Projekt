@@ -23,7 +23,7 @@ Podział ról jest propozycją roboczą do potwierdzenia przez zespół. Każdy 
 
 ### Jaki problem chcemy rozwiązać?
 
-
+Informacje o konsultacjach wykładowców mogą być przekazywane studentom różnymi kanałami, na przykład przez pocztę elektroniczną, komunikatory lub ustnie. Przy takim sposobie organizacji trudno utrzymać jeden aktualny widok dostępnych terminów i liczby wolnych miejsc. Uzgadnianie terminu oraz potwierdzanie zapisu może wymagać dodatkowej wymiany wiadomości między studentem a wykładowcą. Zespół zakłada, że brak wspólnego miejsca do publikowania terminów i obsługi zapisów może prowadzić do nieporozumień, dlatego ten problem wymaga potwierdzenia podczas wywiadu.
 
 ---
 
