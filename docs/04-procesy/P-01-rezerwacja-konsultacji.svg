@@ -3,27 +3,7 @@
 <desc id="desc">BPMN 2.0: jedna pula Uczelnia z torami Student i System SKW. Trzy bramki XOR kierują do odrębnych końców: termin niedostępny, duplikat, brak miejsca albo zapis potwierdzony.</desc>
 <defs>
   <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#334155"/></marker>
-  <style>
-    .pool{fill:#fff;stroke:#64748b;stroke-width:2}
-    .lane{fill:#f8fafc;stroke:#94a3b8;stroke-width:1.5}
-    .lanehead{fill:#e8eef5;stroke:#94a3b8;stroke-width:1.5}
-    .task{fill:#fff;stroke:#315a7d;stroke-width:2;rx:10}
-    .service{fill:#edf5fb;stroke:#315a7d;stroke-width:2;rx:10}
-    .gateway{fill:#fff5dd;stroke:#9a6a14;stroke-width:2.2}
-    .start{fill:#e5f5e9;stroke:#287447;stroke-width:3}
-    .endok{fill:#e5f5e9;stroke:#287447;stroke-width:4}
-    .endbad{fill:#fff0ef;stroke:#b13b37;stroke-width:4}
-    .flow{fill:none;stroke:#334155;stroke-width:2.2;marker-end:url(#arrow)}
-    .title{font:700 27px Arial,sans-serif;fill:#13263a}
-    .subtitle{font:14px Arial,sans-serif;fill:#475569}
-    .laneText{font:700 19px Arial,sans-serif;fill:#27384b}
-    .taskText{font:600 15px Arial,sans-serif;fill:#213246}
-    .small{font:14px Arial,sans-serif;fill:#34465b}
-    .yes{font:700 14px Arial,sans-serif;fill:#287447}
-    .no{font:700 14px Arial,sans-serif;fill:#ad3531}
-    .footer{font:13px Arial,sans-serif;fill:#475569}
-  </style>
-</defs>
+
 <rect x="20" y="18" width="2600" height="720" rx="18" fill="#fff" stroke="#d8dee7"/>
 <text x="55" y="60" class="title">P-01 · Przeglądanie i zapis na konsultację</text>
 <text x="55" y="86" class="subtitle">BPMN 2.0 · pula: Uczelnia · tory: Student / System SKW · warunek wejściowy: zalogowany Student (FR-01, FR-02)</text>
