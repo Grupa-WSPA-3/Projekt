@@ -10,12 +10,7 @@ SKW ma uporządkować zapisy na konsultacje wykładowców w jednym miejscu. Stud
 
 ## Zespół
 
-| Osoba | Główna odpowiedzialność | Login GitHub |
-|---|---|---|
-| Maksym Tymoshenko | koordynacja, analiza wymagań i spójność dokumentacji | @mtwspa |
-| Kostiantyn Kyrylenko | model danych i architektura | @Hryak123 |
-| Sofiia Vetvytska | UI/UX, słownik i dokumentacja | @miumeowww |
-| Alina Semeniuk | testowanie, kryteria akceptacji i kontrola reguł | @semenukalina89-maker |
+
 
 ## Najważniejsze dokumenty
 
