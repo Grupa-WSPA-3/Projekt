@@ -23,11 +23,6 @@ flowchart TB
 
 ## Tabela kontenerów
 
-| Kontener | Technologia / protokół | Odpowiedzialność | Wymagania |
-|---|---|---|---|
-| Aplikacja webowa (SPA) | HTML5, CSS3, JavaScript; framework do decyzji w sem. 2; HTTPS | widoki trzech ról, lista terminów, filtry, formularze, statusy, responsywność | FR-03…FR-07, FR-10…FR-17; NFR-03, NFR-04, NFR-08 |
-| Backend API | REST/JSON po HTTPS; modularny monolit; język/framework do decyzji | role i własność zasobów, reguły BR, dostępność, atomowy zapis/anulowanie, zarządzanie terminami | FR-01…FR-18; BR-01…BR-10; NFR-01, NFR-02, NFR-05…NFR-07 |
-| Relacyjna baza danych | SQL; PostgreSQL — kandydat; środowisko do potwierdzenia | konta/role, terminy, limity, zapisy, statusy, transakcje i integralność | FR-07…FR-16; BR-02…BR-10; NFR-02, NFR-05…NFR-07 |
 
 ## Relacje
 
