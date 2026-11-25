@@ -14,13 +14,7 @@
 
 ## Konwencje modelowania
 
-1. Numer procesu ma format `P-xx`, a krok — `P-xx.n`.
-2. Nazwy kroków opisują czynność biznesową lub reakcję systemu; nie opisują kliknięć w interfejsie.
-3. Tory oznaczają role lub system SKW, a nie działy organizacji.
-4. Bramki mają jawne pytania, a ich wyjścia są podpisane.
-5. Różne wyniki procesu kończą się odrębnymi zdarzeniami końcowymi.
-6. Każdy krok systemowy jest powiązany z FR lub ma jawne uzasadnienie braku mapowania.
-7. Pliki BPMN i eksport SVG dotyczą tej samej wersji odpowiedniego procesu P-00 / P-01.
+
 
 ## Założenia i zakres walidacji
 
