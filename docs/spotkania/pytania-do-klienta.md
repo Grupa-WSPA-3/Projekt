@@ -21,7 +21,10 @@
 
 ## C. Użytkownicy i uprawnienia
 
-
+11. Kto powinien móc tworzyć terminy konsultacji?
+12. Kto może edytować termin, który ma już zapisanych studentów?
+13. Jakie czynności powinien móc wykonywać administrator, a do jakich danych nie powinien mieć dostępu?
+14. Czy jedna osoba może pełnić więcej niż jedną rolę w systemie? W jakiej sytuacji?
 
 ## D. Reguły biznesowe i dane
 
