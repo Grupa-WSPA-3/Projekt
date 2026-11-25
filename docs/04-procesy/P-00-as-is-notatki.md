@@ -9,6 +9,10 @@ Proces opisuje hipotetyczny przebieg od pojawienia się potrzeby konsultacji po 
 
 ## Uczestnicy
 
+- **Student** — poszukuje informacji, inicjuje kontakt i uzgadnia termin.
+- **Wykładowca** — proponuje dostępność, potwierdza termin i prowadzi listę osób.
+- **Kanał komunikacji** — e-mail, komunikator, informacja ustna lub inny kanał; konkretny kanał do potwierdzenia.
+
 ## Tabela kroków AS-IS
 
 | Krok | Kto | Czynność | Dokument / narzędzie | Punkt bólu / pytanie | Powiązana potrzeba |
