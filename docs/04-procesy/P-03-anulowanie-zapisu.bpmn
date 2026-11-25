@@ -5,7 +5,30 @@
     <bpmn:laneSet id="LaneSet_P03">
       <bpmn:lane id="Lane_P03_Student" name="Student"><bpmn:flowNodeRef>Start_P03</bpmn:flowNodeRef><bpmn:flowNodeRef>Login_P03</bpmn:flowNodeRef><bpmn:flowNodeRef>Open_P03</bpmn:flowNodeRef><bpmn:flowNodeRef>Select_P03</bpmn:flowNodeRef><bpmn:flowNodeRef>Confirm_P03</bpmn:flowNodeRef></bpmn:lane>
       <bpmn:lane id="Lane_P03_System" name="System SKW"><bpmn:flowNodeRef>Check_P03</bpmn:flowNodeRef><bpmn:flowNodeRef>Owner_P03</bpmn:flowNodeRef><bpmn:flowNodeRef>Cancel_P03</bpmn:flowNodeRef><bpmn:flowNodeRef>Release_P03</bpmn:flowNodeRef><bpmn:flowNodeRef>Show_P03</bpmn:flowNodeRef><bpmn:flowNodeRef>End_Denied_P03</bpmn:flowNodeRef><bpmn:flowNodeRef>End_Cancelled_P03</bpmn:flowNodeRef></bpmn:lane>
-
+    </bpmn:laneSet>
+    <bpmn:startEvent id="Start_P03" name="Student rezygnuje z konsultacji"/>
+    <bpmn:userTask id="Login_P03" name="Zaloguj się do SKW"/>
+    <bpmn:userTask id="Open_P03" name="Otwórz listę własnych zapisów"/>
+    <bpmn:userTask id="Select_P03" name="Wybierz aktywny zapis"/>
+    <bpmn:serviceTask id="Check_P03" name="Sprawdź właściciela i status zapisu"/>
+    <bpmn:exclusiveGateway id="Owner_P03" name="Czy zapis należy do studenta i jest aktywny?"/>
+    <bpmn:userTask id="Confirm_P03" name="Potwierdź anulowanie"/>
+    <bpmn:serviceTask id="Cancel_P03" name="Zmień status zapisu na Anulowany"/>
+    <bpmn:serviceTask id="Release_P03" name="Zwolnij miejsce w limicie terminu"/>
+    <bpmn:serviceTask id="Show_P03" name="Wyświetl status i wynik operacji"/>
+    <bpmn:endEvent id="End_Denied_P03" name="Operacja odrzucona — zapis bez zmian"/>
+    <bpmn:endEvent id="End_Cancelled_P03" name="Zapis anulowany — miejsce zwolnione"/>
+    <bpmn:sequenceFlow id="F03_1" sourceRef="Start_P03" targetRef="Login_P03"/>
+    <bpmn:sequenceFlow id="F03_2" sourceRef="Login_P03" targetRef="Open_P03"/>
+    <bpmn:sequenceFlow id="F03_3" sourceRef="Open_P03" targetRef="Select_P03"/>
+    <bpmn:sequenceFlow id="F03_4" sourceRef="Select_P03" targetRef="Check_P03"/>
+    <bpmn:sequenceFlow id="F03_5" sourceRef="Check_P03" targetRef="Owner_P03"/>
+    <bpmn:sequenceFlow id="F03_6" name="nie — cudzy / nieaktywny zapis" sourceRef="Owner_P03" targetRef="End_Denied_P03"/>
+    <bpmn:sequenceFlow id="F03_7" name="tak" sourceRef="Owner_P03" targetRef="Confirm_P03"/>
+    <bpmn:sequenceFlow id="F03_8" sourceRef="Confirm_P03" targetRef="Cancel_P03"/>
+    <bpmn:sequenceFlow id="F03_9" sourceRef="Cancel_P03" targetRef="Release_P03"/>
+    <bpmn:sequenceFlow id="F03_10" sourceRef="Release_P03" targetRef="Show_P03"/>
+    <bpmn:sequenceFlow id="F03_11" sourceRef="Show_P03" targetRef="End_Cancelled_P03"/>
   </bpmn:process>
   <bpmndi:BPMNDiagram id="Diagram_P03"><bpmndi:BPMNPlane id="Plane_P03" bpmnElement="Collaboration_P-03">
     <bpmndi:BPMNShape id="LaneShape_P03_Student" bpmnElement="Lane_P03_Student" isHorizontal="true"><dc:Bounds x="35" y="55" width="1700" height="150"/></bpmndi:BPMNShape>
